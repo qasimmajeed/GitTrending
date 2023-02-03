@@ -51,5 +51,18 @@ final class ApiRequestBuilderTests: XCTestCase {
         }
     }
     
+    func testApiRequestBuilder_WhenHttpHeaderAreProvided_ShouldBeSameAsProvided() throws {
+        //Arrange
+        let headers = ["content-type": "application/json"]
+        sut = ApiRequestBuilder(scheme: "http", host: "www.google.com", path: "/images", httpMethod: .Get, headers: headers)
+        //Assert
+        
+        let request = try sut.makeRequest()
+        for (key, value) in headers {
+            XCTAssertEqual(value, request.value(forHTTPHeaderField: key), "The \(value) for the header is different then provided")
+            break
+        }
+    }
+    
     
 }

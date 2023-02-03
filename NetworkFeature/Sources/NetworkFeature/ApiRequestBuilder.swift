@@ -14,12 +14,14 @@ public struct ApiRequestBuilder {
     private let host: String
     private let path: String
     private let httpMethod: HttpMethod
+    private let headers: [String: String]?
     
-    init(scheme: String, host: String, path: String, httpMethod: HttpMethod) {
+    init(scheme: String, host: String, path: String, httpMethod: HttpMethod, headers: [String: String]? = nil) {
         self.scheme = scheme
         self.host = host
         self.path = path
         self.httpMethod = httpMethod
+        self.headers = headers
     }
     
     public func makeRequest() throws -> URLRequest {
@@ -28,14 +30,18 @@ public struct ApiRequestBuilder {
         components.path = path
         components.host = host
         
-        // TOD: perform the safe check the throw error
         guard let url = components.url else {
             throw NetworkError.invalidRequest
-            
         }
         var request = URLRequest(url: url)
+        
+        let _ = self.headers?.map { key, value in
+            request.addValue(value, forHTTPHeaderField: key)
+        }
+        
         request.httpMethod = httpMethod.rawValue
         return request
+        
         
         
     }
