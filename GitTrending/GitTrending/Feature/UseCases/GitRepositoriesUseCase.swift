@@ -23,8 +23,8 @@ final class GitRepositoriesUseCase {
         queryParameters["q"] = request.search
         queryParameters["language"] = request.language
         let requestBuilder = ApiRequestBuilder(scheme: "https",
-                                               host: "api.github.com",
-                                               path: "/search/repositories", httpMethod: .Get,
+                                               host: Constants.APIUrls.baseURL,
+                                               path: Constants.APIPaths.repositories, httpMethod: .Get,
                                                queryParameters: queryParameters)
         return self.network.request(request: requestBuilder)
             .mapError { $0 }

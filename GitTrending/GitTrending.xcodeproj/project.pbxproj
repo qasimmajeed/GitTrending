@@ -21,6 +21,7 @@
 		9CDCB7E3298D906C005C238B /* GitRepositoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB7E2298D906C005C238B /* GitRepositoryResponse.swift */; };
 		9CDCB7E6298D9143005C238B /* NetworkFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 9CDCB7E5298D9143005C238B /* NetworkFeature */; };
 		9CDCB7EA298D97CD005C238B /* FakeGitRepositoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB7E9298D97CD005C238B /* FakeGitRepositoryData.swift */; };
+		9CDCB7F3298D9C4D005C238B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB7F2298D9C4D005C238B /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		9CDCB7E0298D8E9B005C238B /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		9CDCB7E2298D906C005C238B /* GitRepositoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoryResponse.swift; sourceTree = "<group>"; };
 		9CDCB7E9298D97CD005C238B /* FakeGitRepositoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeGitRepositoryData.swift; sourceTree = "<group>"; };
+		9CDCB7F2298D9C4D005C238B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 			children = (
 				9CDCB7EB298D9A51005C238B /* AppSetup */,
 				9CDCB7EC298D9A75005C238B /* Feature */,
+				9CDCB7F0298D9C21005C238B /* Constants */,
 				9CDCB7B8298D8026005C238B /* ViewController.swift */,
 				9CDCB7BA298D8026005C238B /* Main.storyboard */,
 				9CDCB7BD298D8026005C238B /* Assets.xcassets */,
@@ -179,6 +182,14 @@
 				9CDCB7D7298D8337005C238B /* GitRepositoriesUseCaseTests.swift */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		9CDCB7F0298D9C21005C238B /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				9CDCB7F2298D9C4D005C238B /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,6 +304,7 @@
 				9CDCB7DC298D8741005C238B /* GitRepositoriesRequest.swift in Sources */,
 				9CDCB7E3298D906C005C238B /* GitRepositoryResponse.swift in Sources */,
 				9CDCB7E1298D8E9B005C238B /* Repository.swift in Sources */,
+				9CDCB7F3298D9C4D005C238B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

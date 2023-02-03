@@ -13,31 +13,37 @@ import Combine
 
 final class GitRepositoriesUseCaseTests: XCTestCase {
     // MARK: - Private Properties
-    var cancellable = Set<AnyCancellable>()
+    private var cancellable = Set<AnyCancellable>()
+    private var network: Networking!
+    private var sut: GitRepositoriesUseCase!
+    private var requestModel: GitRepositoriesRequest!
     
+    // MARK: - XCTestCase Methods
     override func setUp() {
         super.setUp()
+        let configuration = URLSessionConfiguration.ephemeral
+        configuration.protocolClasses = [GitTrendingMockURLProtocol.self]
+        let session = URLSession(configuration: configuration)
+        network = Network(urlSession: session)
+        sut = GitRepositoriesUseCase(network: network)
+        requestModel = GitRepositoriesRequest(search: "", language: "+sort:stars")
     }
     
     override  func tearDown() {
         super.tearDown()
+        network = nil
+        sut = nil
+        requestModel = nil
     }
     
+    // MARK: - Test Cases
     func testGitRepositoriesUseCase_WhenGiveRequest_ShouldReturnSuccess() {
         //Arrange
-        let configuration = URLSessionConfiguration.ephemeral
-        configuration.protocolClasses = [GitTrendingMockURLProtocol.self]
-        let session = URLSession(configuration: configuration)
-        let network = Network(urlSession: session)
-        let sut = GitRepositoriesUseCase(network: network)
-        let requestModel = GitRepositoriesRequest(search: "", language: "+sort:stars")
-        
         GitTrendingMockURLProtocol.stubResponseData = FakeGitRepositoryData.jsonFakeData.data(using: .utf8)
-        
         let expectation = expectation(description: "repository success response expectation")
         var response: [Repository]!
-        //Act
         
+        //Act
         sut.fetchGitRepositories(request: requestModel).sink { completion in
             expectation.fulfill()
         } receiveValue: { (values: [Repository]) in
