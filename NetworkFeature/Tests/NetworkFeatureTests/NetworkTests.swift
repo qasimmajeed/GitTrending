@@ -20,9 +20,13 @@ final class NetworkTests: XCTestCase {
     
     func testNetwork_WhenProvidedValidRequest_ShouldReturnSuccess() {
         //Arrange
-        let network = Network()
+        let sut = Network()
+        let requestBuilder = ApiRequestBuilder()
         
         //Act
+        
+        sut.request(request: requestBuilder)
+        
         
         //Asset
     }

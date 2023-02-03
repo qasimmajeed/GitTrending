@@ -7,4 +7,8 @@
 
 import Foundation
 
-final class Network {}
+final public class Network {
+    
+    public func request(request: ApiRequestBuilder) {}
+    
+}
