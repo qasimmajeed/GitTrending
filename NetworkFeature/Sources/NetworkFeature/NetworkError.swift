@@ -12,4 +12,5 @@ public enum NetworkError: Error, Equatable {
     case invalidRequest
     case inValidResponse
     case inValidHTTPResponse(code: Int)
+    case invalidURL
 }

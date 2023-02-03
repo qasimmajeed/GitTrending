@@ -19,7 +19,9 @@ final public class Network {
     }
     
     public func request<T: Decodable>(request: ApiRequestBuilder) -> AnyPublisher<T, NetworkError> {
-        let urlRequest = try! request.makeRequest()
+        guard  let urlRequest = try? request.makeRequest() else {
+            return Fail(error: NetworkError.invalidURL).eraseToAnyPublisher()
+        }
         
         return urlSession.dataTaskPublisher(for: urlRequest)
             .tryMap { element -> Data in

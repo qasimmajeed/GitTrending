@@ -131,4 +131,28 @@ final class NetworkTests: XCTestCase {
         XCTAssertNotNil(networkError, "The error should be produce if the invalid response provided")
         XCTAssertEqual(networkError, NetworkError.inValidHTTPResponse(code: 1009), "The inValidHTTPResponse should case in the case of invalid response")
     }
+    
+    func testNetwork_InvalidRequest_ShouldCauseError() {
+        let expectation = self.expectation(description: "Network invalid request expectation")
+        var networkError: NetworkError!
+        requestBuilder = ApiRequestBuilder(scheme: "https", host: "run.mockyo", path: "6e3683b-abe2-4eee-a57e-44743ddcf8d5", httpMethod: .Get)
+        //Act
+        sut.request(request: requestBuilder).sink(receiveCompletion: { completion in
+            switch completion {
+            case.failure(let error):
+                networkError = error
+                expectation.fulfill()
+            default :
+                expectation.fulfill()
+            }
+        }, receiveValue: { (value: DummyResponseModel) in
+            
+        }).store(in: &cancellable)
+        
+        wait(for: [expectation], timeout: 5.0)
+        
+        //Assert
+        XCTAssertNotNil(networkError, "The error should throw for invalid request")
+        XCTAssertEqual(networkError, NetworkError.invalidURL, "Then invalidURL should thrown ")
+    }
 }
