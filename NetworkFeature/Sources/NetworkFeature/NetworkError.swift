@@ -10,4 +10,5 @@ import Foundation
 /// NetworkError have the information regarding the Network errors
 public enum NetworkError: Error {
     case invalidRequest
+    case inValidResponse
 }

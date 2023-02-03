@@ -27,7 +27,7 @@ final public class Network {
         }
         .decode(type: T.self, decoder: JSONDecoder())
         .mapError { error -> NetworkError in
-            return NetworkError.invalidRequest
+            return NetworkError.inValidResponse
         }
         .eraseToAnyPublisher()
     }
