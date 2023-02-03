@@ -8,11 +8,12 @@
 import XCTest
 @testable import NetworkFeature
 
+/// ApiRequestBuilder TestCases
 final class ApiRequestBuilderTests: XCTestCase {
     // MARK: - Private Properties
     private var sut: ApiRequestBuilder!
     
-    
+    // MARK: - XCTestCase
     override func setUp() {
         super.setUp()
         sut = ApiRequestBuilder(scheme: "http", host: "www.google.com", path: "/images", httpMethod: .Get)
@@ -23,6 +24,7 @@ final class ApiRequestBuilderTests: XCTestCase {
         sut = nil
     }
     
+    // MARK: - Test Methods
     func testApiRequestBuilder_WhenValidRequestDataProvided_ShouldReturnRequest() {
         //Arrange
         do {
