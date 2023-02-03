@@ -55,10 +55,10 @@ final class ApiRequestBuilderTests: XCTestCase {
         //Arrange
         let headers = ["content-type": "application/json"]
         sut = ApiRequestBuilder(scheme: "http", host: "www.google.com", path: "/images", httpMethod: .Get, headers: headers)
-        //Assert
-        
+        //Act
         let request = try sut.makeRequest()
         for (key, value) in headers {
+            //Assert
             XCTAssertEqual(value, request.value(forHTTPHeaderField: key), "The \(value) for the header is different then provided")
             break
         }
