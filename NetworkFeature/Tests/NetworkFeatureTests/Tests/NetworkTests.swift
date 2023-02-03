@@ -113,6 +113,7 @@ final class NetworkTests: XCTestCase {
         let expectation = self.expectation(description: "Network invalid http status code expectation")
         var networkError: NetworkError!
         MockURLProtocol.mockHttpInvalidResponseCode = true
+        
         //Act
         sut.request(request: requestBuilder).sink(receiveCompletion: { completion in
             switch completion {
@@ -136,6 +137,7 @@ final class NetworkTests: XCTestCase {
         let expectation = self.expectation(description: "Network invalid request expectation")
         var networkError: NetworkError!
         requestBuilder = ApiRequestBuilder(scheme: "https", host: "run.mockyo", path: "6e3683b-abe2-4eee-a57e-44743ddcf8d5", httpMethod: .Get)
+        
         //Act
         sut.request(request: requestBuilder).sink(receiveCompletion: { completion in
             switch completion {
