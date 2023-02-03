@@ -13,7 +13,6 @@
 		9CDCB7BC298D8026005C238B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CDCB7BA298D8026005C238B /* Main.storyboard */; };
 		9CDCB7BE298D8026005C238B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CDCB7BD298D8026005C238B /* Assets.xcassets */; };
 		9CDCB7C1298D8026005C238B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CDCB7BF298D8026005C238B /* LaunchScreen.storyboard */; };
-		9CDCB7CF298D8108005C238B /* GitTrendingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB7CE298D8108005C238B /* GitTrendingTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +35,6 @@
 		9CDCB7C0298D8026005C238B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9CDCB7C2298D8026005C238B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CDCB7CC298D8107005C238B /* GitTrendingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitTrendingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9CDCB7CE298D8108005C238B /* GitTrendingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitTrendingTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +90,6 @@
 		9CDCB7CD298D8108005C238B /* GitTrendingTests */ = {
 			isa = PBXGroup;
 			children = (
-				9CDCB7CE298D8108005C238B /* GitTrendingTests.swift */,
 			);
 			path = GitTrendingTests;
 			sourceTree = "<group>";
@@ -208,7 +205,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CDCB7CF298D8108005C238B /* GitTrendingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
