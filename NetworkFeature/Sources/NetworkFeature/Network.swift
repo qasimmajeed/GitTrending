@@ -8,8 +8,16 @@
 import Foundation
 import Combine
 
+/// his protocol the use to implement for remote networking api
+public protocol Networking {
+    ///  Create a request and perform over the provided network api
+    /// - Parameter request: ApiRequestBuilder that have all the information for the call api request
+    /// - Returns  AnyPublisher: Publisher which will be having the T generic type for response as decodable  or error(NetworkError) in case of
+    func request<T: Decodable>(request: ApiRequestBuilder) -> AnyPublisher<T, NetworkError>
+}
+
 /// The class is responsible to handle the network call in the app
-final public class Network {
+final public class Network: Networking {
     // MARK: - Private Properties
     private let urlSession: URLSession
     
