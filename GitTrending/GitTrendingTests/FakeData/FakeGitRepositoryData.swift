@@ -6,6 +6,7 @@
 //
 
 import Foundation
+@testable import GitTrending
 
 struct FakeGitRepositoryData {
     
@@ -120,8 +121,6 @@ struct FakeGitRepositoryData {
   ]
 }
 """
-    
-    
-    
+    static let fakeRepositories = GitRepositoryResponse(items: [Repository.init()])
 }
 

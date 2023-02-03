@@ -23,6 +23,8 @@
 		9CDCB7EA298D97CD005C238B /* FakeGitRepositoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB7E9298D97CD005C238B /* FakeGitRepositoryData.swift */; };
 		9CDCB7F3298D9C4D005C238B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB7F2298D9C4D005C238B /* Constants.swift */; };
 		9CDCB7F5298D9F14005C238B /* GitRepositoriesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB7F4298D9F14005C238B /* GitRepositoriesViewModelTests.swift */; };
+		9CDCB7F9298DA078005C238B /* GitRepositoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB7F8298DA078005C238B /* GitRepositoriesViewModel.swift */; };
+		9CDCB7FB298DA16C005C238B /* MockRepositoriesUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB7FA298DA16C005C238B /* MockRepositoriesUseCases.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		9CDCB7E9298D97CD005C238B /* FakeGitRepositoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeGitRepositoryData.swift; sourceTree = "<group>"; };
 		9CDCB7F2298D9C4D005C238B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9CDCB7F4298D9F14005C238B /* GitRepositoriesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoriesViewModelTests.swift; sourceTree = "<group>"; };
+		9CDCB7F8298DA078005C238B /* GitRepositoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoriesViewModel.swift; sourceTree = "<group>"; };
+		9CDCB7FA298DA16C005C238B /* MockRepositoriesUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRepositoriesUseCases.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				9CDCB7DE298D8C42005C238B /* GitTrendingMockURLProtocol.swift */,
+				9CDCB7FA298DA16C005C238B /* MockRepositoriesUseCases.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 		9CDCB7EC298D9A75005C238B /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				9CDCB7F6298DA045005C238B /* Scenes */,
 				9CDCB7EE298D9A89005C238B /* Models */,
 				9CDCB7ED298D9A7D005C238B /* UseCases */,
 			);
@@ -193,6 +199,22 @@
 				9CDCB7F2298D9C4D005C238B /* Constants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		9CDCB7F6298DA045005C238B /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				9CDCB7F7298DA05C005C238B /* GitRepositories */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		9CDCB7F7298DA05C005C238B /* GitRepositories */ = {
+			isa = PBXGroup;
+			children = (
+				9CDCB7F8298DA078005C238B /* GitRepositoriesViewModel.swift */,
+			);
+			path = GitRepositories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,6 +326,7 @@
 				9CDCB7B9298D8026005C238B /* ViewController.swift in Sources */,
 				9CDCB7B5298D8026005C238B /* AppDelegate.swift in Sources */,
 				9CDCB7B7298D8026005C238B /* SceneDelegate.swift in Sources */,
+				9CDCB7F9298DA078005C238B /* GitRepositoriesViewModel.swift in Sources */,
 				9CDCB7DC298D8741005C238B /* GitRepositoriesRequest.swift in Sources */,
 				9CDCB7E3298D906C005C238B /* GitRepositoryResponse.swift in Sources */,
 				9CDCB7E1298D8E9B005C238B /* Repository.swift in Sources */,
@@ -317,6 +340,7 @@
 			files = (
 				9CDCB7DF298D8C42005C238B /* GitTrendingMockURLProtocol.swift in Sources */,
 				9CDCB7F5298D9F14005C238B /* GitRepositoriesViewModelTests.swift in Sources */,
+				9CDCB7FB298DA16C005C238B /* MockRepositoriesUseCases.swift in Sources */,
 				9CDCB7D8298D8337005C238B /* GitRepositoriesUseCaseTests.swift in Sources */,
 				9CDCB7EA298D97CD005C238B /* FakeGitRepositoryData.swift in Sources */,
 			);

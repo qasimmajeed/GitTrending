@@ -9,15 +9,24 @@ import Foundation
 import NetworkFeature
 import Combine
 
-final class GitRepositoriesUseCase {
+protocol GitRepositoriesUseCaseProtocol {
+    // This will the git repositories by given `request`.
+    /// - Parameters
+    ///     - request:  The provided request.
+    /// - Returns  AnyPublisher: with the repositories or in the case of error
+    func fetchGitRepositories(request: GitRepositoriesRequest) -> AnyPublisher<[Repository], NetworkError>
+}
+
+final class GitRepositoriesUseCase: GitRepositoriesUseCaseProtocol{
     // MARK: - Private Properties
     private let network: Networking
     
     // MARK: - init
-    init(network: Networking) {
+    init(network: Networking = Network(urlSession: URLSession.shared)) {
         self.network = network
     }
     
+    // MARK: - GitRepositoriesUseCaseProtocol
     func fetchGitRepositories(request: GitRepositoriesRequest) -> AnyPublisher<[Repository], NetworkError> {
         var queryParameters: [String: String] = [String: String]()
         queryParameters["q"] = request.search
