@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 /// Use to have the information regarding the api
 public struct ApiRequestBuilder {
     // MARK: - Private Properties

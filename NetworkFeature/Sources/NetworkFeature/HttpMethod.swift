@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// The enum for all the httpMethods
 public enum HttpMethod: String {
-case Get = "GET"
+    case Get = "GET"
 }
