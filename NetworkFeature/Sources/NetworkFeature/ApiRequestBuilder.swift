@@ -16,6 +16,7 @@ public struct ApiRequestBuilder {
     private let httpMethod: HttpMethod
     private let headers: [String: String]?
     
+    // MARK: - init
     init(scheme: String, host: String, path: String, httpMethod: HttpMethod, headers: [String: String]? = nil) {
         self.scheme = scheme
         self.host = host
@@ -24,26 +25,26 @@ public struct ApiRequestBuilder {
         self.headers = headers
     }
     
+    // MARK: - Public Methods
     public func makeRequest() throws -> URLRequest {
         var components = URLComponents()
         components.scheme = host
         components.path = path
         components.host = host
         
+        // Check the url is created
         guard let url = components.url else {
             throw NetworkError.invalidRequest
         }
+        
         var request = URLRequest(url: url)
         
+        // translate the header in to the request
         let _ = self.headers?.map { key, value in
             request.addValue(value, forHTTPHeaderField: key)
         }
         
         request.httpMethod = httpMethod.rawValue
         return request
-        
-        
-        
     }
-    
 }

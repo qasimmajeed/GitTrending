@@ -63,6 +63,4 @@ final class ApiRequestBuilderTests: XCTestCase {
             break
         }
     }
-    
-    
 }
