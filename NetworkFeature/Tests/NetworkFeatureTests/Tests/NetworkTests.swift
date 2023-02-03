@@ -28,6 +28,9 @@ final class NetworkTests: XCTestCase {
     
     override func tearDown() {
         super.tearDown()
+        sut = nil
+        MockURLProtocol.stubResponseData = nil
+        requestBuilder = nil
     }
     
     // MARK: - TestCases
