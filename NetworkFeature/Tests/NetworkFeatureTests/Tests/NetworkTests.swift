@@ -32,6 +32,7 @@ final class NetworkTests: XCTestCase {
         MockURLProtocol.stubResponseData = nil
         requestBuilder = nil
         MockURLProtocol.stubError = nil
+        MockURLProtocol.mockHttpInvalidResponseCode = false
     }
     
     // MARK: - TestCases
@@ -105,5 +106,29 @@ final class NetworkTests: XCTestCase {
         //Assert
         XCTAssertNotNil(networkError, "The error should be produce if the invalid response provided ")
         XCTAssertEqual(networkError, NetworkError.inValidResponse, "The inValidResponse should case in the case of invalid response")
+    }
+    
+    func testNetwork_WhenInvalidHttpStatusCode_ShouldPlaceError() {
+        //Arrange
+        let expectation = self.expectation(description: "Network invalid http status code expectation")
+        var networkError: NetworkError!
+        MockURLProtocol.mockHttpInvalidResponseCode = true
+        //Act
+        sut.request(request: requestBuilder).sink(receiveCompletion: { completion in
+            switch completion {
+            case.failure(let error):
+                networkError = error
+                expectation.fulfill()
+            default :
+                expectation.fulfill()
+            }
+        }, receiveValue: { (value: DummyResponseModel) in
+        }).store(in: &cancellable)
+        
+        wait(for: [expectation], timeout: 5.0)
+        
+        //Assert
+        XCTAssertNotNil(networkError, "The error should be produce if the invalid response provided")
+        XCTAssertEqual(networkError, NetworkError.inValidHTTPResponse(code: 1009), "The inValidHTTPResponse should case in the case of invalid response")
     }
 }

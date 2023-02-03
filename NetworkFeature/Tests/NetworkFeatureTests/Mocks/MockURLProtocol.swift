@@ -12,6 +12,7 @@ final class MockURLProtocol: URLProtocol {
     // MARK: - Properties
     static var stubResponseData: Data?
     static var stubError: Error?
+    static var mockHttpInvalidResponseCode = false
     
     // MARK: - URLProtocol overrides
     override class func canInit(with request: URLRequest) -> Bool {
@@ -23,11 +24,13 @@ final class MockURLProtocol: URLProtocol {
     }
     
     override func startLoading() {
-        if let error = MockURLProtocol.stubError {
+        if MockURLProtocol.mockHttpInvalidResponseCode {
+            self.client?.urlProtocol(self, didReceive: HTTPURLResponse(url: request.url!, statusCode: 1009, httpVersion: nil, headerFields: nil) ?? HTTPURLResponse(), cacheStoragePolicy: .notAllowed)
+        } else if let error = MockURLProtocol.stubError {
             self.client?.urlProtocol(self, didFailWithError: error)
         } else {
+            self.client?.urlProtocol(self, didReceive: HTTPURLResponse(), cacheStoragePolicy: .notAllowed)
             self.client?.urlProtocol(self, didLoad: MockURLProtocol.stubResponseData ?? Data())
-            self.client?.urlProtocol(self, didReceive: URLResponse(), cacheStoragePolicy: .notAllowed)
         }
         self.client?.urlProtocolDidFinishLoading(self)
     }

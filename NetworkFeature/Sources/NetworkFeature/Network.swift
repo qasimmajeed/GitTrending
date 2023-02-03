@@ -21,15 +21,19 @@ final public class Network {
     public func request<T: Decodable>(request: ApiRequestBuilder) -> AnyPublisher<T, NetworkError> {
         let urlRequest = try! request.makeRequest()
         
-        return urlSession.dataTaskPublisher(for: urlRequest).map { (element) -> Data in
-            print(element.data)
-            return element.data
-        }
-        .decode(type: T.self, decoder: JSONDecoder())
-        .mapError { error -> NetworkError in
-            return NetworkError.inValidResponse
-        }
-        .eraseToAnyPublisher()
+        return urlSession.dataTaskPublisher(for: urlRequest)
+            .tryMap { element -> Data in
+                if  let httpResponse = element.response as? HTTPURLResponse {
+                    if 200...300 ~= httpResponse.statusCode {
+                        return element.data
+                    } else {
+                        throw NetworkError.inValidHTTPResponse(code: httpResponse.statusCode)
+                    }
+                }
+                throw NetworkError.inValidResponse
+            }
+            .decode(type: T.self, decoder: JSONDecoder())
+            .mapError { $0 as? NetworkError ?? NetworkError.inValidResponse }
+            .eraseToAnyPublisher()
     }
-    
 }

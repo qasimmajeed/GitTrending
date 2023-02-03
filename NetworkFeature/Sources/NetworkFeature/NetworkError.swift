@@ -8,7 +8,8 @@
 import Foundation
 
 /// NetworkError have the information regarding the Network errors
-public enum NetworkError: Error {
+public enum NetworkError: Error, Equatable {
     case invalidRequest
     case inValidResponse
+    case inValidHTTPResponse(code: Int)
 }
