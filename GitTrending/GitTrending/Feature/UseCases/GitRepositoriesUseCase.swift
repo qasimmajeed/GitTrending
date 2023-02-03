@@ -15,6 +15,8 @@ protocol GitRepositoriesUseCaseProtocol {
     ///     - request:  The provided request.
     /// - Returns  AnyPublisher: with the repositories or in the case of error
     func fetchGitRepositories(request: GitRepositoriesRequest) -> AnyPublisher<[Repository], NetworkError>
+    
+    init(network: Networking)
 }
 
 final class GitRepositoriesUseCase: GitRepositoriesUseCaseProtocol{

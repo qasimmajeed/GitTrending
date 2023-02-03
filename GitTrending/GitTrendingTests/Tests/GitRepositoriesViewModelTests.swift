@@ -7,6 +7,7 @@
 
 import XCTest
 import Combine
+import NetworkFeature
 @testable import GitTrending
 
 final class GitRepositoriesViewModelTests: XCTestCase {
@@ -23,7 +24,11 @@ final class GitRepositoriesViewModelTests: XCTestCase {
     
     func testGitRepositoriesViewModel_WhenFetch_ShouldHaveLoadingState() {
         //Arrange
-        let mockUseCase = MockRepositoriesUseCases()
+        let configuration = URLSessionConfiguration.ephemeral
+        configuration.protocolClasses = [GitTrendingMockURLProtocol.self]
+        let session = URLSession(configuration: configuration)
+        let network = Network(urlSession: session)
+        let mockUseCase = MockRepositoriesUseCases(network: network)
         let sut = GitRepositoriesViewModel(useCase: mockUseCase)
         var isLoadingState = false
         
@@ -38,5 +43,35 @@ final class GitRepositoriesViewModelTests: XCTestCase {
         
         //Assert
         XCTAssertTrue(isLoadingState, "The state should be loading")
+    }
+    
+    func testGitRepositoriesViewModel_WhenFetch_ShouldShowRepositories() {
+        //Arrange
+        let configuration = URLSessionConfiguration.ephemeral
+        configuration.protocolClasses = [GitTrendingMockURLProtocol.self]
+        let session = URLSession(configuration: configuration)
+        let network = Network(urlSession: session)
+        let mockUseCase = MockRepositoriesUseCases(network: network)
+        let sut = GitRepositoriesViewModel(useCase: mockUseCase)
+        var isShowRepositoriesState = false
+        
+        let expectation = expectation(description: "repository success response expectation")
+        
+        GitTrendingMockURLProtocol.stubResponseData = FakeGitRepositoryData.jsonFakeData.data(using: .utf8)
+        
+        sut.stateDidUpdate.sink { state in
+            if state == .showRepositories {
+                isShowRepositoriesState = true
+                expectation.fulfill()
+            }
+        }.store(in: &cancellable)
+        
+        //Act
+        sut.fetchRepositories()
+        
+        wait(for: [expectation], timeout: 0.5)
+        
+        //Assert
+        XCTAssertTrue(isShowRepositoriesState, "The state should be repositories")
     }
 }

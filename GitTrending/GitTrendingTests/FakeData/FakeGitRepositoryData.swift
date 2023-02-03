@@ -121,6 +121,5 @@ struct FakeGitRepositoryData {
   ]
 }
 """
-    static let fakeRepositories = GitRepositoryResponse(items: [Repository.init()])
 }
 

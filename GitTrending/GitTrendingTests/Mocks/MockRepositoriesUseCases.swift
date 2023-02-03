@@ -12,14 +12,18 @@ import Combine
 
 class MockRepositoriesUseCases: GitRepositoriesUseCaseProtocol {
     // MARK: - Private Properties
-    private var dataPublisherRepository: PassthroughSubject<[Repository], NetworkError> = PassthroughSubject<[Repository], NetworkError>()
+    private let network: Networking
     
-    // MARK: - GitRepositoriesUseCaseProtocol
-    func fetchGitRepositories(request: GitTrending.GitRepositoriesRequest) -> AnyPublisher<[Repository], NetworkError> {
-        return dataPublisherRepository.eraseToAnyPublisher()
+    // MARK: - init
+    required init(network: Networking) {
+        self.network = network
     }
     
-    func sendRepositories() {
-        dataPublisherRepository.send(FakeGitRepositoryData.fakeRepositories.items)
+    // MARK: - GitRepositoriesUseCaseProtocol
+    func fetchGitRepositories(request: GitRepositoriesRequest) -> AnyPublisher<[Repository], NetworkError> {
+        return  self.network.request(request: ApiRequestBuilder(scheme: "http", host: Constants.APIUrls.baseURL, path: Constants.APIPaths.repositories, httpMethod: .Get))
+            .mapError { $0 }
+            .map { ($0 as GitRepositoryResponse).items }
+            .eraseToAnyPublisher()
     }
 }
