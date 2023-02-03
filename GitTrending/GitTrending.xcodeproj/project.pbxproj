@@ -13,6 +13,7 @@
 		9CDCB7BC298D8026005C238B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CDCB7BA298D8026005C238B /* Main.storyboard */; };
 		9CDCB7BE298D8026005C238B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CDCB7BD298D8026005C238B /* Assets.xcassets */; };
 		9CDCB7C1298D8026005C238B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CDCB7BF298D8026005C238B /* LaunchScreen.storyboard */; };
+		9CDCB7D8298D8337005C238B /* GitRepositoriesUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB7D7298D8337005C238B /* GitRepositoriesUseCaseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 		9CDCB7C0298D8026005C238B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9CDCB7C2298D8026005C238B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CDCB7CC298D8107005C238B /* GitTrendingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitTrendingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CDCB7D7298D8337005C238B /* GitRepositoriesUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoriesUseCaseTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 		9CDCB7CD298D8108005C238B /* GitTrendingTests */ = {
 			isa = PBXGroup;
 			children = (
+				9CDCB7D7298D8337005C238B /* GitRepositoriesUseCaseTests.swift */,
 			);
 			path = GitTrendingTests;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 					};
 					9CDCB7CB298D8107005C238B = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 						TestTargetID = 9CDCB7B0298D8026005C238B;
 					};
 				};
@@ -205,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CDCB7D8298D8337005C238B /* GitRepositoriesUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,13 +425,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = test.GitTrendingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GitTrending.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GitTrending";
@@ -437,9 +449,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = test.GitTrendingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
