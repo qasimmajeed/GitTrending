@@ -56,4 +56,28 @@ final class GitRepositoriesUseCaseTests: XCTestCase {
         XCTAssertNotNil(response, "The response should not be nil in the case of valid data")
     }
     
+    func testGitRepositoriesUseCase_WhenInvalidResponse_ShouldReturnError() {
+        //Arrange
+        GitTrendingMockURLProtocol.stubResponseData = nil
+        let expectation = expectation(description: "repository success response expectation")
+        var responseError: NetworkError!
+        
+        //Act
+        sut.fetchGitRepositories(request: requestModel).sink { completion in
+            switch completion {
+            case .failure(let error):
+                responseError = error
+                expectation.fulfill()
+            default:
+                expectation.fulfill()
+            }
+        } receiveValue: { (values: [Repository]) in
+        }.store(in: &cancellable)
+        
+        wait(for: [expectation], timeout: 0.5)
+        //Assert
+        XCTAssertNotNil(responseError, "The error should be happen in the case of invalid reponse")
+        XCTAssertEqual(responseError, NetworkError.inValidResponse, "The invalid reponse should be thrown")
+    }
+    
 }

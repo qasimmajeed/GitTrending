@@ -22,6 +22,7 @@
 		9CDCB7E6298D9143005C238B /* NetworkFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 9CDCB7E5298D9143005C238B /* NetworkFeature */; };
 		9CDCB7EA298D97CD005C238B /* FakeGitRepositoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB7E9298D97CD005C238B /* FakeGitRepositoryData.swift */; };
 		9CDCB7F3298D9C4D005C238B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB7F2298D9C4D005C238B /* Constants.swift */; };
+		9CDCB7F5298D9F14005C238B /* GitRepositoriesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB7F4298D9F14005C238B /* GitRepositoriesViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		9CDCB7E2298D906C005C238B /* GitRepositoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoryResponse.swift; sourceTree = "<group>"; };
 		9CDCB7E9298D97CD005C238B /* FakeGitRepositoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeGitRepositoryData.swift; sourceTree = "<group>"; };
 		9CDCB7F2298D9C4D005C238B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9CDCB7F4298D9F14005C238B /* GitRepositoriesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoriesViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				9CDCB7D7298D8337005C238B /* GitRepositoriesUseCaseTests.swift */,
+				9CDCB7F4298D9F14005C238B /* GitRepositoriesViewModelTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CDCB7DF298D8C42005C238B /* GitTrendingMockURLProtocol.swift in Sources */,
+				9CDCB7F5298D9F14005C238B /* GitRepositoriesViewModelTests.swift in Sources */,
 				9CDCB7D8298D8337005C238B /* GitRepositoriesUseCaseTests.swift in Sources */,
 				9CDCB7EA298D97CD005C238B /* FakeGitRepositoryData.swift in Sources */,
 			);
