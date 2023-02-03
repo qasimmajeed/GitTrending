@@ -9,5 +9,4 @@ import Foundation
 
 struct GitRepositoriesRequest {
     let search: String
-    let language: String
 }

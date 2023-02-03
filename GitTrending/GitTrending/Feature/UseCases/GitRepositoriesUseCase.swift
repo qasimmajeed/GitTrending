@@ -16,6 +16,8 @@ protocol GitRepositoriesUseCaseProtocol {
     /// - Returns  AnyPublisher: with the repositories or in the case of error
     func fetchGitRepositories(request: GitRepositoriesRequest) -> AnyPublisher<[Repository], NetworkError>
     
+    /// To create the GitRepositoriesUseCaseProtocol object
+    /// - Parameter network: provide the object of networking
     init(network: Networking)
 }
 
@@ -32,7 +34,6 @@ final class GitRepositoriesUseCase: GitRepositoriesUseCaseProtocol{
     func fetchGitRepositories(request: GitRepositoriesRequest) -> AnyPublisher<[Repository], NetworkError> {
         var queryParameters: [String: String] = [String: String]()
         queryParameters["q"] = request.search
-        queryParameters["language"] = request.language
         let requestBuilder = ApiRequestBuilder(scheme: "https",
                                                host: Constants.APIUrls.baseURL,
                                                path: Constants.APIPaths.repositories, httpMethod: .Get,

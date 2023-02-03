@@ -10,6 +10,7 @@ import Combine
 
 public enum GitRepositoriesViewModelViewState {
     case loading
+    case hideLoading
     case showRepositories
 }
 
@@ -29,9 +30,10 @@ final class GitRepositoriesViewModel {
     
     func fetchRepositories() {
         stateDidUpdateSubject.send(.loading)
-        useCase.fetchGitRepositories(request: GitRepositoriesRequest(search: "", language: "+sort:stars"))
-            .sink {  completion in
-                
+        useCase.fetchGitRepositories(request: GitRepositoriesRequest(search: "language=+sort:stars"))
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                self.stateDidUpdateSubject.send(.hideLoading)
             } receiveValue: { [weak self] repositories in
                 guard let self = self else { return }
                 self.stateDidUpdateSubject.send(.showRepositories)

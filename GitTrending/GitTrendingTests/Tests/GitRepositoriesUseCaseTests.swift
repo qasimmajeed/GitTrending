@@ -23,7 +23,7 @@ final class GitRepositoriesUseCaseTests: XCTestCase {
         super.setUp()
         network = NetworkStub.stub
         sut = GitRepositoriesUseCase(network: network)
-        requestModel = GitRepositoriesRequest(search: "", language: "+sort:stars")
+        requestModel = GitRepositoriesRequest(search: "language=+sort:stars")
     }
     
     override  func tearDown() {

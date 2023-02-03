@@ -66,4 +66,26 @@ final class GitRepositoriesViewModelTests: XCTestCase {
         //Assert
         XCTAssertTrue(isShowRepositoriesState, "The state should be repositories")
     }
+    
+    func testGitRepositoriesViewModel_WhenAfterFetch_ShouldHideLoading() {
+        var isLoadingHidden = false
+        let expectation = expectation(description: "when is loading is done expectation")
+        GitTrendingMockURLProtocol.stubResponseData = FakeGitRepositoryData.jsonFakeData.data(using: .utf8)
+        
+        sut.stateDidUpdate.sink { state in
+            if state == .hideLoading {
+                isLoadingHidden = true
+                expectation.fulfill()
+            }
+        }.store(in: &cancellable)
+        
+        //Act
+        sut.fetchRepositories()
+        
+        wait(for: [expectation], timeout: 0.5)
+        
+        //Assert
+        XCTAssertTrue(isLoadingHidden, "The state should be repositories")
+        
+    }
 }
