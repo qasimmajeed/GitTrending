@@ -80,4 +80,29 @@ final class NetworkTests: XCTestCase {
         XCTAssertEqual(networkError, NetworkError.inValidResponse, "The inValidResponse should be thrown in the case of invalid response of data")
         XCTAssertNil(response, "Should provide the valid response model otherwise it cause error")
     }
+    
+    func testNetwork_WhenInValidHttpResponse_ShouldCauseError() {
+        //Arrange
+        MockURLProtocol.stubError = NetworkError.inValidResponse
+        let expectation = self.expectation(description: "Network invalid http expectation")
+        var networkError: NetworkError!
+        
+        //Act
+        sut.request(request: requestBuilder).sink(receiveCompletion: { completion in
+            switch completion {
+            case.failure(let error):
+                networkError = error
+                expectation.fulfill()
+            default :
+                expectation.fulfill()
+            }
+        }, receiveValue: { (value: DummyResponseModel) in
+        }).store(in: &cancellable)
+        
+        wait(for: [expectation], timeout: 1.0)
+        
+        //Assert
+        XCTAssertNotNil(networkError, "The error should be produce if the invalid response provided ")
+        XCTAssertEqual(networkError, NetworkError.inValidResponse, "The inValidResponse should case in the case of invalid response")
+    }
 }
