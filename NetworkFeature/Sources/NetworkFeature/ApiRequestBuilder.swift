@@ -18,7 +18,7 @@ public struct ApiRequestBuilder {
     private let queryParameters: [String: String]?
     
     // MARK: - init
-    init(scheme: String, host: String, path: String, httpMethod: HttpMethod, headers: [String: String]? = nil, queryParameters: [String: String]? = nil) {
+    public init(scheme: String, host: String, path: String, httpMethod: HttpMethod, headers: [String: String]? = nil, queryParameters: [String: String]? = nil) {
         self.scheme = scheme
         self.host = host
         self.path = path
