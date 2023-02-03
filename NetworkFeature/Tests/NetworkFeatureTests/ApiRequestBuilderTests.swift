@@ -63,4 +63,19 @@ final class ApiRequestBuilderTests: XCTestCase {
             break
         }
     }
+    
+    func testApiRequestBuilder_WhenQueryParametersAreProvided_ShouldBeSame() throws {
+        //Arrange
+        let parameters = ["q": "git"]
+        sut = ApiRequestBuilder(scheme: "http", host: "www.google.com", path: "/images", httpMethod: .Get, queryParameters: parameters)
+        
+        //Act
+        let request = try sut.makeRequest()
+        
+        for (key, value) in parameters {
+            //Assert
+            XCTAssertTrue(request.url?.absoluteString.contains("\(key)=\(value)") ?? false, "The parameters\(key)=\(value) is not found which was provided")
+            break
+        }
+    }
 }

@@ -15,14 +15,16 @@ public struct ApiRequestBuilder {
     private let path: String
     private let httpMethod: HttpMethod
     private let headers: [String: String]?
+    private let queryParameters: [String: String]?
     
     // MARK: - init
-    init(scheme: String, host: String, path: String, httpMethod: HttpMethod, headers: [String: String]? = nil) {
+    init(scheme: String, host: String, path: String, httpMethod: HttpMethod, headers: [String: String]? = nil, queryParameters: [String: String]? = nil) {
         self.scheme = scheme
         self.host = host
         self.path = path
         self.httpMethod = httpMethod
         self.headers = headers
+        self.queryParameters = queryParameters
     }
     
     // MARK: - Public Methods
@@ -31,6 +33,12 @@ public struct ApiRequestBuilder {
         components.scheme = host
         components.path = path
         components.host = host
+        
+        // query parameters are injected
+        
+        components.queryItems = self.queryParameters?.map { (key, value) in
+            URLQueryItem(name: key, value: value)
+        }
         
         // Check the url is created
         guard let url = components.url else {
