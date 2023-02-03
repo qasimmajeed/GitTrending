@@ -41,5 +41,15 @@ final class ApiRequestBuilderTests: XCTestCase {
         }
     }
     
+    func testApiRequestBuilder_WhenHttpMethodIsProvided_ShouldContainTheSame() {
+        //Assert
+        do {
+            let request = try sut.makeRequest()
+            XCTAssertEqual(request.httpMethod, HttpMethod.Get.rawValue, "The http method is different then provided")
+        } catch {
+            XCTFail("Valid url parameters should be provided")
+        }
+    }
+    
     
 }
