@@ -23,15 +23,18 @@ public struct ApiRequestBuilder {
         self.httpMethod = httpMethod
     }
     
-    public func makeRequest() -> URLRequest? {
+    public func makeRequest() throws -> URLRequest {
         var components = URLComponents()
         components.scheme = host
         components.path = path
         components.host = host
         
         // TOD: perform the safe check the throw error
-        
-        var request = URLRequest(url:  components.url!)
+        guard let url = components.url else {
+            throw NetworkError.invalidRequest
+            
+        }
+        var request = URLRequest(url: url)
         request.httpMethod = httpMethod.rawValue
         return request
         

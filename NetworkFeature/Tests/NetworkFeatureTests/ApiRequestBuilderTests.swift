@@ -22,12 +22,24 @@ final class ApiRequestBuilderTests: XCTestCase {
         //Arrange
         let sut = ApiRequestBuilder(scheme: "http", host: "www.google.com", path: "/images", httpMethod: .Get)
         
-        //Act
-        let request = sut.makeRequest()
+        do {
+            let _ = try sut.makeRequest()
+        } catch {
+            XCTFail("The request should be return for the valid data provided")
+        }
+    }
+    
+    func testApiRequestBuilder_WhenInvalidRequestDataProvided_ShouldThrowError() {
+        //Arrange
+        let sut = ApiRequestBuilder(scheme: "http", host: "www.google.com", path: "images", httpMethod: .Get)
         
         //Assert
         
-        XCTAssertNotNil(request, "The request should be return for the valid data provided")
+        //Assert
+        XCTAssertThrowsError(try sut.makeRequest(), "The error must be thrown if the url is invalid") { error in
+            XCTAssertEqual(error as? NetworkError, NetworkError.invalidRequest)
+        }
     }
+    
     
 }
