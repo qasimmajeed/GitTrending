@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import NetworkFeature
 @testable import GitTrending
 
 struct FakeGitRepositoryData {
-    
+    static let fakeRequest = ApiRequestBuilder(scheme: "http", host: Constants.APIUrls.baseURL, path: Constants.APIPaths.repositories, httpMethod: .Get)
     static let jsonFakeData =  """
 {
   "total_count": 1,

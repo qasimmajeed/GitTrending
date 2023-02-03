@@ -35,7 +35,6 @@ final class GitRepositoriesViewModel {
             } receiveValue: { [weak self] repositories in
                 guard let self = self else { return }
                 self.stateDidUpdateSubject.send(.showRepositories)
-                
             }.store(in: &cancellable)
         
     }

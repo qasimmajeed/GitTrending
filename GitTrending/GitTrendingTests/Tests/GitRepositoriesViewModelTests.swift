@@ -13,25 +13,25 @@ import NetworkFeature
 final class GitRepositoriesViewModelTests: XCTestCase {
     // MARK: - Private Properties
     private var cancellable = Set<AnyCancellable>()
+    private var network: Networking!
+    private var sut: GitRepositoriesViewModel!
+    private var mockUseCase: MockRepositoriesUseCases!
     
     override func setUp() {
         super.setUp()
+        network = NetworkStub.stub
+        mockUseCase = MockRepositoriesUseCases(network: network)
+        sut = GitRepositoriesViewModel(useCase: mockUseCase)
     }
     
     override func tearDown() {
         super.tearDown()
+        GitTrendingMockURLProtocol.stubResponseData = nil
     }
     
     func testGitRepositoriesViewModel_WhenFetch_ShouldHaveLoadingState() {
         //Arrange
-        let configuration = URLSessionConfiguration.ephemeral
-        configuration.protocolClasses = [GitTrendingMockURLProtocol.self]
-        let session = URLSession(configuration: configuration)
-        let network = Network(urlSession: session)
-        let mockUseCase = MockRepositoriesUseCases(network: network)
-        let sut = GitRepositoriesViewModel(useCase: mockUseCase)
         var isLoadingState = false
-        
         sut.stateDidUpdate.sink { state in
             if state == .loading {
                 isLoadingState = true
@@ -47,16 +47,8 @@ final class GitRepositoriesViewModelTests: XCTestCase {
     
     func testGitRepositoriesViewModel_WhenFetch_ShouldShowRepositories() {
         //Arrange
-        let configuration = URLSessionConfiguration.ephemeral
-        configuration.protocolClasses = [GitTrendingMockURLProtocol.self]
-        let session = URLSession(configuration: configuration)
-        let network = Network(urlSession: session)
-        let mockUseCase = MockRepositoriesUseCases(network: network)
-        let sut = GitRepositoriesViewModel(useCase: mockUseCase)
         var isShowRepositoriesState = false
-        
         let expectation = expectation(description: "repository success response expectation")
-        
         GitTrendingMockURLProtocol.stubResponseData = FakeGitRepositoryData.jsonFakeData.data(using: .utf8)
         
         sut.stateDidUpdate.sink { state in

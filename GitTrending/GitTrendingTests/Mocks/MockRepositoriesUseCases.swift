@@ -10,7 +10,7 @@ import NetworkFeature
 import Combine
 @testable import GitTrending
 
-class MockRepositoriesUseCases: GitRepositoriesUseCaseProtocol {
+final class MockRepositoriesUseCases: GitRepositoriesUseCaseProtocol {
     // MARK: - Private Properties
     private let network: Networking
     
@@ -21,7 +21,7 @@ class MockRepositoriesUseCases: GitRepositoriesUseCaseProtocol {
     
     // MARK: - GitRepositoriesUseCaseProtocol
     func fetchGitRepositories(request: GitRepositoriesRequest) -> AnyPublisher<[Repository], NetworkError> {
-        return  self.network.request(request: ApiRequestBuilder(scheme: "http", host: Constants.APIUrls.baseURL, path: Constants.APIPaths.repositories, httpMethod: .Get))
+        return  self.network.request(request: FakeGitRepositoryData.fakeRequest)
             .mapError { $0 }
             .map { ($0 as GitRepositoryResponse).items }
             .eraseToAnyPublisher()

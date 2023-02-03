@@ -21,10 +21,7 @@ final class GitRepositoriesUseCaseTests: XCTestCase {
     // MARK: - XCTestCase Methods
     override func setUp() {
         super.setUp()
-        let configuration = URLSessionConfiguration.ephemeral
-        configuration.protocolClasses = [GitTrendingMockURLProtocol.self]
-        let session = URLSession(configuration: configuration)
-        network = Network(urlSession: session)
+        network = NetworkStub.stub
         sut = GitRepositoriesUseCase(network: network)
         requestModel = GitRepositoriesRequest(search: "", language: "+sort:stars")
     }
