@@ -30,7 +30,7 @@ public struct ApiRequestBuilder {
     // MARK: - Public Methods
     public func makeRequest() throws -> URLRequest {
         var components = URLComponents()
-        components.scheme = host
+        components.scheme = scheme
         components.path = path
         components.host = host
         
