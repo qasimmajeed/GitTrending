@@ -125,7 +125,7 @@ final class NetworkTests: XCTestCase {
         }, receiveValue: { (value: DummyResponseModel) in
         }).store(in: &cancellable)
         
-        wait(for: [expectation], timeout: 5.0)
+        wait(for: [expectation], timeout: 0.5)
         
         //Assert
         XCTAssertNotNil(networkError, "The error should be produce if the invalid response provided")
@@ -149,7 +149,7 @@ final class NetworkTests: XCTestCase {
             
         }).store(in: &cancellable)
         
-        wait(for: [expectation], timeout: 5.0)
+        wait(for: [expectation], timeout: 0.5)
         
         //Assert
         XCTAssertNotNil(networkError, "The error should throw for invalid request")
