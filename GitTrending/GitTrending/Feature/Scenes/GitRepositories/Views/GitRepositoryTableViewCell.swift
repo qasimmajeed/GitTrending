@@ -21,12 +21,6 @@ class GitRepositoryTableViewCell: UITableViewCell {
     @IBOutlet weak var starImageView: UIImageView!
     @IBOutlet weak var languageFlagView: UIView!
     
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
     var viewModel: Repository? {
         didSet {
             if let viewModel = viewModel {
@@ -38,5 +32,9 @@ class GitRepositoryTableViewCell: UITableViewCell {
             }
         }
     }
-
+    
+    // MARK: - Methods
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
 }
