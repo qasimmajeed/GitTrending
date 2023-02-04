@@ -105,12 +105,10 @@
 			children = (
 				9CDCB7EB298D9A51005C238B /* AppSetup */,
 				9CDCB7EC298D9A75005C238B /* Feature */,
+				9CDCB827298E758F005C238B /* Storyboards */,
+				9CDCB826298E7578005C238B /* Resources */,
 				9CDCB7F0298D9C21005C238B /* Constants */,
 				9CDCB7B8298D8026005C238B /* ViewController.swift */,
-				9CDCB7BA298D8026005C238B /* Main.storyboard */,
-				9CDCB7BD298D8026005C238B /* Assets.xcassets */,
-				9CDCB7BF298D8026005C238B /* LaunchScreen.storyboard */,
-				9CDCB7C2298D8026005C238B /* Info.plist */,
 			);
 			path = GitTrending;
 			sourceTree = "<group>";
@@ -226,6 +224,24 @@
 				9CDCB7FF298DAC78005C238B /* NetworkStub.swift */,
 			);
 			path = Stub;
+			sourceTree = "<group>";
+		};
+		9CDCB826298E7578005C238B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9CDCB7C2298D8026005C238B /* Info.plist */,
+				9CDCB7BD298D8026005C238B /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9CDCB827298E758F005C238B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				9CDCB7BA298D8026005C238B /* Main.storyboard */,
+				9CDCB7BF298D8026005C238B /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -510,7 +526,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GitTrending/Info.plist;
+				INFOPLIST_FILE = GitTrending/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = GitTrending;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -542,7 +558,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GitTrending/Info.plist;
+				INFOPLIST_FILE = GitTrending/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = GitTrending;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
