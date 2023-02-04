@@ -33,6 +33,7 @@
 		9CDCB837298F0BDE005C238B /* GitRepositoryTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB836298F0BDE005C238B /* GitRepositoryTableViewCellTests.swift */; };
 		9CDCB839298F0C03005C238B /* GitRepositoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CDCB838298F0C03005C238B /* GitRepositoryTableViewCell.xib */; };
 		9CDCB83B298F1C81005C238B /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB83A298F1C81005C238B /* Owner.swift */; };
+		9CDCB83D298F22DE005C238B /* GitRepositoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB83C298F22DE005C238B /* GitRepositoryCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		9CDCB836298F0BDE005C238B /* GitRepositoryTableViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoryTableViewCellTests.swift; sourceTree = "<group>"; };
 		9CDCB838298F0C03005C238B /* GitRepositoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GitRepositoryTableViewCell.xib; sourceTree = "<group>"; };
 		9CDCB83A298F1C81005C238B /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
+		9CDCB83C298F22DE005C238B /* GitRepositoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoryCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +279,7 @@
 			children = (
 				9CDCB832298E9185005C238B /* GitRepositoryTableViewCell.swift */,
 				9CDCB838298F0C03005C238B /* GitRepositoryTableViewCell.xib */,
+				9CDCB83C298F22DE005C238B /* GitRepositoryCellViewModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				9CDCB7E3298D906C005C238B /* GitRepositoryResponse.swift in Sources */,
 				9CDCB7E1298D8E9B005C238B /* Repository.swift in Sources */,
 				9CDCB7F3298D9C4D005C238B /* Constants.swift in Sources */,
+				9CDCB83D298F22DE005C238B /* GitRepositoryCellViewModel.swift in Sources */,
 				9CDCB82E298E7C13005C238B /* UIStoryboard+Extensions.swift in Sources */,
 				9CDCB82B298E76E2005C238B /* GitRepositoriesViewController.swift in Sources */,
 			);

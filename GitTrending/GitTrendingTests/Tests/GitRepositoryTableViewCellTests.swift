@@ -62,6 +62,8 @@ final class GitRepositoryTableViewCellTests: XCTestCase {
     func testGitRepositoryTableViewCell_WhenViewModelAssign_ShouldSetData() throws {
         //Arrange
         let repository = Repository(id: 1, name: "lambda", owner: Owner(id: 1, login: "lambda", avatarUrl: "www.google.com"), stars: 2, language: "swift", htmlURL: "www.googl.com")
+        let cellViewModel = GitRepositoryCellViewModel(repository: repository)
+        
         
         let userNameLabel = try XCTUnwrap(sut.userNameLabel, "The userNameLabel IBOutlet should be connected")
         let repositoryNameLabel = try XCTUnwrap(sut.repositoryNameLabel, "The repositoryNameLabel IBOutlet should be connected")
@@ -70,14 +72,14 @@ final class GitRepositoryTableViewCellTests: XCTestCase {
         let starCountLabel = try XCTUnwrap(sut.starCountLabel, "The starCountLabel IBOutlet should be connected")
         
         //Act
-        sut.viewModel = repository
+        sut.viewModel = cellViewModel
         
         //Assert
-        XCTAssertEqual(userNameLabel.text, repository.owner.login, "The userNameLabel text is not equal to the provided")
-        XCTAssertEqual(repositoryNameLabel.text, repository.name, "The repositoryNameLabel text is not equal to the provided")
-        XCTAssertEqual(repositoryLinkLabel.text, repository.htmlURL, "The repositoryLinkLabel text is not equal to the provided")
-        XCTAssertEqual(languageLabel.text, repository.language, "The languageLabel text is not equal to the provided")
-        XCTAssertEqual(starCountLabel.text, "\(repository.stars)", "The starCountLabel text is not equal to the provided")
+        XCTAssertEqual(userNameLabel.text, cellViewModel.userName, "The userNameLabel text is not equal to the provided")
+        XCTAssertEqual(repositoryNameLabel.text, cellViewModel.repoName, "The repositoryNameLabel text is not equal to the provided")
+        XCTAssertEqual(repositoryLinkLabel.text, cellViewModel.repoHtmlURl, "The repositoryLinkLabel text is not equal to the provided")
+        XCTAssertEqual(languageLabel.text, cellViewModel.language, "The languageLabel text is not equal to the provided")
+        XCTAssertEqual(starCountLabel.text, cellViewModel.starCount, "The starCountLabel text is not equal to the provided")
     }
     
     func testGitRepositoryTableViewCell_WhenLoads_PictureShouldBeRoundedCorner() throws {

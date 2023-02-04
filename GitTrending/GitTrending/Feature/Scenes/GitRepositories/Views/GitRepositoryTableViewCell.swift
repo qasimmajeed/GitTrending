@@ -21,14 +21,14 @@ class GitRepositoryTableViewCell: UITableViewCell {
     @IBOutlet weak var starImageView: UIImageView!
     @IBOutlet weak var languageFlagView: UIView!
     
-    var viewModel: Repository? {
+    var viewModel: GitRepositoryCellViewModel? {
         didSet {
             if let viewModel = viewModel {
-                userNameLabel.text = viewModel.owner.login
-                repositoryNameLabel.text = viewModel.name
-                repositoryLinkLabel.text = viewModel.htmlURL
+                userNameLabel.text = viewModel.userName
+                repositoryNameLabel.text = viewModel.repoName
+                repositoryLinkLabel.text = viewModel.repoHtmlURl
                 languageLabel.text = viewModel.language
-                starCountLabel.text = "\(viewModel.stars)"
+                starCountLabel.text = viewModel.starCount
             }
         }
     }
