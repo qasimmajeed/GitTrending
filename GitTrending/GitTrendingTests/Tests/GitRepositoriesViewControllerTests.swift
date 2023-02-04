@@ -75,11 +75,13 @@ final class GitRepositoriesViewControllerTests: XCTestCase {
     func testGitRepositoriesViewController_WhenTableLoadsAndHaveData_ShouldReturnCell() {
         //Arrange
         GitTrendingMockURLProtocol.stubResponseData = FakeGitRepositoryData.jsonFakeData.data(using: .utf8)
+        let ex = expectation(description: "cell check expectation")
+        mockViewModel.expectation = ex
+        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 0, section: 0)) as? GitRepositoryTableViewCell
         
-        let predicate = NSPredicate { input, _ in
-            return (input as? UITableView)?.cellForRow(at: IndexPath(item: 0, section: 0)) is GitRepositoryTableViewCell
-        }
-        expectation(for: predicate, evaluatedWith: sut.tableView)
-        waitForExpectations(timeout: 5.0)
+        wait(for: [ex], timeout: 0.5)
+        
+        //Assert
+        XCTAssertNotNil(cell, "The cell should not be null when having data")
     }
 }

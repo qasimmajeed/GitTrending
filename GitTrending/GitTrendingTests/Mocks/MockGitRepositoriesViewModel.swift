@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 @testable import GitTrending
+import XCTest
 
 final class MockGitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
     
@@ -16,6 +17,7 @@ final class MockGitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
     private let stateDidUpdateSubject = PassthroughSubject<GitRepositoriesViewModelViewState, Never>()
     private let useCase: GitRepositoriesUseCaseProtocol
     private var repositories: [Repository] = [Repository]()
+    var expectation: XCTestExpectation?
     
     init(useCase: GitRepositoriesUseCaseProtocol) {
         self.useCase = useCase
@@ -38,12 +40,10 @@ final class MockGitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
     
     func fetchRepositories() {
         useCase.fetchGitRepositories(request: GitRepositoriesRequest(search: "")).sink { _ in
-           
+            self.expectation?.fulfill()
         } receiveValue: { value in
             self.repositories = value
             self.stateDidUpdateSubject.send(.showRepositories)
-            
         }.store(in: &cancellable)
-        
     }
 }
