@@ -59,4 +59,10 @@ final class GitRepositoriesViewControllerTests: XCTestCase {
         XCTAssertNotNil(sut.tableView.dataSource, "The data source delegate should be assign to tableView")
     }
     
+    func testGitRepositoriesViewController_WhenTableLoads_ShouldReturnNumberOfSections() {
+        //Assert
+        let expectedSectionsCount = mockViewModel.numberOfSections
+        XCTAssertEqual(sut.tableView.numberOfSections, expectedSectionsCount,"The number of sections should be equal")
+    }
+    
 }

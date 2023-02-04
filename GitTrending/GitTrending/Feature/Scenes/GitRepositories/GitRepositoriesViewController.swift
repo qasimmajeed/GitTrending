@@ -43,8 +43,7 @@ extension GitRepositoriesViewController: UITableViewDelegate, UITableViewDataSou
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        // TODO:
-        return 0
+        return viewModel.numberOfSections
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

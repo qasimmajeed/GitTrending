@@ -18,6 +18,7 @@ public enum GitRepositoriesViewModelViewState {
 protocol GitRepositoriesViewModelProtocol {
     init(useCase: GitRepositoriesUseCaseProtocol)
     var title: String { get }
+    var numberOfSections: Int { get }
     var stateDidUpdate: AnyPublisher<GitRepositoriesViewModelViewState, Never> { get }
     func fetchRepositories()
 }
@@ -33,6 +34,10 @@ final class GitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
     
     var title: String {
         return "Trending"
+    }
+    
+    var numberOfSections: Int {
+        return 1
     }
     
     // MARK: - init
