@@ -12,12 +12,19 @@ final class GitRepositoriesViewControllerTests: XCTestCase {
     // MARK: - Private Properties
     private var sut: GitRepositoriesViewController!
     private var storyBoard: UIStoryboard!
+    private var mockUseCase: MockRepositoriesUseCases!
+    private var mockViewModel: MockGitRepositoriesViewModel!
     
     // MARK: - XCTestCase
     override func setUp() {
         super.setUp()
         storyBoard = UIStoryboard(name: .gitRepositories)
-        sut = storyBoard.instantiateViewController(withIdentifier: "GitRepositoriesViewController") as? GitRepositoriesViewController
+        mockUseCase = MockRepositoriesUseCases(network: NetworkStub.stub)
+        mockViewModel = MockGitRepositoriesViewModel(useCase: mockUseCase)
+        sut = storyBoard.instantiateViewController(identifier: "GitRepositoriesViewController") {
+            GitRepositoriesViewController(coder: $0, viewModel: self.mockViewModel)
+            
+        }
         sut.loadViewIfNeeded()
     }
     
@@ -25,6 +32,8 @@ final class GitRepositoriesViewControllerTests: XCTestCase {
         super.tearDown()
         sut = nil
         storyBoard = nil
+        mockViewModel = nil
+        mockUseCase = nil
     }
     
     func testGitRepositoriesViewController_WhenCreated_ShouldReturnController() {
@@ -38,5 +47,10 @@ final class GitRepositoriesViewControllerTests: XCTestCase {
         XCTAssertNotNil(sut.tableView, "The tableView IBOutlet should be connected")
     }
     
+    func testGitRepositoriesViewController_WhenCreated_TitleShouldBeSame() throws {
+        //Assert
+        let title = try XCTUnwrap(sut.title, "The title should be set")
+        XCTAssertEqual(title, mockViewModel.title, "The title is different then in the viewModel")
+    }
     
 }

@@ -15,7 +15,14 @@ public enum GitRepositoriesViewModelViewState {
     case showError
 }
 
-final class GitRepositoriesViewModel {
+protocol GitRepositoriesViewModelProtocol {
+    init(useCase: GitRepositoriesUseCaseProtocol)
+    var title: String { get }
+    var stateDidUpdate: AnyPublisher<GitRepositoriesViewModelViewState, Never> { get }
+    func fetchRepositories()
+}
+
+final class GitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
     // MARK: - Private Properties
     private let useCase: GitRepositoriesUseCaseProtocol
     private let stateDidUpdateSubject = PassthroughSubject<GitRepositoriesViewModelViewState, Never>()
@@ -23,6 +30,10 @@ final class GitRepositoriesViewModel {
     
     // MARK: - Public Properties
     private(set) lazy var stateDidUpdate: AnyPublisher<GitRepositoriesViewModelViewState, Never>  = stateDidUpdateSubject.eraseToAnyPublisher()
+    
+    var title: String {
+        return "Trending"
+    }
     
     // MARK: - init
     init(useCase: GitRepositoriesUseCaseProtocol = GitRepositoriesUseCase()) {

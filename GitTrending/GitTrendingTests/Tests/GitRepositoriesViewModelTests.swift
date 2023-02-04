@@ -111,5 +111,9 @@ final class GitRepositoriesViewModelTests: XCTestCase {
         XCTAssertTrue(isErrorShown, "The state should be showError")
         
     }
-    
+   
+    func testGitRepositoriesViewModel_TheTitleMustSame() {
+        //Assert
+        XCTAssertEqual(sut.title, "Trending")
+    }
 }

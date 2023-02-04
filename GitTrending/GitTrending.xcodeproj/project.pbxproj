@@ -28,6 +28,7 @@
 		9CDCB829298E761D005C238B /* GitRepositoriesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB828298E761D005C238B /* GitRepositoriesViewControllerTests.swift */; };
 		9CDCB82B298E76E2005C238B /* GitRepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB82A298E76E2005C238B /* GitRepositoriesViewController.swift */; };
 		9CDCB82E298E7C13005C238B /* UIStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB82D298E7C13005C238B /* UIStoryboard+Extensions.swift */; };
+		9CDCB830298E8072005C238B /* MockGitRepositoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB82F298E8072005C238B /* MockGitRepositoriesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		9CDCB828298E761D005C238B /* GitRepositoriesViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoriesViewControllerTests.swift; sourceTree = "<group>"; };
 		9CDCB82A298E76E2005C238B /* GitRepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoriesViewController.swift; sourceTree = "<group>"; };
 		9CDCB82D298E7C13005C238B /* UIStoryboard+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extensions.swift"; sourceTree = "<group>"; };
+		9CDCB82F298E8072005C238B /* MockGitRepositoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGitRepositoriesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 			children = (
 				9CDCB7DE298D8C42005C238B /* GitTrendingMockURLProtocol.swift */,
 				9CDCB7FA298DA16C005C238B /* MockRepositoriesUseCases.swift */,
+				9CDCB82F298E8072005C238B /* MockGitRepositoriesViewModel.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				9CDCB7DF298D8C42005C238B /* GitTrendingMockURLProtocol.swift in Sources */,
 				9CDCB7F5298D9F14005C238B /* GitRepositoriesViewModelTests.swift in Sources */,
 				9CDCB7FB298DA16C005C238B /* MockRepositoriesUseCases.swift in Sources */,
+				9CDCB830298E8072005C238B /* MockGitRepositoriesViewModel.swift in Sources */,
 				9CDCB7D8298D8337005C238B /* GitRepositoriesUseCaseTests.swift in Sources */,
 				9CDCB829298E761D005C238B /* GitRepositoriesViewControllerTests.swift in Sources */,
 				9CDCB800298DAC78005C238B /* NetworkStub.swift in Sources */,
