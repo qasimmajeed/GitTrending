@@ -34,6 +34,7 @@ final class GitRepositoriesViewControllerTests: XCTestCase {
         storyBoard = nil
         mockViewModel = nil
         mockUseCase = nil
+        GitTrendingMockURLProtocol.stubResponseData = nil
     }
     
     func testGitRepositoriesViewController_WhenCreated_ShouldReturnController() {
@@ -71,4 +72,14 @@ final class GitRepositoriesViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.tableView.numberOfRows(inSection: 0), expectedRowsCount, "The number of rows should be equal")
     }
     
+    func testGitRepositoriesViewController_WhenTableLoadsAndHaveData_ShouldReturnCell() {
+        //Arrange
+        GitTrendingMockURLProtocol.stubResponseData = FakeGitRepositoryData.jsonFakeData.data(using: .utf8)
+        
+        let predicate = NSPredicate { input, _ in
+            return (input as? UITableView)?.cellForRow(at: IndexPath(item: 0, section: 0)) is GitRepositoryTableViewCell
+        }
+        expectation(for: predicate, evaluatedWith: sut.tableView)
+        waitForExpectations(timeout: 5.0)
+    }
 }

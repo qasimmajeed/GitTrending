@@ -29,6 +29,7 @@
 		9CDCB82B298E76E2005C238B /* GitRepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB82A298E76E2005C238B /* GitRepositoriesViewController.swift */; };
 		9CDCB82E298E7C13005C238B /* UIStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB82D298E7C13005C238B /* UIStoryboard+Extensions.swift */; };
 		9CDCB830298E8072005C238B /* MockGitRepositoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB82F298E8072005C238B /* MockGitRepositoriesViewModel.swift */; };
+		9CDCB833298E9185005C238B /* GitRepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB832298E9185005C238B /* GitRepositoryTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		9CDCB82A298E76E2005C238B /* GitRepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoriesViewController.swift; sourceTree = "<group>"; };
 		9CDCB82D298E7C13005C238B /* UIStoryboard+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extensions.swift"; sourceTree = "<group>"; };
 		9CDCB82F298E8072005C238B /* MockGitRepositoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGitRepositoriesViewModel.swift; sourceTree = "<group>"; };
+		9CDCB832298E9185005C238B /* GitRepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +223,7 @@
 		9CDCB7F7298DA05C005C238B /* GitRepositories */ = {
 			isa = PBXGroup;
 			children = (
+				9CDCB831298E916F005C238B /* Views */,
 				9CDCB7F8298DA078005C238B /* GitRepositoriesViewModel.swift */,
 				9CDCB82A298E76E2005C238B /* GitRepositoriesViewController.swift */,
 			);
@@ -259,6 +262,14 @@
 				9CDCB82D298E7C13005C238B /* UIStoryboard+Extensions.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		9CDCB831298E916F005C238B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9CDCB832298E9185005C238B /* GitRepositoryTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,6 +380,7 @@
 				9CDCB7DA298D8426005C238B /* GitRepositoriesUseCase.swift in Sources */,
 				9CDCB7B5298D8026005C238B /* AppDelegate.swift in Sources */,
 				9CDCB7B7298D8026005C238B /* SceneDelegate.swift in Sources */,
+				9CDCB833298E9185005C238B /* GitRepositoryTableViewCell.swift in Sources */,
 				9CDCB7F9298DA078005C238B /* GitRepositoriesViewModel.swift in Sources */,
 				9CDCB7DC298D8741005C238B /* GitRepositoriesRequest.swift in Sources */,
 				9CDCB7E3298D906C005C238B /* GitRepositoryResponse.swift in Sources */,

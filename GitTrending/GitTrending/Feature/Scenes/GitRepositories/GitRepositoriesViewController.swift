@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import Combine
 
 class GitRepositoriesViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet weak var tableView: UITableView!
     private let viewModel: GitRepositoriesViewModelProtocol
+    private var cancellable = Set<AnyCancellable>()
     
     
     // MARK: - Init
@@ -26,6 +28,8 @@ class GitRepositoriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        binding()
+        viewModel.fetchRepositories()
     }
     
     // MARK: - Private Methods
@@ -33,12 +37,23 @@ class GitRepositoriesViewController: UIViewController {
     private func configureUI() {
         title = viewModel.title
     }
+    
+    private func binding() {
+        viewModel.stateDidUpdate.sink { [weak self] state in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }.store(in: &cancellable)
+    }
 }
 
 extension GitRepositoriesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // TODO:
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: GitRepositoryTableViewCell.reuseAbleCellIdentifier) as? GitRepositoryTableViewCell else {
+            return UITableViewCell()
+        }
+        return cell
     }
     
     

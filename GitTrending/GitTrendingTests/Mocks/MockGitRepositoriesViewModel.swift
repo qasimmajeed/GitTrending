@@ -11,7 +11,15 @@ import Combine
 
 final class MockGitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
     
-    init(useCase: GitRepositoriesUseCaseProtocol) {}
+    // MARK: - Private Properties
+    private var cancellable = Set<AnyCancellable>()
+    private let stateDidUpdateSubject = PassthroughSubject<GitRepositoriesViewModelViewState, Never>()
+    private let useCase: GitRepositoriesUseCaseProtocol
+    private var repositories: [Repository] = [Repository]()
+    
+    init(useCase: GitRepositoriesUseCaseProtocol) {
+        self.useCase = useCase
+    }
     
     var title: String {
         return FakeGitRepositoryData.fakeTitle
@@ -22,14 +30,20 @@ final class MockGitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
     }
     
     var numberOfRows: Int {
-        return FakeGitRepositoryData.fakeRepositories.count
+        return repositories.count
     }
     
-    var stateDidUpdate: AnyPublisher<GitRepositoriesViewModelViewState, Never> = PassthroughSubject<GitRepositoriesViewModelViewState, Never>().eraseToAnyPublisher()
+    private(set) lazy var stateDidUpdate: AnyPublisher<GitRepositoriesViewModelViewState, Never> = stateDidUpdateSubject.eraseToAnyPublisher()
+    
     
     func fetchRepositories() {
+        useCase.fetchGitRepositories(request: GitRepositoriesRequest(search: "")).sink { _ in
+           
+        } receiveValue: { value in
+            self.repositories = value
+            self.stateDidUpdateSubject.send(.showRepositories)
+            
+        }.store(in: &cancellable)
         
     }
-    
-    
 }
