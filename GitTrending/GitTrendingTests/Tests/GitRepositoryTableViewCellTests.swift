@@ -9,19 +9,28 @@ import XCTest
 @testable import GitTrending
 
 final class GitRepositoryTableViewCellTests: XCTestCase {
+    // MARK: - Private Properties
+    var bundle: Bundle!
+    var nib: UINib!
+    var sut: GitRepositoryTableViewCell!
+    
+    override func setUp() {
+        super.setUp()
+        bundle = Bundle(for: GitRepositoryTableViewCell.self)
+        nib = UINib(nibName: GitRepositoryTableViewCell.nibName, bundle: bundle)
+        sut = nib.instantiate(withOwner: self, options: nil)[0] as? GitRepositoryTableViewCell
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+    }
     
     func testGitRepositoryTableViewCell_WhenLoaded_ShouldReturnCell() {
-        let bundle = Bundle(for: GitRepositoryTableViewCell.self)
-        let nib = UINib(nibName: GitRepositoryTableViewCell.nibName, bundle: bundle)
-        let sut = nib.instantiate(withOwner: self, options: nil)[0] as? GitRepositoryTableViewCell
         XCTAssertNotNil(sut)
     }
     
     func testGitRepositoryTableViewCellTests_WhenLoads_ShouldHaveDefaultValues() throws {
-        let bundle = Bundle(for: GitRepositoryTableViewCell.self)
-        let nib = UINib(nibName: GitRepositoryTableViewCell.nibName, bundle: bundle)
-        let sut = nib.instantiate(withOwner: self, options: nil)[0] as! GitRepositoryTableViewCell
-        
+        //Arrange
         let userNameLabel = try XCTUnwrap(sut.userNameLabel, "The userNameLabel IBOutlet should be connected")
         let repositoryNameLabel = try XCTUnwrap(sut.repositoryNameLabel, "The repositoryNameLabel IBOutlet should be connected")
         let repositoryLinkLabel = try XCTUnwrap(sut.repositoryLinkLabel, "The repositoryLinkLabel IBOutlet should be connected")
@@ -33,7 +42,7 @@ final class GitRepositoryTableViewCellTests: XCTestCase {
         
         let startImageViewData =  try XCTUnwrap(starImageView.image?.pngData(), "starImageView data should not be nil the image should be assign")
         let startImageAssetData = try XCTUnwrap(UIImage(named: "star")?.pngData(), "Image should be in the assets")
-                                        
+        
         //Assert
         XCTAssertEqual(userNameLabel.text, "", "The fuserNameLabel not empty when the cell load")
         XCTAssertEqual(repositoryNameLabel.text, "", "The repositoryNameLabel not empty when the cell load")
@@ -45,5 +54,5 @@ final class GitRepositoryTableViewCellTests: XCTestCase {
         XCTAssertEqual(languageFlagView.backgroundColor, UIColor(named: "languageColor"), "The background color should be languageColor from asset")
         XCTAssertEqual(starImageView.tintColor, UIColor(named: "starColor"), "The tint color should be starColor")
     }
-
+    
 }

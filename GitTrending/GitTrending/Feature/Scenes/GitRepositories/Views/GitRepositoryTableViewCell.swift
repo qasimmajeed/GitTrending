@@ -21,6 +21,7 @@ class GitRepositoryTableViewCell: UITableViewCell {
     @IBOutlet weak var starImageView: UIImageView!
     @IBOutlet weak var languageFlagView: UIView!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
