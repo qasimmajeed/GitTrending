@@ -36,5 +36,12 @@ class GitRepositoryTableViewCell: UITableViewCell {
     // MARK: - Methods
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupUI()
+    }
+    
+    // MARK: - Private Methods
+    
+    private func setupUI() {
+        profileImageView.layer.cornerRadius = profileImageView.bounds.height / 2
     }
 }

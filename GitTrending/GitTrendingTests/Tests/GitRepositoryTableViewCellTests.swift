@@ -79,4 +79,11 @@ final class GitRepositoryTableViewCellTests: XCTestCase {
         XCTAssertEqual(languageLabel.text, repository.language, "The languageLabel text is not equal to the provided")
         XCTAssertEqual(starCountLabel.text, "\(repository.stars)", "The starCountLabel text is not equal to the provided")
     }
+    
+    func testGitRepositoryTableViewCell_WhenLoads_PictureShouldBeRoundedCorner() throws {
+        //Arrange
+        let profileImageView = try XCTUnwrap(sut.profileImageView, "The profileImageView IBOutlet should be connected")
+        //Assert
+        XCTAssertEqual(profileImageView.layer.cornerRadius, profileImageView.bounds.height / 2, "The corner radius should be rounded")
+    }
 }
