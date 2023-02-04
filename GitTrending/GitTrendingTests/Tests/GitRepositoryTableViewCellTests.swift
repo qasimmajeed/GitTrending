@@ -23,13 +23,17 @@ final class GitRepositoryTableViewCellTests: XCTestCase {
     
     override func tearDown() {
         super.tearDown()
+        sut = nil
+        bundle = nil
+        nib = nil
     }
     
     func testGitRepositoryTableViewCell_WhenLoaded_ShouldReturnCell() {
+        //Assert
         XCTAssertNotNil(sut)
     }
     
-    func testGitRepositoryTableViewCellTests_WhenLoads_ShouldHaveDefaultValues() throws {
+    func testGitRepositoryTableViewCell_WhenLoads_ShouldHaveDefaultValues() throws {
         //Arrange
         let userNameLabel = try XCTUnwrap(sut.userNameLabel, "The userNameLabel IBOutlet should be connected")
         let repositoryNameLabel = try XCTUnwrap(sut.repositoryNameLabel, "The repositoryNameLabel IBOutlet should be connected")
@@ -55,7 +59,7 @@ final class GitRepositoryTableViewCellTests: XCTestCase {
         XCTAssertEqual(starImageView.tintColor, UIColor(named: "starColor"), "The tint color should be starColor")
     }
     
-    func testGitRepositoryTableViewCellTests_WhenViewModelAssign_ShouldSetData() throws {
+    func testGitRepositoryTableViewCell_WhenViewModelAssign_ShouldSetData() throws {
         //Arrange
         let repository = Repository(id: 1, name: "lambda", owner: Owner(id: 1, login: "lambda", avatarUrl: "www.google.com"), stars: 2, language: "swift", htmlURL: "www.googl.com")
         
@@ -75,5 +79,4 @@ final class GitRepositoryTableViewCellTests: XCTestCase {
         XCTAssertEqual(languageLabel.text, repository.language, "The languageLabel text is not equal to the provided")
         XCTAssertEqual(starCountLabel.text, "\(repository.stars)", "The starCountLabel text is not equal to the provided")
     }
-    
 }
