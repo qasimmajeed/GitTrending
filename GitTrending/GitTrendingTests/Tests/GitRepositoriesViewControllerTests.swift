@@ -18,6 +18,7 @@ final class GitRepositoriesViewControllerTests: XCTestCase {
         super.setUp()
         storyBoard = UIStoryboard(name: .gitRepositories)
         sut = storyBoard.instantiateViewController(withIdentifier: "GitRepositoriesViewController") as? GitRepositoriesViewController
+        sut.loadViewIfNeeded()
     }
     
     override func tearDown() {
@@ -33,16 +34,9 @@ final class GitRepositoriesViewControllerTests: XCTestCase {
     }
     
     func testGitRepositoriesViewController_WhenCreated_TheTableViewShouldExits() {
-        //Arrange
-        let sut: GitRepositoriesViewController!
-        let storyBoard = UIStoryboard(name: "GitRepositories", bundle: nil)
-        sut = storyBoard.instantiateViewController(withIdentifier: "GitRepositoriesViewController") as? GitRepositoriesViewController
-        
-        //Act
-        sut.loadViewIfNeeded()
-        
         //Assert
         XCTAssertNotNil(sut.tableView, "The tableView IBOutlet should be connected")
     }
+    
     
 }
