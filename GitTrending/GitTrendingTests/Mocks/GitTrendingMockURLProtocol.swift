@@ -11,6 +11,7 @@ import Foundation
 final class GitTrendingMockURLProtocol: URLProtocol {
     // MARK: - Properties
     static var stubResponseData: Data?
+    static var stubError: Error?
     
     // MARK: - URLProtocol overrides
     override class func canInit(with request: URLRequest) -> Bool {
@@ -22,8 +23,12 @@ final class GitTrendingMockURLProtocol: URLProtocol {
     }
     
     override func startLoading() {
-        self.client?.urlProtocol(self, didReceive: HTTPURLResponse(), cacheStoragePolicy: .notAllowed)
-        self.client?.urlProtocol(self, didLoad: GitTrendingMockURLProtocol.stubResponseData ?? Data())
+        if let error = GitTrendingMockURLProtocol.stubError {
+            self.client?.urlProtocol(self, didFailWithError: error)
+        } else {
+            self.client?.urlProtocol(self, didReceive: HTTPURLResponse(), cacheStoragePolicy: .notAllowed)
+            self.client?.urlProtocol(self, didLoad: GitTrendingMockURLProtocol.stubResponseData ?? Data())
+        }
         self.client?.urlProtocolDidFinishLoading(self)
     }
     

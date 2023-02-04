@@ -12,6 +12,7 @@ public enum GitRepositoriesViewModelViewState {
     case loading
     case hideLoading
     case showRepositories
+    case showError
 }
 
 final class GitRepositoriesViewModel {
@@ -33,7 +34,12 @@ final class GitRepositoriesViewModel {
         useCase.fetchGitRepositories(request: GitRepositoriesRequest(search: "language=+sort:stars"))
             .sink { [weak self] completion in
                 guard let self = self else { return }
-                self.stateDidUpdateSubject.send(.hideLoading)
+                switch completion {
+                case .failure( _ ):
+                    self.stateDidUpdateSubject.send(.showError)
+                default:
+                    self.stateDidUpdateSubject.send(.hideLoading)
+                }
             } receiveValue: { [weak self] repositories in
                 guard let self = self else { return }
                 self.stateDidUpdateSubject.send(.showRepositories)

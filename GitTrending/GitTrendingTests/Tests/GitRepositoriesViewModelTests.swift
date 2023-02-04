@@ -27,6 +27,7 @@ final class GitRepositoriesViewModelTests: XCTestCase {
     override func tearDown() {
         super.tearDown()
         GitTrendingMockURLProtocol.stubResponseData = nil
+        GitTrendingMockURLProtocol.stubError = nil
     }
     
     func testGitRepositoriesViewModel_WhenFetch_ShouldHaveLoadingState() {
@@ -88,4 +89,27 @@ final class GitRepositoriesViewModelTests: XCTestCase {
         XCTAssertTrue(isLoadingHidden, "The state should be repositories")
         
     }
+    
+    func testGitRepositoriesViewModel_WhenFetchingCauseError_ShouldShowError() {
+        var isErrorShown = false
+        let expectation = expectation(description: "error shown expectation")
+        GitTrendingMockURLProtocol.stubError = NetworkError.invalidRequest
+        
+        sut.stateDidUpdate.sink { state in
+            if state == .showError {
+                isErrorShown = true
+                expectation.fulfill()
+            }
+        }.store(in: &cancellable)
+        
+        //Act
+        sut.fetchRepositories()
+        
+        wait(for: [expectation], timeout: 0.5)
+        
+        //Assert
+        XCTAssertTrue(isErrorShown, "The state should be showError")
+        
+    }
+    
 }
