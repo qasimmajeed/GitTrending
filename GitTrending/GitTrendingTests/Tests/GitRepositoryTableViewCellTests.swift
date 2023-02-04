@@ -55,4 +55,25 @@ final class GitRepositoryTableViewCellTests: XCTestCase {
         XCTAssertEqual(starImageView.tintColor, UIColor(named: "starColor"), "The tint color should be starColor")
     }
     
+    func testGitRepositoryTableViewCellTests_WhenViewModelAssign_ShouldSetData() throws {
+        //Arrange
+        let repository = Repository(id: 1, name: "lambda", owner: Owner(id: 1, login: "lambda", avatarUrl: "www.google.com"), stars: 2, language: "swift", htmlURL: "www.googl.com")
+        
+        let userNameLabel = try XCTUnwrap(sut.userNameLabel, "The userNameLabel IBOutlet should be connected")
+        let repositoryNameLabel = try XCTUnwrap(sut.repositoryNameLabel, "The repositoryNameLabel IBOutlet should be connected")
+        let repositoryLinkLabel = try XCTUnwrap(sut.repositoryLinkLabel, "The repositoryLinkLabel IBOutlet should be connected")
+        let languageLabel = try XCTUnwrap(sut.languageLabel, "The languageLabel IBOutlet should be connected")
+        let starCountLabel = try XCTUnwrap(sut.starCountLabel, "The starCountLabel IBOutlet should be connected")
+        
+        //Act
+        sut.viewModel = repository
+        
+        //Assert
+        XCTAssertEqual(userNameLabel.text, repository.owner.login, "The userNameLabel text is not equal to the provided")
+        XCTAssertEqual(repositoryNameLabel.text, repository.name, "The repositoryNameLabel text is not equal to the provided")
+        XCTAssertEqual(repositoryLinkLabel.text, repository.htmlURL, "The repositoryLinkLabel text is not equal to the provided")
+        XCTAssertEqual(languageLabel.text, repository.language, "The languageLabel text is not equal to the provided")
+        XCTAssertEqual(starCountLabel.text, "\(repository.stars)", "The starCountLabel text is not equal to the provided")
+    }
+    
 }

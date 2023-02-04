@@ -26,5 +26,17 @@ class GitRepositoryTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    var viewModel: Repository? {
+        didSet {
+            if let viewModel = viewModel {
+                userNameLabel.text = viewModel.owner.login
+                repositoryNameLabel.text = viewModel.name
+                repositoryLinkLabel.text = viewModel.htmlURL
+                languageLabel.text = viewModel.language
+                starCountLabel.text = "\(viewModel.stars)"
+            }
+        }
+    }
 
 }

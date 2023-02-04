@@ -32,6 +32,7 @@
 		9CDCB833298E9185005C238B /* GitRepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB832298E9185005C238B /* GitRepositoryTableViewCell.swift */; };
 		9CDCB837298F0BDE005C238B /* GitRepositoryTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB836298F0BDE005C238B /* GitRepositoryTableViewCellTests.swift */; };
 		9CDCB839298F0C03005C238B /* GitRepositoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CDCB838298F0C03005C238B /* GitRepositoryTableViewCell.xib */; };
+		9CDCB83B298F1C81005C238B /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB83A298F1C81005C238B /* Owner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		9CDCB832298E9185005C238B /* GitRepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoryTableViewCell.swift; sourceTree = "<group>"; };
 		9CDCB836298F0BDE005C238B /* GitRepositoryTableViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoryTableViewCellTests.swift; sourceTree = "<group>"; };
 		9CDCB838298F0C03005C238B /* GitRepositoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GitRepositoryTableViewCell.xib; sourceTree = "<group>"; };
+		9CDCB83A298F1C81005C238B /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 			children = (
 				9CDCB7DB298D8741005C238B /* GitRepositoriesRequest.swift */,
 				9CDCB7E0298D8E9B005C238B /* Repository.swift */,
+				9CDCB83A298F1C81005C238B /* Owner.swift */,
 				9CDCB7E2298D906C005C238B /* GitRepositoryResponse.swift */,
 			);
 			path = Models;
@@ -385,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CDCB7DA298D8426005C238B /* GitRepositoriesUseCase.swift in Sources */,
+				9CDCB83B298F1C81005C238B /* Owner.swift in Sources */,
 				9CDCB7B5298D8026005C238B /* AppDelegate.swift in Sources */,
 				9CDCB7B7298D8026005C238B /* SceneDelegate.swift in Sources */,
 				9CDCB833298E9185005C238B /* GitRepositoryTableViewCell.swift in Sources */,
