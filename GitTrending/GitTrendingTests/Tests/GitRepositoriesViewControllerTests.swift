@@ -53,4 +53,10 @@ final class GitRepositoriesViewControllerTests: XCTestCase {
         XCTAssertEqual(title, mockViewModel.title, "The title is different then in the viewModel")
     }
     
+    func testGitRepositoriesViewController_WhenCreated_TableViewIsConnectedToDelegates() {
+        //Assert
+        XCTAssertNotNil(sut.tableView.delegate, "The delegate should be assign to tableView")
+        XCTAssertNotNil(sut.tableView.dataSource, "The data source delegate should be assign to tableView")
+    }
+    
 }

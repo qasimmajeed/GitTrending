@@ -34,3 +34,21 @@ class GitRepositoriesViewController: UIViewController {
         title = viewModel.title
     }
 }
+
+extension GitRepositoriesViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // TODO:
+        return UITableViewCell()
+    }
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // TODO:
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // TODO:
+        return 0
+    }
+}
