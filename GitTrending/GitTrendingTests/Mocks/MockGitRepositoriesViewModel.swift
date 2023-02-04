@@ -11,7 +11,6 @@ import Combine
 import XCTest
 
 final class MockGitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
-    
     // MARK: - Private Properties
     private var cancellable = Set<AnyCancellable>()
     private let stateDidUpdateSubject = PassthroughSubject<GitRepositoriesViewModelViewState, Never>()
@@ -45,5 +44,9 @@ final class MockGitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
             self.repositories = value
             self.stateDidUpdateSubject.send(.showRepositories)
         }.store(in: &cancellable)
+    }
+    
+    func cellViewModelAtIndex(index: Int) -> GitRepositoryCellViewModel? {
+        return GitRepositoryCellViewModel(repository: repositories[index])
     }
 }

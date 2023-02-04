@@ -116,4 +116,26 @@ final class GitRepositoriesViewModelTests: XCTestCase {
         //Assert
         XCTAssertEqual(sut.title, "Trending")
     }
+    
+    func testGitRepositoriesViewModel_WhenData_ShouldReturnCellViewModel() {
+        //Arrange
+        let expectation = expectation(description: "repository success response expectation")
+        GitTrendingMockURLProtocol.stubResponseData = FakeGitRepositoryData.jsonFakeData.data(using: .utf8)
+        var  cellViewModel: GitRepositoryCellViewModel!
+        sut.stateDidUpdate.sink { state in
+            if state == .showRepositories {
+                cellViewModel = self.sut.cellViewModelAtIndex(index: 0)
+                expectation.fulfill()
+            }
+        }.store(in: &cancellable)
+        
+        //Act
+        sut.fetchRepositories()
+        
+        wait(for: [expectation], timeout: 0.5)
+       
+        
+        //Assert
+        XCTAssertNotNil(cellViewModel, "The cell viewModel should return not nil")
+    }
 }

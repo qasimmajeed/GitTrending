@@ -54,6 +54,7 @@ extension GitRepositoriesViewController: UITableViewDelegate, UITableViewDataSou
         guard let cell = tableView.dequeueReusableCell(withIdentifier: GitRepositoryTableViewCell.reuseAbleCellIdentifier) as? GitRepositoryTableViewCell else {
             return UITableViewCell()
         }
+        cell.viewModel = viewModel.cellViewModelAtIndex(index: indexPath.row)
         return cell
     }
     

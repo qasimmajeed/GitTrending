@@ -22,6 +22,7 @@ protocol GitRepositoriesViewModelProtocol {
     var numberOfRows: Int { get }
     var stateDidUpdate: AnyPublisher<GitRepositoriesViewModelViewState, Never> { get }
     func fetchRepositories()
+    func cellViewModelAtIndex(index: Int) -> GitRepositoryCellViewModel?
 }
 
 final class GitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
@@ -68,5 +69,12 @@ final class GitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
                 self.stateDidUpdateSubject.send(.showRepositories)
             }.store(in: &cancellable)
         
+    }
+    
+    func cellViewModelAtIndex(index: Int) -> GitRepositoryCellViewModel? {
+        if repositories.count > index {
+            return GitRepositoryCellViewModel(repository: repositories[index])
+        }
+        return nil
     }
 }
