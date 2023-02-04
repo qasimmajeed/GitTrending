@@ -12,6 +12,15 @@ class GitRepositoryTableViewCell: UITableViewCell {
     static var reuseAbleCellIdentifier: String = "GitRepositoryTableViewCell"
     static var nibName: String = "GitRepositoryTableViewCell"
     
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var repositoryNameLabel: UILabel!
+    @IBOutlet weak var repositoryLinkLabel: UILabel!
+    @IBOutlet weak var languageLabel: UILabel!
+    @IBOutlet weak var starCountLabel: UILabel!
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var starImageView: UIImageView!
+    @IBOutlet weak var languageFlagView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
