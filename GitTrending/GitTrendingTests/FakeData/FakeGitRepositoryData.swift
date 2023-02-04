@@ -12,6 +12,10 @@ import NetworkFeature
 struct FakeGitRepositoryData {
     static let fakeTitle = "Trending"
     static let fakeRequest = ApiRequestBuilder(scheme: "http", host: Constants.APIUrls.baseURL, path: Constants.APIPaths.repositories, httpMethod: .Get)
+    
+    static var fakeRepositories = [Repository()]
+    
+    
     static let jsonFakeData =  """
 {
   "total_count": 1,

@@ -19,6 +19,7 @@ protocol GitRepositoriesViewModelProtocol {
     init(useCase: GitRepositoriesUseCaseProtocol)
     var title: String { get }
     var numberOfSections: Int { get }
+    var numberOfRows: Int { get }
     var stateDidUpdate: AnyPublisher<GitRepositoriesViewModelViewState, Never> { get }
     func fetchRepositories()
 }
@@ -28,6 +29,7 @@ final class GitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
     private let useCase: GitRepositoriesUseCaseProtocol
     private let stateDidUpdateSubject = PassthroughSubject<GitRepositoriesViewModelViewState, Never>()
     private var cancellable: Set<AnyCancellable> = Set<AnyCancellable>()
+    private var repositories: [Repository] = [Repository]()
     
     // MARK: - Public Properties
     private(set) lazy var stateDidUpdate: AnyPublisher<GitRepositoriesViewModelViewState, Never>  = stateDidUpdateSubject.eraseToAnyPublisher()
@@ -38,6 +40,10 @@ final class GitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
     
     var numberOfSections: Int {
         return 1
+    }
+    
+    var numberOfRows: Int {
+        return repositories.count
     }
     
     // MARK: - init
@@ -58,6 +64,7 @@ final class GitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
                 }
             } receiveValue: { [weak self] repositories in
                 guard let self = self else { return }
+                self.repositories = repositories
                 self.stateDidUpdateSubject.send(.showRepositories)
             }.store(in: &cancellable)
         

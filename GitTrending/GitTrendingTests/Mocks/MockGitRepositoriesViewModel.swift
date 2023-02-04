@@ -21,6 +21,10 @@ final class MockGitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
         return 1
     }
     
+    var numberOfRows: Int {
+        return FakeGitRepositoryData.fakeRepositories.count
+    }
+    
     var stateDidUpdate: AnyPublisher<GitRepositoriesViewModelViewState, Never> = PassthroughSubject<GitRepositoriesViewModelViewState, Never>().eraseToAnyPublisher()
     
     func fetchRepositories() {

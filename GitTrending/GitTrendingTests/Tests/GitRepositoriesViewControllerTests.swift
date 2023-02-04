@@ -65,4 +65,10 @@ final class GitRepositoriesViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.tableView.numberOfSections, expectedSectionsCount,"The number of sections should be equal")
     }
     
+    func testGitRepositoriesViewController_WhenTableLoads_ShouldReturnNumberOfRows() {
+        //Assert
+        let expectedRowsCount = mockViewModel.numberOfRows
+        XCTAssertEqual(sut.tableView.numberOfRows(inSection: 0), expectedRowsCount, "The number of rows should be equal")
+    }
+    
 }
