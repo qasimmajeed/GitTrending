@@ -30,6 +30,8 @@
 		9CDCB82E298E7C13005C238B /* UIStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB82D298E7C13005C238B /* UIStoryboard+Extensions.swift */; };
 		9CDCB830298E8072005C238B /* MockGitRepositoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB82F298E8072005C238B /* MockGitRepositoriesViewModel.swift */; };
 		9CDCB833298E9185005C238B /* GitRepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB832298E9185005C238B /* GitRepositoryTableViewCell.swift */; };
+		9CDCB837298F0BDE005C238B /* GitRepositoryTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB836298F0BDE005C238B /* GitRepositoryTableViewCellTests.swift */; };
+		9CDCB839298F0C03005C238B /* GitRepositoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CDCB838298F0C03005C238B /* GitRepositoryTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,8 @@
 		9CDCB82D298E7C13005C238B /* UIStoryboard+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extensions.swift"; sourceTree = "<group>"; };
 		9CDCB82F298E8072005C238B /* MockGitRepositoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGitRepositoriesViewModel.swift; sourceTree = "<group>"; };
 		9CDCB832298E9185005C238B /* GitRepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoryTableViewCell.swift; sourceTree = "<group>"; };
+		9CDCB836298F0BDE005C238B /* GitRepositoryTableViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoryTableViewCellTests.swift; sourceTree = "<group>"; };
+		9CDCB838298F0C03005C238B /* GitRepositoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GitRepositoryTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +204,7 @@
 				9CDCB7D7298D8337005C238B /* GitRepositoriesUseCaseTests.swift */,
 				9CDCB7F4298D9F14005C238B /* GitRepositoriesViewModelTests.swift */,
 				9CDCB828298E761D005C238B /* GitRepositoriesViewControllerTests.swift */,
+				9CDCB836298F0BDE005C238B /* GitRepositoryTableViewCellTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -268,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				9CDCB832298E9185005C238B /* GitRepositoryTableViewCell.swift */,
+				9CDCB838298F0C03005C238B /* GitRepositoryTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -359,6 +365,7 @@
 			files = (
 				9CDCB7C1298D8026005C238B /* LaunchScreen.storyboard in Resources */,
 				9CDCB7BE298D8026005C238B /* Assets.xcassets in Resources */,
+				9CDCB839298F0C03005C238B /* GitRepositoryTableViewCell.xib in Resources */,
 				9CDCB7BC298D8026005C238B /* GitRepositories.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,6 +407,7 @@
 				9CDCB7FB298DA16C005C238B /* MockRepositoriesUseCases.swift in Sources */,
 				9CDCB830298E8072005C238B /* MockGitRepositoriesViewModel.swift in Sources */,
 				9CDCB7D8298D8337005C238B /* GitRepositoriesUseCaseTests.swift in Sources */,
+				9CDCB837298F0BDE005C238B /* GitRepositoryTableViewCellTests.swift in Sources */,
 				9CDCB829298E761D005C238B /* GitRepositoriesViewControllerTests.swift in Sources */,
 				9CDCB800298DAC78005C238B /* NetworkStub.swift in Sources */,
 				9CDCB7EA298D97CD005C238B /* FakeGitRepositoryData.swift in Sources */,

@@ -8,18 +8,13 @@
 import UIKit
 
 class GitRepositoryTableViewCell: UITableViewCell {
-    
+    // MARK: - Properties
     static var reuseAbleCellIdentifier: String = "GitRepositoryTableViewCell"
-
+    static var nibName: String = "GitRepositoryTableViewCell"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

@@ -35,6 +35,7 @@ class GitRepositoriesViewController: UIViewController {
     // MARK: - Private Methods
     
     private func configureUI() {
+        self.tableView.register(UINib(nibName: GitRepositoryTableViewCell.reuseAbleCellIdentifier, bundle: nil), forCellReuseIdentifier: GitRepositoryTableViewCell.reuseAbleCellIdentifier)
         title = viewModel.title
     }
     
