@@ -22,7 +22,7 @@ final class GitRepositoriesViewControllerTests: XCTestCase {
     func testGitRepositoriesViewController_WhenCreated_ShouldReturnController() {
         //Arrange
         let sut: GitRepositoriesViewController!
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let storyBoard = UIStoryboard(name: "GitRepositories", bundle: nil)
         
         //Act
         sut = storyBoard.instantiateViewController(withIdentifier: "GitRepositoriesViewController") as? GitRepositoriesViewController
