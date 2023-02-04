@@ -8,6 +8,8 @@
 import UIKit
 
 class GitRepositoriesViewController: UIViewController {
+    // MARK: - Properties
+    @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()

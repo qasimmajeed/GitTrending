@@ -32,4 +32,17 @@ final class GitRepositoriesViewControllerTests: XCTestCase {
         XCTAssertNotNil(storyBoard, "The name of the story board should be proper and exits")
     }
     
+    func testGitRepositoriesViewController_WhenCreated_TheTableViewShouldExits() {
+        //Arrange
+        let sut: GitRepositoriesViewController!
+        let storyBoard = UIStoryboard(name: "GitRepositories", bundle: nil)
+        sut = storyBoard.instantiateViewController(withIdentifier: "GitRepositoriesViewController") as? GitRepositoriesViewController
+        
+        //Act
+        sut.loadViewIfNeeded()
+        
+        //Assert
+        XCTAssertNotNil(sut.tableView, "The tableView IBOutlet should be connected")
+    }
+    
 }
