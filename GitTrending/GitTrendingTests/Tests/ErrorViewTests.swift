@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import Lottie
 @testable import GitTrending
 
 final class ErrorViewTests: XCTestCase {
@@ -36,5 +37,11 @@ final class ErrorViewTests: XCTestCase {
         XCTAssertEqual(someThingWrongLabel.text, "Something went wrong..", "The someThingWrongLabel not empty when the cell load")
         XCTAssertEqual(errorDetailLabel.text, "An alien is probably blocking your signal.", "The errorDetailLabel not empty when the cell load")
         XCTAssertEqual(retryButton.titleLabel?.text, "RETRY", "The retryButton not empty when the cell load")
+    }
+    
+    func testErrorView_WhenLoads_AnimationViewShouldBeLottie() throws {
+        //ArrangeU
+        let animationView = try XCTUnwrap(sut.animationView, "The animationView IBOutlet should be connected")
+        XCTAssertTrue((animationView as Any) is LottieAnimationView, "The view should be LottieAnimationView")
     }
 }

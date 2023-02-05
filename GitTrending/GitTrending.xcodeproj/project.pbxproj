@@ -39,6 +39,7 @@
 		9CDCB84C298F450E005C238B /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB84B298F450E005C238B /* ErrorView.swift */; };
 		9CDCB84E298F451D005C238B /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CDCB84D298F451D005C238B /* ErrorView.xib */; };
 		9CDCB850298FC889005C238B /* TestingSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 9CDCB84F298FC889005C238B /* TestingSupport */; };
+		9CDCB856298FD468005C238B /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 9CDCB855298FD468005C238B /* Lottie */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CDCB856298FD468005C238B /* Lottie in Frameworks */,
 				9CDCB843298F30C9005C238B /* Kingfisher in Frameworks */,
 				9CDCB850298FC889005C238B /* TestingSupport in Frameworks */,
 				9CDCB846298F3289005C238B /* SkeletonView in Frameworks */,
@@ -333,6 +335,7 @@
 				9CDCB842298F30C9005C238B /* Kingfisher */,
 				9CDCB845298F3289005C238B /* SkeletonView */,
 				9CDCB84F298FC889005C238B /* TestingSupport */,
+				9CDCB855298FD468005C238B /* Lottie */,
 			);
 			productName = GitTrending;
 			productReference = 9CDCB7B1298D8026005C238B /* GitTrending.app */;
@@ -388,6 +391,7 @@
 			packageReferences = (
 				9CDCB841298F30C9005C238B /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				9CDCB844298F3289005C238B /* XCRemoteSwiftPackageReference "SkeletonView" */,
+				9CDCB854298FD468005C238B /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 9CDCB7B2298D8026005C238B /* Products */;
 			projectDirPath = "";
@@ -763,6 +767,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		9CDCB854298FD468005C238B /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -783,6 +795,11 @@
 		9CDCB84F298FC889005C238B /* TestingSupport */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TestingSupport;
+		};
+		9CDCB855298FD468005C238B /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9CDCB854298FD468005C238B /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

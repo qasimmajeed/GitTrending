@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import Lottie
 
 class ErrorView: UIView {
     // MARK: - Properties
-    @IBOutlet weak var animationView: UIView!
+    @IBOutlet weak var animationView: LottieAnimationView!
     @IBOutlet weak var someThingWrongLabel: UILabel!
     @IBOutlet weak var errorDetailLabel: UILabel!
     @IBOutlet weak var retryButton: UIButton!
