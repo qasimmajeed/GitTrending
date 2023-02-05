@@ -111,7 +111,7 @@ final class GitRepositoriesViewModelTests: XCTestCase {
         XCTAssertTrue(isErrorShown, "The state should be showError")
         
     }
-   
+    
     func testGitRepositoriesViewModel_TheTitleMustSame() {
         //Assert
         XCTAssertEqual(sut.title, "Trending")
@@ -133,9 +133,37 @@ final class GitRepositoriesViewModelTests: XCTestCase {
         sut.fetchRepositories()
         
         wait(for: [expectation], timeout: 0.5)
-       
+        
         
         //Assert
         XCTAssertNotNil(cellViewModel, "The cell viewModel should return not nil")
+    }
+    
+    func testGitRepositoriesViewModel_WhenCellDidSelect_ShouldUpdateTheState() {
+        //Arrange
+        let expectation = expectation(description: "repository ShouldUpdateTheState expectation")
+        GitTrendingMockURLProtocol.stubResponseData = FakeGitRepositoryData.jsonFakeData.data(using: .utf8)
+        var isSelectedCalled = false
+        var callCount = 0
+        sut.stateDidUpdate.sink { state in
+            if state == .showRepositories {
+                callCount += 1
+                if callCount == 1 {
+                    self.sut.didSelectAtIndex(index: 0)
+                    isSelectedCalled = true
+                    expectation.fulfill()
+                }
+                
+            }
+        }.store(in: &cancellable)
+        
+        //Act
+        sut.fetchRepositories()
+        
+        wait(for: [expectation], timeout: 0.5)
+        
+        
+        //Assert
+        XCTAssertTrue(isSelectedCalled, "Should call the didSelectAtIndex")
     }
 }

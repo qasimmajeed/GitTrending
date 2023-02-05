@@ -23,6 +23,7 @@ protocol GitRepositoriesViewModelProtocol {
     var stateDidUpdate: AnyPublisher<GitRepositoriesViewModelViewState, Never> { get }
     func fetchRepositories()
     func cellViewModelAtIndex(index: Int) -> GitRepositoryCellViewModel?
+    func didSelectAtIndex(index: Int)
 }
 
 final class GitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
@@ -31,6 +32,7 @@ final class GitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
     private let stateDidUpdateSubject = PassthroughSubject<GitRepositoriesViewModelViewState, Never>()
     private var cancellable: Set<AnyCancellable> = Set<AnyCancellable>()
     private var repositories: [Repository] = [Repository]()
+    private var cellViewModels: [GitRepositoryCellViewModel] = [GitRepositoryCellViewModel]()
     
     // MARK: - Public Properties
     private(set) lazy var stateDidUpdate: AnyPublisher<GitRepositoriesViewModelViewState, Never>  = stateDidUpdateSubject.eraseToAnyPublisher()
@@ -66,15 +68,23 @@ final class GitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
             } receiveValue: { [weak self] repositories in
                 guard let self = self else { return }
                 self.repositories = repositories
+                self.cellViewModels = self.repositories.map { GitRepositoryCellViewModel(repository: $0) }
                 self.stateDidUpdateSubject.send(.showRepositories)
             }.store(in: &cancellable)
         
     }
     
     func cellViewModelAtIndex(index: Int) -> GitRepositoryCellViewModel? {
-        if repositories.count > index {
-            return GitRepositoryCellViewModel(repository: repositories[index])
+        if cellViewModels.count > index {
+            return cellViewModels[index]
         }
         return nil
+    }
+    
+    func didSelectAtIndex(index: Int) {
+        if cellViewModels.count > index {
+            cellViewModels[index].isExpanded.toggle()
+            self.stateDidUpdateSubject.send(.showRepositories)
+        }
     }
 }
