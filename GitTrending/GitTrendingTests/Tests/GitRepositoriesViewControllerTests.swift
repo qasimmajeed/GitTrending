@@ -116,5 +116,13 @@ final class GitRepositoriesViewControllerTests: XCTestCase {
         //Assert
         XCTAssert(mockViewModel.isRetryCalled, "The retry should called")
     }
+    
+    
+    func testGitRepositoriesViewController_WhenPullToRefreshCalled() {
+        //Act
+        sut.pullToRefreshAction()
+        
+        XCTAssertTrue(mockViewModel.isPullToRefreshCalled, "Should Call the pull To refresh")
+    }
 
 }

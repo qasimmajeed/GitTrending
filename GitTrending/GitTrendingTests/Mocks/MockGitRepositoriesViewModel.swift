@@ -19,6 +19,7 @@ final class MockGitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
     var expectation: XCTestExpectation?
     var isError: Bool = false
     var isRetryCalled: Bool = false
+    var isPullToRefreshCalled: Bool = false
     
     init(useCase: GitRepositoriesUseCaseProtocol) {
         self.useCase = useCase
@@ -68,5 +69,9 @@ final class MockGitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
     
     func retryFetch() {
         isRetryCalled = true
+    }
+    
+    func fetchFromPullToRefresh() {
+        isPullToRefreshCalled = true
     }
 }

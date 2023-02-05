@@ -25,6 +25,7 @@ protocol GitRepositoriesViewModelProtocol {
     func cellViewModelAtIndex(index: Int) -> GitRepositoryCellViewModel?
     func didSelectAtIndex(index: Int)
     func retryFetch()
+    func fetchFromPullToRefresh()
 }
 
 final class GitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
@@ -93,5 +94,8 @@ final class GitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
     func retryFetch() {
         fetchRepositories()
     }
-
+    
+    func fetchFromPullToRefresh() {
+        fetchRepositories()
+    }
 }

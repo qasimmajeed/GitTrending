@@ -15,6 +15,11 @@ final class GitRepositoriesViewController: UIViewController {
     var errorView: ErrorView?
     private let viewModel: GitRepositoriesViewModelProtocol
     private var cancellable = Set<AnyCancellable>()
+    private lazy var pullToRefresh : UIRefreshControl = {
+      let refresh = UIRefreshControl()
+        refresh.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        return refresh
+    }()
     
     // MARK: - Init
     init?(coder: NSCoder, viewModel: GitRepositoriesViewModelProtocol = GitRepositoriesViewModel()) {
@@ -40,6 +45,8 @@ final class GitRepositoriesViewController: UIViewController {
         tableView.estimatedRowHeight = 100
         self.tableView.register(UINib(nibName: GitRepositoryTableViewCell.reuseAbleCellIdentifier, bundle: nil), forCellReuseIdentifier: GitRepositoryTableViewCell.reuseAbleCellIdentifier)
         title = viewModel.title
+        tableView.addSubview(pullToRefresh)
+        pullToRefresh.addTarget(self, action: #selector(pullToRefreshAction), for: .valueChanged)
     }
     
     private func binding() {
@@ -56,8 +63,8 @@ final class GitRepositoriesViewController: UIViewController {
                 case .hideLoading:
                     self.tableView.stopSkeletonAnimation()
                     self.tableView.hideSkeleton()
-                default:
-                    print()
+                case .showRepositories:
+                    self.pullToRefresh.endRefreshing()
                 }
             }
         }.store(in: &cancellable)
@@ -88,6 +95,10 @@ final class GitRepositoriesViewController: UIViewController {
     
     @objc public func retryButtonTap() {
         viewModel.retryFetch()
+    }
+    
+    @objc public func pullToRefreshAction() {
+        viewModel.fetchFromPullToRefresh()
     }
 }
 
