@@ -85,4 +85,9 @@ final class GitRepositoriesViewControllerTests: XCTestCase {
         //Assert
         XCTAssertNotNil(cell, "The cell should not be null when having data")
     }
+    
+    func testGitRepositoriesViewController_WhenCreated_IsHavingSkeletonable() {
+        //Assert
+        XCTAssertTrue(sut.tableView.isSkeletonable, "The tableview should be sSkeletonable")
+    }
 }
