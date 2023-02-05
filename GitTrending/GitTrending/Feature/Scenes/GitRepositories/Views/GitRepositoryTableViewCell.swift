@@ -47,5 +47,6 @@ class GitRepositoryTableViewCell: UITableViewCell {
     
     private func setupUI() {
         profileImageView.layer.cornerRadius = profileImageView.bounds.height / 2
+        languageFlagView.layer.cornerRadius = languageFlagView.bounds.height / 2
     }
 }

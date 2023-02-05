@@ -99,4 +99,11 @@ final class GitRepositoryTableViewCellTests: XCTestCase {
         //Assert
         XCTAssertEqual(expandedStack.isHidden, !cellViewModel.isExpanded, "Should be the inverse state for expand and collapse")
     }
+    
+    func testGitRepositoryTableViewCell_WhenLoads_LanguageViewShouldBeRoundedCorner() throws {
+        //Arrange
+        let profileImageView = try XCTUnwrap(sut.languageFlagView, "The languageFlagView IBOutlet should be connected")
+        //Assert
+        XCTAssertEqual(profileImageView.layer.cornerRadius, profileImageView.bounds.height / 2, "The corner radius should be rounded")
+    }
 }
