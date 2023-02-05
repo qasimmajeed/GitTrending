@@ -44,4 +44,14 @@ final class ErrorViewTests: XCTestCase {
         let animationView = try XCTUnwrap(sut.animationView, "The animationView IBOutlet should be connected")
         XCTAssertTrue((animationView as Any) is LottieAnimationView, "The view should be LottieAnimationView")
     }
+    
+    func testErrorView_WhenLoads_VerifyRetryButtonLayout() throws {
+        //Arrange
+        let color = UIColor(named: "greenColor")
+        let retryButton = try XCTUnwrap(sut.retryButton, "The retryButton IBOutlet should")
+        
+        XCTAssertEqual(retryButton.tintColor, color, "The color should be greenColor")
+        XCTAssertEqual(retryButton.layer.borderWidth, 1.0, "The border width should be 1.0")
+        XCTAssertEqual(retryButton.layer.cornerRadius, 5.0, "The cornerRadius width should be 5.0")
+    }
 }

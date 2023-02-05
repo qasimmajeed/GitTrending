@@ -26,6 +26,12 @@ public final class ErrorView: UIView {
         animationView.contentMode = .scaleAspectFit
         animationView.loopMode = .loop
         animationView.play()
+        
+        self.retryButton.layer.borderWidth = 1.0
+        self.retryButton.layer.borderColor = UIColor(named: "greenColor")?.cgColor
+        self.retryButton.tintColor = UIColor(named: "greenColor")
+        self.retryButton.layer.cornerRadius = 5.0
+
     }
 
 }

@@ -66,7 +66,14 @@ final class GitRepositoriesViewController: UIViewController {
     private func showErrorView() {
         errorView = ErrorView.loadViewFromXib()
         if let errorView = errorView {
-            self.view.addSubview(errorView)
+            errorView.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(errorView)
+            NSLayoutConstraint.activate([
+                 errorView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                 errorView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                 errorView.topAnchor.constraint(equalTo: view.topAnchor),
+                 errorView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+             ])
             errorView.retryButton.addTarget(self, action: #selector(retryButtonTap), for: .touchUpInside)
         }
         
