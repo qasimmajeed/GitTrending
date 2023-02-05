@@ -5,141 +5,141 @@
 //  Created by Muhammad Qasim Majeed on 03/02/2023.
 //
 
-import XCTest
 import Combine
+@testable import GitTrending
 import NetworkFeature
 import TestingSupport
-@testable import GitTrending
+import XCTest
 
 final class GitRepositoriesViewModelTests: XCTestCase {
     // MARK: - Private Properties
+
     private var cancellable = Set<AnyCancellable>()
     private var network: Networking!
     private var sut: GitRepositoriesViewModel!
     private var mockUseCase: MockRepositoriesUseCases!
-    
+
     override func setUp() {
         super.setUp()
         network = NetworkStub.stub
         mockUseCase = MockRepositoriesUseCases(network: network)
         sut = GitRepositoriesViewModel(useCase: mockUseCase)
     }
-    
+
     override func tearDown() {
         super.tearDown()
         MockURLProtocol.stubResponseData = nil
         MockURLProtocol.stubError = nil
     }
-    
+
     func testGitRepositoriesViewModel_WhenFetch_ShouldHaveLoadingState() {
-        //Arrange
+        // Arrange
         var isLoadingState = false
         sut.stateDidUpdate.sink { state in
             if state == .loading {
                 isLoadingState = true
             }
         }.store(in: &cancellable)
-        
-        //Act
+
+        // Act
         sut.fetchRepositories()
-        
-        //Assert
+
+        // Assert
         XCTAssertTrue(isLoadingState, "The state should be loading")
     }
-    
+
     func testGitRepositoriesViewModel_WhenFetch_ShouldShowRepositories() {
-        //Arrange
+        // Arrange
         var isShowRepositoriesState = false
         let expectation = expectation(description: "repository success response expectation")
         MockURLProtocol.stubResponseData = FakeGitRepositoryData.jsonFakeData.data(using: .utf8)
-        
+
         sut.stateDidUpdate.sink { state in
             if state == .showRepositories {
                 isShowRepositoriesState = true
                 expectation.fulfill()
             }
         }.store(in: &cancellable)
-        
-        //Act
+
+        // Act
         sut.fetchRepositories()
-        
+
         wait(for: [expectation], timeout: 0.5)
-        
-        //Assert
+
+        // Assert
         XCTAssertTrue(isShowRepositoriesState, "The state should be repositories")
     }
-    
+
     func testGitRepositoriesViewModel_WhenAfterFetch_ShouldHideLoading() {
         var isLoadingHidden = false
         let expectation = expectation(description: "when is loading is done expectation")
         MockURLProtocol.stubResponseData = FakeGitRepositoryData.jsonFakeData.data(using: .utf8)
-        
+
         sut.stateDidUpdate.sink { state in
             if state == .hideLoading {
                 isLoadingHidden = true
                 expectation.fulfill()
             }
         }.store(in: &cancellable)
-        
-        //Act
+
+        // Act
         sut.fetchRepositories()
-        
+
         wait(for: [expectation], timeout: 0.5)
-        
-        //Assert
+
+        // Assert
         XCTAssertTrue(isLoadingHidden, "The state should be repositories")
     }
-    
+
     func testGitRepositoriesViewModel_WhenFetchingCauseError_ShouldShowError() {
         var isErrorShown = false
         let expectation = expectation(description: "error shown expectation")
         MockURLProtocol.stubError = NetworkError.invalidRequest
-        
+
         sut.stateDidUpdate.sink { state in
             if state == .showError {
                 isErrorShown = true
                 expectation.fulfill()
             }
         }.store(in: &cancellable)
-        
-        //Act
+
+        // Act
         sut.fetchRepositories()
-        
+
         wait(for: [expectation], timeout: 0.5)
-        
-        //Assert
+
+        // Assert
         XCTAssertTrue(isErrorShown, "The state should be showError")
     }
-    
+
     func testGitRepositoriesViewModel_TheTitleMustSame() {
-        //Assert
+        // Assert
         XCTAssertEqual(sut.title, "Trending")
     }
-    
+
     func testGitRepositoriesViewModel_WhenData_ShouldReturnCellViewModel() {
-        //Arrange
+        // Arrange
         let expectation = expectation(description: "repository success response expectation")
         MockURLProtocol.stubResponseData = FakeGitRepositoryData.jsonFakeData.data(using: .utf8)
-        var  cellViewModel: GitRepositoryCellViewModel!
+        var cellViewModel: GitRepositoryCellViewModel!
         sut.stateDidUpdate.sink { state in
             if state == .showRepositories {
                 cellViewModel = self.sut.cellViewModelAtIndex(index: 0)
                 expectation.fulfill()
             }
         }.store(in: &cancellable)
-        
-        //Act
+
+        // Act
         sut.fetchRepositories()
-        
+
         wait(for: [expectation], timeout: 0.5)
-        
-        
-        //Assert
+
+        // Assert
         XCTAssertNotNil(cellViewModel, "The cell viewModel should return not nil")
     }
-    
+
     func testGitRepositoriesViewModel_WhenCellDidSelect_ShouldUpdateTheState() {
-        //Arrange
+        // Arrange
         let expectation = expectation(description: "repository ShouldUpdateTheState expectation")
         MockURLProtocol.stubResponseData = FakeGitRepositoryData.jsonFakeData.data(using: .utf8)
         var isSelectedCalled = false
@@ -152,17 +152,15 @@ final class GitRepositoriesViewModelTests: XCTestCase {
                     isSelectedCalled = true
                     expectation.fulfill()
                 }
-                
             }
         }.store(in: &cancellable)
-        
-        //Act
+
+        // Act
         sut.fetchRepositories()
-        
+
         wait(for: [expectation], timeout: 0.5)
-        
-        
-        //Assert
+
+        // Assert
         XCTAssertTrue(isSelectedCalled, "Should call the didSelectAtIndex")
     }
 }

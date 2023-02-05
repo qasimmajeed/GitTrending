@@ -12,7 +12,7 @@ extension UIStoryboard {
     enum Name: String {
         case gitRepositories = "GitRepositories"
     }
-    
+
     convenience init(name: Name, bundle: Bundle? = nil) {
         self.init(name: name.rawValue, bundle: bundle)
     }

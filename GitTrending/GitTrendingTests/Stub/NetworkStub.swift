@@ -6,11 +6,11 @@
 //
 
 import Foundation
-import TestingSupport
 import NetworkFeature
+import TestingSupport
 
 final class NetworkStub {
-    static var stub:  Networking {
+    static var stub: Networking {
         let configuration = URLSessionConfiguration.ephemeral
         configuration.protocolClasses = [MockURLProtocol.self]
         let session = URLSession(configuration: configuration)

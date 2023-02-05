@@ -5,29 +5,28 @@
 //  Created by Muhammad Qasim Majeed on 05/02/2023.
 //
 
-import XCTest
 @testable import GitTrending
+import XCTest
 
 final class AppCoordinatorTests: XCTestCase {
-    
     override func setUp() {
         super.setUp()
     }
-    
+
     override func tearDown() {
         super.tearDown()
     }
-    
+
     func test_WhenLaunch_TheGitRepositoriesShouldShow() {
-        //Arrange
+        // Arrange
         let window = UIWindow()
         let navigationController = SpyNavigationController()
         let sut = AppCoordinator(window: window, navigation: navigationController)
-        
-        //Act
+
+        // Act
         sut.start()
-        
-        //Assert
+
+        // Assert
         guard let _ = navigationController.controller as? GitRepositoriesViewController else {
             XCTFail()
             return

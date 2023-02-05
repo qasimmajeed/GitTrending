@@ -10,11 +10,13 @@ import UIKit
 
 final class SpyNavigationController: UINavigationController {
     // MARK: - Properties
+
     var controller: UIViewController!
-    
+
     // MARK: - UINavigationController
+
     override func setViewControllers(_ viewControllers: [UIViewController], animated: Bool) {
         super.setViewControllers(viewControllers, animated: animated)
-        self.controller = viewControllers.first
+        controller = viewControllers.first
     }
 }

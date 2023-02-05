@@ -5,8 +5,8 @@
 //  Created by Muhammad Qasim Majeed on 04/02/2023.
 //
 
-import Foundation
 import Combine
+import Foundation
 
 /// State for the ViewModel
 public enum GitRepositoriesViewModelViewState {
@@ -15,7 +15,6 @@ public enum GitRepositoriesViewModelViewState {
     case showRepositories
     case showError
 }
-
 
 /// GitRepositoriesViewModelProtocol
 protocol GitRepositoriesViewModelProtocol {
@@ -33,40 +32,44 @@ protocol GitRepositoriesViewModelProtocol {
 
 final class GitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
     // MARK: - Private Properties
+
     private let useCase: GitRepositoriesUseCaseProtocol
     private let stateDidUpdateSubject = PassthroughSubject<GitRepositoriesViewModelViewState, Never>()
-    private var cancellable: Set<AnyCancellable> = Set<AnyCancellable>()
-    private var repositories: [Repository] = [Repository]()
-    private var cellViewModels: [GitRepositoryCellViewModel] = [GitRepositoryCellViewModel]()
-    
+    private var cancellable: Set<AnyCancellable> = .init()
+    private var repositories: [Repository] = .init()
+    private var cellViewModels: [GitRepositoryCellViewModel] = .init()
+
     // MARK: - Public Properties
-    private(set) lazy var stateDidUpdate: AnyPublisher<GitRepositoriesViewModelViewState, Never>  = stateDidUpdateSubject.eraseToAnyPublisher()
-    
+
+    private(set) lazy var stateDidUpdate: AnyPublisher<GitRepositoriesViewModelViewState, Never> = stateDidUpdateSubject.eraseToAnyPublisher()
+
     public var title: String {
         return "Trending"
     }
-    
+
     public var numberOfSections: Int {
         return 1
     }
-    
+
     var numberOfRows: Int {
         return repositories.count
     }
-    
+
     // MARK: - init
+
     public init(useCase: GitRepositoriesUseCaseProtocol = GitRepositoriesUseCase()) {
         self.useCase = useCase
     }
-    
+
     // MARK: - Methods
+
     public func fetchRepositories() {
         stateDidUpdateSubject.send(.loading)
         useCase.fetchGitRepositories(request: GitRepositoriesRequest(search: "language=+sort:stars"))
             .sink { [weak self] completion in
                 guard let self = self else { return }
                 switch completion {
-                case .failure( _ ):
+                case .failure:
                     self.stateDidUpdateSubject.send(.showError)
                 default:
                     self.stateDidUpdateSubject.send(.hideLoading)
@@ -77,27 +80,26 @@ final class GitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
                 self.cellViewModels = self.repositories.map { GitRepositoryCellViewModel(repository: $0) }
                 self.stateDidUpdateSubject.send(.showRepositories)
             }.store(in: &cancellable)
-        
     }
-    
+
     public func cellViewModelAtIndex(index: Int) -> GitRepositoryCellViewModel? {
         if cellViewModels.count > index {
             return cellViewModels[index]
         }
         return nil
     }
-    
+
     public func didSelectAtIndex(index: Int) {
         if cellViewModels.count > index {
             cellViewModels[index].isExpanded.toggle()
-            self.stateDidUpdateSubject.send(.showRepositories)
+            stateDidUpdateSubject.send(.showRepositories)
         }
     }
-    
+
     public func retryFetch() {
         fetchRepositories()
     }
-    
+
     public func fetchFromPullToRefresh() {
         fetchRepositories()
     }

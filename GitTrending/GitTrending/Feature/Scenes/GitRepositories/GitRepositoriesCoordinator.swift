@@ -13,16 +13,19 @@ protocol GitRepositoriesCoordinatorProtocol: Coordinator {
 
 final class GitSearchRepositoriesCoordinator: GitRepositoriesCoordinatorProtocol {
     // MARK: - Private Properties
+
     private let navigationController: UINavigationController
     private let factory: GitRepositoriesViewControllerFactoryProtocol
-    
+
     // MARK: - init
+
     init(navigationController: UINavigationController, factory: GitRepositoriesViewControllerFactoryProtocol = GitRepositoriesViewControllerFactory()) {
         self.navigationController = navigationController
         self.factory = factory
     }
-    
+
     // MARK: - Coordinator Implementation
+
     func start() {
         let searchViewController = factory.makeGitRepositoriesViewController()
         navigationController.setViewControllers([searchViewController], animated: true)

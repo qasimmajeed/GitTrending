@@ -7,14 +7,14 @@
 
 import Foundation
 
-public struct Constants {
+public enum Constants {
     /// Defines all the base api urls
-    public struct APIUrls {
+    public enum APIUrls {
         public static let baseURL = "api.github.com"
     }
-    
+
     /// Define all the paths for the urls
-    public struct APIPaths {
-        public static let repositories  = "/search/repositories"
+    public enum APIPaths {
+        public static let repositories = "/search/repositories"
     }
 }

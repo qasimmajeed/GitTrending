@@ -1,4 +1,4 @@
-import XCTest
 @testable import TestingSupport
+import XCTest
 
-final class TestingSupportTests: XCTestCase { }
+final class TestingSupportTests: XCTestCase {}
