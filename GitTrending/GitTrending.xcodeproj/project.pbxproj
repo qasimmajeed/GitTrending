@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9CD6F0AD298FEB4F006F7721 /* SpyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6F0AC298FEB4F006F7721 /* SpyNavigationController.swift */; };
+		9CD6F0AF298FEBA2006F7721 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6F0AE298FEBA2006F7721 /* AppCoordinator.swift */; };
+		9CD6F0B1298FEC57006F7721 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6F0B0298FEC57006F7721 /* Coordinator.swift */; };
+		9CD6F0B3298FECBA006F7721 /* GitRepositoriesCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6F0B2298FECBA006F7721 /* GitRepositoriesCoordinatorTests.swift */; };
+		9CD6F0B5298FED6A006F7721 /* GitRepositoriesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6F0B4298FED6A006F7721 /* GitRepositoriesCoordinator.swift */; };
+		9CD6F0B8298FEDEB006F7721 /* GitRepositoriesViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6F0B7298FEDEB006F7721 /* GitRepositoriesViewControllerFactory.swift */; };
+		9CD6F0BA298FF063006F7721 /* MockGitRepositoriesViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6F0B9298FF063006F7721 /* MockGitRepositoriesViewControllerFactory.swift */; };
 		9CDCB7B5298D8026005C238B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB7B4298D8026005C238B /* AppDelegate.swift */; };
 		9CDCB7B7298D8026005C238B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB7B6298D8026005C238B /* SceneDelegate.swift */; };
 		9CDCB7BC298D8026005C238B /* GitRepositories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CDCB7BA298D8026005C238B /* GitRepositories.storyboard */; };
@@ -41,6 +48,7 @@
 		9CDCB850298FC889005C238B /* TestingSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 9CDCB84F298FC889005C238B /* TestingSupport */; };
 		9CDCB856298FD468005C238B /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 9CDCB855298FD468005C238B /* Lottie */; };
 		9CDCB858298FD67C005C238B /* retryanimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CDCB857298FD67C005C238B /* retryanimation.json */; };
+		9CDCB85C298FEA3F005C238B /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB85B298FEA3F005C238B /* AppCoordinatorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +62,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9CD6F0AC298FEB4F006F7721 /* SpyNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyNavigationController.swift; sourceTree = "<group>"; };
+		9CD6F0AE298FEBA2006F7721 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		9CD6F0B0298FEC57006F7721 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		9CD6F0B2298FECBA006F7721 /* GitRepositoriesCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoriesCoordinatorTests.swift; sourceTree = "<group>"; };
+		9CD6F0B4298FED6A006F7721 /* GitRepositoriesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoriesCoordinator.swift; sourceTree = "<group>"; };
+		9CD6F0B7298FEDEB006F7721 /* GitRepositoriesViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoriesViewControllerFactory.swift; sourceTree = "<group>"; };
+		9CD6F0B9298FF063006F7721 /* MockGitRepositoriesViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGitRepositoriesViewControllerFactory.swift; sourceTree = "<group>"; };
 		9CDCB7B1298D8026005C238B /* GitTrending.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitTrending.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CDCB7B4298D8026005C238B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CDCB7B6298D8026005C238B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +101,7 @@
 		9CDCB84B298F450E005C238B /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		9CDCB84D298F451D005C238B /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 		9CDCB857298FD67C005C238B /* retryanimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = retryanimation.json; sourceTree = "<group>"; };
+		9CDCB85B298FEA3F005C238B /* AppCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +127,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9CD6F0AB298FEB40006F7721 /* Spy */ = {
+			isa = PBXGroup;
+			children = (
+				9CD6F0AC298FEB4F006F7721 /* SpyNavigationController.swift */,
+			);
+			path = Spy;
+			sourceTree = "<group>";
+		};
+		9CD6F0B6298FEDB7006F7721 /* SceneFactories */ = {
+			isa = PBXGroup;
+			children = (
+				9CD6F0B7298FEDEB006F7721 /* GitRepositoriesViewControllerFactory.swift */,
+			);
+			path = SceneFactories;
+			sourceTree = "<group>";
+		};
 		9CDCB7A8298D8026005C238B = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +178,7 @@
 		9CDCB7CD298D8108005C238B /* GitTrendingTests */ = {
 			isa = PBXGroup;
 			children = (
+				9CD6F0AB298FEB40006F7721 /* Spy */,
 				9CDCB7FE298DAC69005C238B /* Stub */,
 				9CDCB7EF298D9A9E005C238B /* Tests */,
 				9CDCB7E8298D979D005C238B /* FakeData */,
@@ -159,6 +192,7 @@
 			children = (
 				9CDCB7FA298DA16C005C238B /* MockRepositoriesUseCases.swift */,
 				9CDCB82F298E8072005C238B /* MockGitRepositoriesViewModel.swift */,
+				9CD6F0B9298FF063006F7721 /* MockGitRepositoriesViewControllerFactory.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -183,6 +217,7 @@
 			children = (
 				9CDCB7B4298D8026005C238B /* AppDelegate.swift */,
 				9CDCB7B6298D8026005C238B /* SceneDelegate.swift */,
+				9CD6F0AE298FEBA2006F7721 /* AppCoordinator.swift */,
 			);
 			path = AppSetup;
 			sourceTree = "<group>";
@@ -190,6 +225,7 @@
 		9CDCB7EC298D9A75005C238B /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				9CD6F0B6298FEDB7006F7721 /* SceneFactories */,
 				9CDCB7F6298DA045005C238B /* Scenes */,
 				9CDCB7EE298D9A89005C238B /* Models */,
 				9CDCB7ED298D9A7D005C238B /* UseCases */,
@@ -224,6 +260,8 @@
 				9CDCB828298E761D005C238B /* GitRepositoriesViewControllerTests.swift */,
 				9CDCB836298F0BDE005C238B /* GitRepositoryTableViewCellTests.swift */,
 				9CDCB849298F4412005C238B /* ErrorViewTests.swift */,
+				9CDCB85B298FEA3F005C238B /* AppCoordinatorTests.swift */,
+				9CD6F0B2298FECBA006F7721 /* GitRepositoriesCoordinatorTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -250,6 +288,7 @@
 				9CDCB831298E916F005C238B /* Views */,
 				9CDCB7F8298DA078005C238B /* GitRepositoriesViewModel.swift */,
 				9CDCB82A298E76E2005C238B /* GitRepositoriesViewController.swift */,
+				9CD6F0B4298FED6A006F7721 /* GitRepositoriesCoordinator.swift */,
 			);
 			path = GitRepositories;
 			sourceTree = "<group>";
@@ -285,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				9CDCB82D298E7C13005C238B /* UIStoryboard+Extensions.swift */,
+				9CD6F0B0298FEC57006F7721 /* Coordinator.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -434,6 +474,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CD6F0B1298FEC57006F7721 /* Coordinator.swift in Sources */,
 				9CDCB7DA298D8426005C238B /* GitRepositoriesUseCase.swift in Sources */,
 				9CDCB83B298F1C81005C238B /* Owner.swift in Sources */,
 				9CDCB7B5298D8026005C238B /* AppDelegate.swift in Sources */,
@@ -443,9 +484,12 @@
 				9CDCB7DC298D8741005C238B /* GitRepositoriesRequest.swift in Sources */,
 				9CDCB7E3298D906C005C238B /* GitRepositoryResponse.swift in Sources */,
 				9CDCB7E1298D8E9B005C238B /* Repository.swift in Sources */,
+				9CD6F0B8298FEDEB006F7721 /* GitRepositoriesViewControllerFactory.swift in Sources */,
+				9CD6F0B5298FED6A006F7721 /* GitRepositoriesCoordinator.swift in Sources */,
 				9CDCB7F3298D9C4D005C238B /* Constants.swift in Sources */,
 				9CDCB83D298F22DE005C238B /* GitRepositoryCellViewModel.swift in Sources */,
 				9CDCB84C298F450E005C238B /* ErrorView.swift in Sources */,
+				9CD6F0AF298FEBA2006F7721 /* AppCoordinator.swift in Sources */,
 				9CDCB82E298E7C13005C238B /* UIStoryboard+Extensions.swift in Sources */,
 				9CDCB82B298E76E2005C238B /* GitRepositoriesViewController.swift in Sources */,
 			);
@@ -455,11 +499,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CDCB85C298FEA3F005C238B /* AppCoordinatorTests.swift in Sources */,
 				9CDCB7F5298D9F14005C238B /* GitRepositoriesViewModelTests.swift in Sources */,
+				9CD6F0AD298FEB4F006F7721 /* SpyNavigationController.swift in Sources */,
 				9CDCB7FB298DA16C005C238B /* MockRepositoriesUseCases.swift in Sources */,
 				9CDCB830298E8072005C238B /* MockGitRepositoriesViewModel.swift in Sources */,
 				9CDCB7D8298D8337005C238B /* GitRepositoriesUseCaseTests.swift in Sources */,
 				9CDCB837298F0BDE005C238B /* GitRepositoryTableViewCellTests.swift in Sources */,
+				9CD6F0BA298FF063006F7721 /* MockGitRepositoriesViewControllerFactory.swift in Sources */,
+				9CD6F0B3298FECBA006F7721 /* GitRepositoriesCoordinatorTests.swift in Sources */,
 				9CDCB829298E761D005C238B /* GitRepositoriesViewControllerTests.swift in Sources */,
 				9CDCB84A298F4412005C238B /* ErrorViewTests.swift in Sources */,
 				9CDCB800298DAC78005C238B /* NetworkStub.swift in Sources */,
