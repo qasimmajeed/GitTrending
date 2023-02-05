@@ -18,6 +18,9 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z1M-nF-T8l" customClass="LottieAnimationView" customModule="Lottie">
                     <rect key="frame" x="0.0" y="44" width="414" height="600.33333333333337"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="retryanimation.json"/>
+                    </userDefinedRuntimeAttributes>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something went wrong.." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zjw-hX-8gi">
                     <rect key="frame" x="10" y="654.33333333333337" width="394" height="21"/>
