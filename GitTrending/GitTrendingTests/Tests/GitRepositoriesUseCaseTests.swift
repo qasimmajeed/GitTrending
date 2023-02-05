@@ -33,6 +33,7 @@ final class GitRepositoriesUseCaseTests: XCTestCase {
         sut = nil
         requestModel = nil
         MockURLProtocol.stubResponseData = nil
+        MockURLProtocol.stubError = nil
     }
     
     // MARK: - Test Cases
