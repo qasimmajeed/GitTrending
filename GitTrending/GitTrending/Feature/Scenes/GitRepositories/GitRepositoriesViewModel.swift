@@ -54,6 +54,7 @@ final class GitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
         self.useCase = useCase
     }
     
+    // MARK: - Methods
     func fetchRepositories() {
         stateDidUpdateSubject.send(.loading)
         useCase.fetchGitRepositories(request: GitRepositoriesRequest(search: "language=+sort:stars"))

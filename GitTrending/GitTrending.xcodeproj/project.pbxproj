@@ -34,6 +34,7 @@
 		9CDCB839298F0C03005C238B /* GitRepositoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CDCB838298F0C03005C238B /* GitRepositoryTableViewCell.xib */; };
 		9CDCB83B298F1C81005C238B /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB83A298F1C81005C238B /* Owner.swift */; };
 		9CDCB83D298F22DE005C238B /* GitRepositoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB83C298F22DE005C238B /* GitRepositoryCellViewModel.swift */; };
+		9CDCB843298F30C9005C238B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 9CDCB842298F30C9005C238B /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CDCB843298F30C9005C238B /* Kingfisher in Frameworks */,
 				9CDCB7E6298D9143005C238B /* NetworkFeature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +304,7 @@
 			name = GitTrending;
 			packageProductDependencies = (
 				9CDCB7E5298D9143005C238B /* NetworkFeature */,
+				9CDCB842298F30C9005C238B /* Kingfisher */,
 			);
 			productName = GitTrending;
 			productReference = 9CDCB7B1298D8026005C238B /* GitTrending.app */;
@@ -354,6 +357,9 @@
 				Base,
 			);
 			mainGroup = 9CDCB7A8298D8026005C238B;
+			packageReferences = (
+				9CDCB841298F30C9005C238B /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 9CDCB7B2298D8026005C238B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -709,10 +715,26 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		9CDCB841298F30C9005C238B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		9CDCB7E5298D9143005C238B /* NetworkFeature */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = NetworkFeature;
+		};
+		9CDCB842298F30C9005C238B /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9CDCB841298F30C9005C238B /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
