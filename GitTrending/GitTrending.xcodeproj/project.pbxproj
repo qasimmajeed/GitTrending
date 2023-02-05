@@ -35,6 +35,7 @@
 		9CDCB83B298F1C81005C238B /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB83A298F1C81005C238B /* Owner.swift */; };
 		9CDCB83D298F22DE005C238B /* GitRepositoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB83C298F22DE005C238B /* GitRepositoryCellViewModel.swift */; };
 		9CDCB843298F30C9005C238B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 9CDCB842298F30C9005C238B /* Kingfisher */; };
+		9CDCB846298F3289005C238B /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 9CDCB845298F3289005C238B /* SkeletonView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CDCB843298F30C9005C238B /* Kingfisher in Frameworks */,
+				9CDCB846298F3289005C238B /* SkeletonView in Frameworks */,
 				9CDCB7E6298D9143005C238B /* NetworkFeature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,6 +307,7 @@
 			packageProductDependencies = (
 				9CDCB7E5298D9143005C238B /* NetworkFeature */,
 				9CDCB842298F30C9005C238B /* Kingfisher */,
+				9CDCB845298F3289005C238B /* SkeletonView */,
 			);
 			productName = GitTrending;
 			productReference = 9CDCB7B1298D8026005C238B /* GitTrending.app */;
@@ -359,6 +362,7 @@
 			mainGroup = 9CDCB7A8298D8026005C238B;
 			packageReferences = (
 				9CDCB841298F30C9005C238B /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				9CDCB844298F3289005C238B /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = 9CDCB7B2298D8026005C238B /* Products */;
 			projectDirPath = "";
@@ -724,6 +728,14 @@
 				kind = branch;
 			};
 		};
+		9CDCB844298F3289005C238B /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -735,6 +747,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9CDCB841298F30C9005C238B /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		9CDCB845298F3289005C238B /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9CDCB844298F3289005C238B /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
