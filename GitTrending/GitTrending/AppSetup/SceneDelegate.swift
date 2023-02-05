@@ -22,8 +22,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             GitRepositoriesViewController(coder: $0, viewModel: viewModel)
             
         }
-        self.window?.rootViewController = viewController
         self.window = window
+        let navigationController = UINavigationController(rootViewController: viewController)
+        self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
     }
     

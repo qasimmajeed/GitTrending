@@ -15,7 +15,6 @@
 		9CDCB7D8298D8337005C238B /* GitRepositoriesUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB7D7298D8337005C238B /* GitRepositoriesUseCaseTests.swift */; };
 		9CDCB7DA298D8426005C238B /* GitRepositoriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB7D9298D8426005C238B /* GitRepositoriesUseCase.swift */; };
 		9CDCB7DC298D8741005C238B /* GitRepositoriesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB7DB298D8741005C238B /* GitRepositoriesRequest.swift */; };
-		9CDCB7DF298D8C42005C238B /* GitTrendingMockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB7DE298D8C42005C238B /* GitTrendingMockURLProtocol.swift */; };
 		9CDCB7E1298D8E9B005C238B /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB7E0298D8E9B005C238B /* Repository.swift */; };
 		9CDCB7E3298D906C005C238B /* GitRepositoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB7E2298D906C005C238B /* GitRepositoryResponse.swift */; };
 		9CDCB7E6298D9143005C238B /* NetworkFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 9CDCB7E5298D9143005C238B /* NetworkFeature */; };
@@ -39,6 +38,7 @@
 		9CDCB84A298F4412005C238B /* ErrorViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB849298F4412005C238B /* ErrorViewTests.swift */; };
 		9CDCB84C298F450E005C238B /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCB84B298F450E005C238B /* ErrorView.swift */; };
 		9CDCB84E298F451D005C238B /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CDCB84D298F451D005C238B /* ErrorView.xib */; };
+		9CDCB850298FC889005C238B /* TestingSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 9CDCB84F298FC889005C238B /* TestingSupport */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +63,6 @@
 		9CDCB7D7298D8337005C238B /* GitRepositoriesUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoriesUseCaseTests.swift; sourceTree = "<group>"; };
 		9CDCB7D9298D8426005C238B /* GitRepositoriesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoriesUseCase.swift; sourceTree = "<group>"; };
 		9CDCB7DB298D8741005C238B /* GitRepositoriesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoriesRequest.swift; sourceTree = "<group>"; };
-		9CDCB7DE298D8C42005C238B /* GitTrendingMockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitTrendingMockURLProtocol.swift; sourceTree = "<group>"; };
 		9CDCB7E0298D8E9B005C238B /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		9CDCB7E2298D906C005C238B /* GitRepositoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoryResponse.swift; sourceTree = "<group>"; };
 		9CDCB7E9298D97CD005C238B /* FakeGitRepositoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeGitRepositoryData.swift; sourceTree = "<group>"; };
@@ -92,6 +91,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CDCB843298F30C9005C238B /* Kingfisher in Frameworks */,
+				9CDCB850298FC889005C238B /* TestingSupport in Frameworks */,
 				9CDCB846298F3289005C238B /* SkeletonView in Frameworks */,
 				9CDCB7E6298D9143005C238B /* NetworkFeature in Frameworks */,
 			);
@@ -153,7 +153,6 @@
 		9CDCB7DD298D8B1B005C238B /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				9CDCB7DE298D8C42005C238B /* GitTrendingMockURLProtocol.swift */,
 				9CDCB7FA298DA16C005C238B /* MockRepositoriesUseCases.swift */,
 				9CDCB82F298E8072005C238B /* MockGitRepositoriesViewModel.swift */,
 			);
@@ -333,6 +332,7 @@
 				9CDCB7E5298D9143005C238B /* NetworkFeature */,
 				9CDCB842298F30C9005C238B /* Kingfisher */,
 				9CDCB845298F3289005C238B /* SkeletonView */,
+				9CDCB84F298FC889005C238B /* TestingSupport */,
 			);
 			productName = GitTrending;
 			productReference = 9CDCB7B1298D8026005C238B /* GitTrending.app */;
@@ -447,7 +447,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CDCB7DF298D8C42005C238B /* GitTrendingMockURLProtocol.swift in Sources */,
 				9CDCB7F5298D9F14005C238B /* GitRepositoriesViewModelTests.swift in Sources */,
 				9CDCB7FB298DA16C005C238B /* MockRepositoriesUseCases.swift in Sources */,
 				9CDCB830298E8072005C238B /* MockGitRepositoriesViewModel.swift in Sources */,
@@ -780,6 +779,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9CDCB844298F3289005C238B /* XCRemoteSwiftPackageReference "SkeletonView" */;
 			productName = SkeletonView;
+		};
+		9CDCB84F298FC889005C238B /* TestingSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TestingSupport;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -8,6 +8,7 @@
 import XCTest
 import NetworkFeature
 import Combine
+import TestingSupport
 @testable import GitTrending
 
 
@@ -31,13 +32,13 @@ final class GitRepositoriesUseCaseTests: XCTestCase {
         network = nil
         sut = nil
         requestModel = nil
-        GitTrendingMockURLProtocol.stubResponseData = nil
+        MockURLProtocol.stubResponseData = nil
     }
     
     // MARK: - Test Cases
     func testGitRepositoriesUseCase_WhenGiveRequest_ShouldReturnSuccess() {
         //Arrange
-        GitTrendingMockURLProtocol.stubResponseData = FakeGitRepositoryData.jsonFakeData.data(using: .utf8)
+        MockURLProtocol.stubResponseData = FakeGitRepositoryData.jsonFakeData.data(using: .utf8)
         let expectation = expectation(description: "repository success response expectation")
         var response: [Repository]!
         
@@ -56,7 +57,7 @@ final class GitRepositoriesUseCaseTests: XCTestCase {
     
     func testGitRepositoriesUseCase_WhenInvalidResponse_ShouldReturnError() {
         //Arrange
-        GitTrendingMockURLProtocol.stubResponseData = nil
+        MockURLProtocol.stubResponseData = nil
         let expectation = expectation(description: "repository success response expectation")
         var responseError: NetworkError!
         

@@ -1,29 +1,29 @@
 //
-//  MockURLProtocol.swift
+//  File.swift
 //  
 //
-//  Created by Muhammad Qasim Majeed on 03/02/2023.
+//  Created by Muhammad Qasim Majeed on 05/02/2023.
 //
 
 import Foundation
 
 /// This class is responsible to handle the mock behaviour of UrlSession
-final class MockURLProtocol: URLProtocol {
+final public class MockURLProtocol: URLProtocol {
     // MARK: - Properties
-    static var stubResponseData: Data?
-    static var stubError: Error?
-    static var mockHttpInvalidResponseCode = false
+    static public var stubResponseData: Data?
+    static public var stubError: Error?
+    static public var mockHttpInvalidResponseCode = false
     
     // MARK: - URLProtocol overrides
-    override class func canInit(with request: URLRequest) -> Bool {
+    public override class func canInit(with request: URLRequest) -> Bool {
         return true
     }
     
-    override class func canonicalRequest(for request: URLRequest) -> URLRequest {
+    public override class func canonicalRequest(for request: URLRequest) -> URLRequest {
         return request
     }
     
-    override func startLoading() {
+    public override func startLoading() {
         if MockURLProtocol.mockHttpInvalidResponseCode {
             self.client?.urlProtocol(self, didReceive: HTTPURLResponse(url: request.url!, statusCode: 1009, httpVersion: nil, headerFields: nil) ?? HTTPURLResponse(), cacheStoragePolicy: .notAllowed)
         } else if let error = MockURLProtocol.stubError {
@@ -35,6 +35,5 @@ final class MockURLProtocol: URLProtocol {
         self.client?.urlProtocolDidFinishLoading(self)
     }
     
-    override func stopLoading() { }
-    
+    public override func stopLoading() { }
 }

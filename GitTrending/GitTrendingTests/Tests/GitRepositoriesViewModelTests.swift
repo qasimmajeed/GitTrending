@@ -8,6 +8,7 @@
 import XCTest
 import Combine
 import NetworkFeature
+import TestingSupport
 @testable import GitTrending
 
 final class GitRepositoriesViewModelTests: XCTestCase {
@@ -26,8 +27,8 @@ final class GitRepositoriesViewModelTests: XCTestCase {
     
     override func tearDown() {
         super.tearDown()
-        GitTrendingMockURLProtocol.stubResponseData = nil
-        GitTrendingMockURLProtocol.stubError = nil
+        MockURLProtocol.stubResponseData = nil
+        MockURLProtocol.stubError = nil
     }
     
     func testGitRepositoriesViewModel_WhenFetch_ShouldHaveLoadingState() {
@@ -50,7 +51,7 @@ final class GitRepositoriesViewModelTests: XCTestCase {
         //Arrange
         var isShowRepositoriesState = false
         let expectation = expectation(description: "repository success response expectation")
-        GitTrendingMockURLProtocol.stubResponseData = FakeGitRepositoryData.jsonFakeData.data(using: .utf8)
+        MockURLProtocol.stubResponseData = FakeGitRepositoryData.jsonFakeData.data(using: .utf8)
         
         sut.stateDidUpdate.sink { state in
             if state == .showRepositories {
@@ -71,7 +72,7 @@ final class GitRepositoriesViewModelTests: XCTestCase {
     func testGitRepositoriesViewModel_WhenAfterFetch_ShouldHideLoading() {
         var isLoadingHidden = false
         let expectation = expectation(description: "when is loading is done expectation")
-        GitTrendingMockURLProtocol.stubResponseData = FakeGitRepositoryData.jsonFakeData.data(using: .utf8)
+        MockURLProtocol.stubResponseData = FakeGitRepositoryData.jsonFakeData.data(using: .utf8)
         
         sut.stateDidUpdate.sink { state in
             if state == .hideLoading {
@@ -93,7 +94,7 @@ final class GitRepositoriesViewModelTests: XCTestCase {
     func testGitRepositoriesViewModel_WhenFetchingCauseError_ShouldShowError() {
         var isErrorShown = false
         let expectation = expectation(description: "error shown expectation")
-        GitTrendingMockURLProtocol.stubError = NetworkError.invalidRequest
+        MockURLProtocol.stubError = NetworkError.invalidRequest
         
         sut.stateDidUpdate.sink { state in
             if state == .showError {
@@ -120,7 +121,7 @@ final class GitRepositoriesViewModelTests: XCTestCase {
     func testGitRepositoriesViewModel_WhenData_ShouldReturnCellViewModel() {
         //Arrange
         let expectation = expectation(description: "repository success response expectation")
-        GitTrendingMockURLProtocol.stubResponseData = FakeGitRepositoryData.jsonFakeData.data(using: .utf8)
+        MockURLProtocol.stubResponseData = FakeGitRepositoryData.jsonFakeData.data(using: .utf8)
         var  cellViewModel: GitRepositoryCellViewModel!
         sut.stateDidUpdate.sink { state in
             if state == .showRepositories {
@@ -142,7 +143,7 @@ final class GitRepositoriesViewModelTests: XCTestCase {
     func testGitRepositoriesViewModel_WhenCellDidSelect_ShouldUpdateTheState() {
         //Arrange
         let expectation = expectation(description: "repository ShouldUpdateTheState expectation")
-        GitTrendingMockURLProtocol.stubResponseData = FakeGitRepositoryData.jsonFakeData.data(using: .utf8)
+        MockURLProtocol.stubResponseData = FakeGitRepositoryData.jsonFakeData.data(using: .utf8)
         var isSelectedCalled = false
         var callCount = 0
         sut.stateDidUpdate.sink { state in

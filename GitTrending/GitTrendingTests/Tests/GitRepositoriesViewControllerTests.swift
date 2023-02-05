@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import TestingSupport
 @testable import GitTrending
 
 final class GitRepositoriesViewControllerTests: XCTestCase {
@@ -34,8 +35,8 @@ final class GitRepositoriesViewControllerTests: XCTestCase {
         storyBoard = nil
         mockViewModel = nil
         mockUseCase = nil
-        GitTrendingMockURLProtocol.stubResponseData = nil
-        GitTrendingMockURLProtocol.stubError = nil
+        MockURLProtocol.stubResponseData = nil
+        MockURLProtocol.stubError = nil
     }
     
     func testGitRepositoriesViewController_WhenCreated_ShouldReturnController() {
@@ -75,7 +76,7 @@ final class GitRepositoriesViewControllerTests: XCTestCase {
     
     func testGitRepositoriesViewController_WhenTableLoadsAndHaveData_ShouldReturnCell() {
         //Arrange
-        GitTrendingMockURLProtocol.stubResponseData = FakeGitRepositoryData.jsonFakeData.data(using: .utf8)
+        MockURLProtocol.stubResponseData = FakeGitRepositoryData.jsonFakeData.data(using: .utf8)
         let ex = expectation(description: "cell check expectation")
         mockViewModel.expectation = ex
         let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 0, section: 0)) as? GitRepositoryTableViewCell
