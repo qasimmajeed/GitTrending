@@ -9,9 +9,10 @@ import UIKit
 import Combine
 import SkeletonView
 
-class GitRepositoriesViewController: UIViewController {
+final class GitRepositoriesViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet weak var tableView: UITableView!
+    var errorView: ErrorView?
     private let viewModel: GitRepositoriesViewModelProtocol
     private var cancellable = Set<AnyCancellable>()
     
@@ -46,7 +47,10 @@ class GitRepositoriesViewController: UIViewController {
             guard let self = self else { return }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.removeErrorView()
                 switch state {
+                case .showError:
+                    self.showErrorView()
                 case .loading:
                     self.tableView.showAnimatedGradientSkeleton()
                 case .hideLoading:
@@ -57,6 +61,26 @@ class GitRepositoriesViewController: UIViewController {
                 }
             }
         }.store(in: &cancellable)
+    }
+    
+    private func showErrorView() {
+        errorView = ErrorView.loadViewFromXib()
+        if let errorView = errorView {
+            self.view.addSubview(errorView)
+            errorView.retryButton.addTarget(self, action: #selector(retryButtonTap), for: .touchUpInside)
+        }
+        
+    }
+    
+    private func removeErrorView() {
+        guard let error = errorView else {
+            return
+        }
+        error.removeFromSuperview()
+    }
+    
+    @objc public func retryButtonTap() {
+        viewModel.retryFetch()
     }
 }
 

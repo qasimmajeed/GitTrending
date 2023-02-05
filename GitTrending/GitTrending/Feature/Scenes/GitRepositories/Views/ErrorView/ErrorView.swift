@@ -8,7 +8,7 @@
 import UIKit
 import Lottie
 
-class ErrorView: UIView {
+public final class ErrorView: UIView {
     // MARK: - Properties
     @IBOutlet weak var animationView: LottieAnimationView!
     @IBOutlet weak var someThingWrongLabel: UILabel!
@@ -20,4 +20,12 @@ class ErrorView: UIView {
     class func loadViewFromXib() -> ErrorView? {
         return UINib(nibName: "ErrorView", bundle: Bundle(for: ErrorView.self)).instantiate(withOwner: self, options: nil)[0] as? ErrorView
     }
+    
+    public override func awakeFromNib() {
+        super.awakeFromNib()
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.play()
+    }
+
 }

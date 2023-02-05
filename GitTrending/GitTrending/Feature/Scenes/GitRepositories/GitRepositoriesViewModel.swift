@@ -24,6 +24,7 @@ protocol GitRepositoriesViewModelProtocol {
     func fetchRepositories()
     func cellViewModelAtIndex(index: Int) -> GitRepositoryCellViewModel?
     func didSelectAtIndex(index: Int)
+    func retryFetch()
 }
 
 final class GitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
@@ -88,4 +89,9 @@ final class GitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
             self.stateDidUpdateSubject.send(.showRepositories)
         }
     }
+    
+    func retryFetch() {
+        fetchRepositories()
+    }
+
 }

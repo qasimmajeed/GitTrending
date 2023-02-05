@@ -16,26 +16,26 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z1M-nF-T8l" customClass="LottieAnimationView" customModule="Lottie">
-                    <rect key="frame" x="0.0" y="44" width="414" height="600.33333333333337"/>
+                    <rect key="frame" x="10" y="44" width="394" height="358.33333333333331"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="retryanimation.json"/>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something went wrong.." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zjw-hX-8gi">
-                    <rect key="frame" x="10" y="654.33333333333337" width="394" height="21"/>
+                    <rect key="frame" x="10" y="432.33333333333331" width="394" height="21"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An alien is probably blocking your signal." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaK-h0-xQm">
-                    <rect key="frame" x="0.0" y="685.33333333333337" width="404" height="20"/>
+                    <rect key="frame" x="0.0" y="463.33333333333331" width="404" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" systemColor="systemGray2Color"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSo-Ly-9en">
-                    <rect key="frame" x="10" y="745.33333333333337" width="394" height="40"/>
+                    <rect key="frame" x="10" y="533.33333333333337" width="394" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="0OF-Mz-oFy"/>
                     </constraints>
@@ -47,17 +47,17 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="iaK-h0-xQm" firstAttribute="trailing" secondItem="Zjw-hX-8gi" secondAttribute="trailing" id="09X-ss-oOi"/>
-                <constraint firstItem="z1M-nF-T8l" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="4dW-gn-Vvn"/>
-                <constraint firstItem="Zjw-hX-8gi" firstAttribute="top" secondItem="z1M-nF-T8l" secondAttribute="bottom" constant="10" id="5Id-48-UW6"/>
+                <constraint firstItem="z1M-nF-T8l" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="4dW-gn-Vvn"/>
+                <constraint firstItem="Zjw-hX-8gi" firstAttribute="top" secondItem="z1M-nF-T8l" secondAttribute="bottom" constant="30" id="5Id-48-UW6"/>
                 <constraint firstItem="iaK-h0-xQm" firstAttribute="top" secondItem="Zjw-hX-8gi" secondAttribute="bottom" constant="10" id="7LZ-aW-1gE"/>
                 <constraint firstItem="Zjw-hX-8gi" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="HJR-gh-NwT"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hSo-Ly-9en" secondAttribute="bottom" constant="5" id="Hp2-Tm-Gg7"/>
                 <constraint firstItem="z1M-nF-T8l" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="KrN-mD-VmS"/>
-                <constraint firstItem="z1M-nF-T8l" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.67" id="Mdw-XU-gbN"/>
+                <constraint firstItem="z1M-nF-T8l" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.4" id="Mdw-XU-gbN"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Zjw-hX-8gi" secondAttribute="trailing" constant="10" id="P2u-TB-fGw"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="z1M-nF-T8l" secondAttribute="trailing" id="T3U-w9-9GS"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="z1M-nF-T8l" secondAttribute="trailing" constant="10" id="T3U-w9-9GS"/>
                 <constraint firstItem="hSo-Ly-9en" firstAttribute="leading" secondItem="Zjw-hX-8gi" secondAttribute="leading" id="eUN-Er-7Hl"/>
-                <constraint firstItem="hSo-Ly-9en" firstAttribute="top" secondItem="iaK-h0-xQm" secondAttribute="bottom" constant="40" id="hXo-WD-NKb"/>
+                <constraint firstItem="hSo-Ly-9en" firstAttribute="top" secondItem="iaK-h0-xQm" secondAttribute="bottom" constant="50" id="hXo-WD-NKb"/>
                 <constraint firstItem="hSo-Ly-9en" firstAttribute="trailing" secondItem="Zjw-hX-8gi" secondAttribute="trailing" id="nBI-LH-eN6"/>
                 <constraint firstItem="iaK-h0-xQm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="tZM-bf-ZWC"/>
             </constraints>

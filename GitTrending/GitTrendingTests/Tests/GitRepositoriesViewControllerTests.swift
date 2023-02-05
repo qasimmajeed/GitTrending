@@ -7,6 +7,7 @@
 
 import XCTest
 import TestingSupport
+import NetworkFeature
 @testable import GitTrending
 
 final class GitRepositoriesViewControllerTests: XCTestCase {
@@ -91,4 +92,29 @@ final class GitRepositoriesViewControllerTests: XCTestCase {
         //Assert
         XCTAssertTrue(sut.tableView.isSkeletonable, "The tableview should be sSkeletonable")
     }
+    
+    func testGitRepositoriesViewController_WhenError_ShouldDisplayError() {
+        //Arrange
+        MockURLProtocol.stubError = NetworkError.inValidResponse
+        let ex = expectation(description: "error check expectation")
+        mockViewModel.expectation = ex
+        
+        wait(for: [ex], timeout: 0.5)
+        
+        //Assert
+        XCTAssert(mockViewModel.isError, "The error should called")
+    }
+    
+    func testGitRepositoriesViewController_WhenError_ShouldCallRetry() {
+        //Arrange
+        MockURLProtocol.stubError = NetworkError.inValidResponse
+        let ex = expectation(description: "error check expectation")
+        mockViewModel.expectation = ex
+        
+        wait(for: [ex], timeout: 0.5)
+        sut.retryButtonTap()
+        //Assert
+        XCTAssert(mockViewModel.isRetryCalled, "The retry should called")
+    }
+
 }

@@ -17,6 +17,8 @@ final class MockGitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
     private let useCase: GitRepositoriesUseCaseProtocol
     private var repositories: [Repository] = [Repository]()
     var expectation: XCTestExpectation?
+    var isError: Bool = false
+    var isRetryCalled: Bool = false
     
     init(useCase: GitRepositoriesUseCaseProtocol) {
         self.useCase = useCase
@@ -38,8 +40,15 @@ final class MockGitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
     
     
     func fetchRepositories() {
-        useCase.fetchGitRepositories(request: GitRepositoriesRequest(search: "")).sink { _ in
-            self.expectation?.fulfill()
+        useCase.fetchGitRepositories(request: GitRepositoriesRequest(search: "")).sink { completion in
+            switch completion {
+            case .failure(_ ):
+                self.isError = true
+                self.stateDidUpdateSubject.send(.showError)
+                self.expectation?.fulfill()
+            default :
+                self.expectation?.fulfill()
+            }
         } receiveValue: { value in
             self.repositories = value
             self.stateDidUpdateSubject.send(.showRepositories)
@@ -55,5 +64,9 @@ final class MockGitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
     
     func didSelectAtIndex(index: Int) {
         //TODO: 
+    }
+    
+    func retryFetch() {
+        isRetryCalled = true
     }
 }
