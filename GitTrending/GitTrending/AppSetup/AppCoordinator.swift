@@ -27,7 +27,7 @@ final class AppCoordinator: AppCoordinatorProtocol {
     // MARK: - Coordinator
 
     func start() {
-        let gitRepositoriesCoordinator = GitSearchRepositoriesCoordinator(navigationController: navigation)
+        let gitRepositoriesCoordinator = GitRepositoriesCoordinator(navigationController: navigation)
         window.rootViewController = navigation
         window.makeKeyAndVisible()
         gitRepositoriesCoordinator.start()

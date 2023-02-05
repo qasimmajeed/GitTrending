@@ -20,7 +20,7 @@ final class GitRepositoriesCoordinatorTests: XCTestCase {
     func testGitRepositoriesCoordinator_whenCreate() {
         // Arrange
         let navigation = SpyNavigationController()
-        let sut = GitSearchRepositoriesCoordinator(navigationController: navigation, factory: MockGitRepositoriesViewControllerFactory())
+        let sut = GitRepositoriesCoordinator(navigationController: navigation, factory: MockGitRepositoriesViewControllerFactory())
 
         // Act
         sut.start()

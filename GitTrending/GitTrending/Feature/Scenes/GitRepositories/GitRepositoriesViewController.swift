@@ -31,7 +31,7 @@ final class GitRepositoriesViewController: UIViewController {
 
     @available(*, unavailable)
     required init?(coder _: NSCoder) {
-        fatalError("viewModel(GitSearchRepoViewModel) must provided while initialisation")
+        fatalError("viewModel(GitRepositoriesViewModel) must provided while initialisation")
     }
 
     override func viewDidLoad() {
