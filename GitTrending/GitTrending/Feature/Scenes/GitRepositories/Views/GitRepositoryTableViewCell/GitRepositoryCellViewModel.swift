@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// GitRepositoryCellViewModel
 struct GitRepositoryCellViewModel {
     let id: Int
     let repoName: String
@@ -19,14 +20,14 @@ struct GitRepositoryCellViewModel {
 }
 
 extension GitRepositoryCellViewModel {
-  init(repository: Repository) {
-      self.init(id: repository.id,
-                repoName: repository.name,
-                userName: repository.owner.login,
-                profileImageURL: URL(string: repository.owner.avatarUrl),
-                starCount: "\(repository.stars)",
-                language: repository.language,
-                repoHtmlURl: repository.htmlURL,
-                isExpanded: false)
-  }
+    init(repository: Repository) {
+        self.init(id: repository.id,
+                  repoName: repository.name,
+                  userName: repository.owner.login,
+                  profileImageURL: URL(string: repository.owner.avatarUrl),
+                  starCount: "\(repository.stars)",
+                  language: repository.language,
+                  repoHtmlURl: repository.htmlURL,
+                  isExpanded: false)
+    }
 }

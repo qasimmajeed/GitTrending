@@ -33,5 +33,4 @@ final class AppCoordinatorTests: XCTestCase {
             return
         }
     }
-    
 }

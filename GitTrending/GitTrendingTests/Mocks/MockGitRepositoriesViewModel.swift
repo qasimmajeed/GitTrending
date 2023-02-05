@@ -64,7 +64,7 @@ final class MockGitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
     }
     
     func didSelectAtIndex(index: Int) {
-        //TODO: 
+        //TODO:
     }
     
     func retryFetch() {

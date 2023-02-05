@@ -11,7 +11,6 @@ import Combine
 import TestingSupport
 @testable import GitTrending
 
-
 final class GitRepositoriesUseCaseTests: XCTestCase {
     // MARK: - Private Properties
     private var cancellable = Set<AnyCancellable>()
@@ -79,5 +78,4 @@ final class GitRepositoriesUseCaseTests: XCTestCase {
         XCTAssertNotNil(responseError, "The error should be happen in the case of invalid reponse")
         XCTAssertEqual(responseError, NetworkError.inValidResponse, "The invalid reponse should be thrown")
     }
-    
 }

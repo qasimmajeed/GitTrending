@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class GitRepositoryTableViewCell: UITableViewCell {
+final class GitRepositoryTableViewCell: UITableViewCell {
     // MARK: - Properties
     static var reuseAbleCellIdentifier: String = "GitRepositoryTableViewCell"
     static var nibName: String = "GitRepositoryTableViewCell"
@@ -44,7 +44,6 @@ class GitRepositoryTableViewCell: UITableViewCell {
     }
     
     // MARK: - Private Methods
-    
     private func setupUI() {
         profileImageView.layer.cornerRadius = profileImageView.bounds.height / 2
         languageFlagView.layer.cornerRadius = languageFlagView.bounds.height / 2

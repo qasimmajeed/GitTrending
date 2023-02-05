@@ -16,7 +16,6 @@ public final class ErrorView: UIView {
     @IBOutlet weak var retryButton: UIButton!
     
     // MARK: - Methods
-    
     class func loadViewFromXib() -> ErrorView? {
         return UINib(nibName: "ErrorView", bundle: Bundle(for: ErrorView.self)).instantiate(withOwner: self, options: nil)[0] as? ErrorView
     }
@@ -31,7 +30,5 @@ public final class ErrorView: UIView {
         self.retryButton.layer.borderColor = UIColor(named: "greenColor")?.cgColor
         self.retryButton.tintColor = UIColor(named: "greenColor")
         self.retryButton.layer.cornerRadius = 5.0
-
     }
-
 }

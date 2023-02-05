@@ -16,7 +16,7 @@ final class GitRepositoriesViewController: UIViewController {
     private let viewModel: GitRepositoriesViewModelProtocol
     private var cancellable = Set<AnyCancellable>()
     private lazy var pullToRefresh : UIRefreshControl = {
-      let refresh = UIRefreshControl()
+        let refresh = UIRefreshControl()
         refresh.attributedTitle = NSAttributedString(string: "Pull to refresh")
         return refresh
     }()
@@ -39,7 +39,6 @@ final class GitRepositoriesViewController: UIViewController {
     }
     
     // MARK: - Private Methods
-    
     private func configureUI() {
         tableView.isSkeletonable = true
         tableView.estimatedRowHeight = 100
@@ -52,7 +51,8 @@ final class GitRepositoriesViewController: UIViewController {
     private func binding() {
         viewModel.stateDidUpdate.sink { [weak self] state in
             guard let self = self else { return }
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
                 self.tableView.reloadData()
                 self.removeErrorView()
                 switch state {
@@ -76,14 +76,13 @@ final class GitRepositoriesViewController: UIViewController {
             errorView.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(errorView)
             NSLayoutConstraint.activate([
-                 errorView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                 errorView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                 errorView.topAnchor.constraint(equalTo: view.topAnchor),
-                 errorView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-             ])
+                errorView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                errorView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                errorView.topAnchor.constraint(equalTo: view.topAnchor),
+                errorView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            ])
             errorView.retryButton.addTarget(self, action: #selector(retryButtonTap), for: .touchUpInside)
         }
-        
     }
     
     private func removeErrorView() {

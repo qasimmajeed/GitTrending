@@ -88,7 +88,6 @@ final class GitRepositoriesViewModelTests: XCTestCase {
         
         //Assert
         XCTAssertTrue(isLoadingHidden, "The state should be repositories")
-        
     }
     
     func testGitRepositoriesViewModel_WhenFetchingCauseError_ShouldShowError() {
@@ -110,7 +109,6 @@ final class GitRepositoriesViewModelTests: XCTestCase {
         
         //Assert
         XCTAssertTrue(isErrorShown, "The state should be showError")
-        
     }
     
     func testGitRepositoriesViewModel_TheTitleMustSame() {

@@ -9,7 +9,7 @@ import XCTest
 @testable import GitTrending
 
 final class GitRepositoriesCoordinatorTests: XCTestCase {
-
+    
     override func setUp() {
         super.setUp()
     }
@@ -32,5 +32,4 @@ final class GitRepositoriesCoordinatorTests: XCTestCase {
             return
         }
     }
-
 }

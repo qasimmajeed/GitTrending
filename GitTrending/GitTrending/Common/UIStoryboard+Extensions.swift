@@ -14,6 +14,6 @@ extension UIStoryboard {
     }
     
     convenience init(name: Name, bundle: Bundle? = nil) {
-      self.init(name: name.rawValue, bundle: bundle)
+        self.init(name: name.rawValue, bundle: bundle)
     }
 }
