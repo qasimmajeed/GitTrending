@@ -31,6 +31,7 @@ final class GitRepositoriesUseCaseTests: XCTestCase {
         network = nil
         sut = nil
         requestModel = nil
+        GitTrendingMockURLProtocol.stubResponseData = nil
     }
     
     // MARK: - Test Cases

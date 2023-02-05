@@ -95,6 +95,7 @@ final class GitRepositoryTableViewCellTests: XCTestCase {
         //Arrange
         let expandedStack = try XCTUnwrap(sut.expandedUIStackView, "The expandedUIStackView IBOutlet should be connected")
         cellViewModel.isExpanded = true
+        sut.viewModel = cellViewModel
         
         //Assert
         XCTAssertEqual(expandedStack.isHidden, !cellViewModel.isExpanded, "Should be the inverse state for expand and collapse")

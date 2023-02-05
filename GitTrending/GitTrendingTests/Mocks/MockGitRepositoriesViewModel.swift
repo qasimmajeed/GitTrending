@@ -47,7 +47,10 @@ final class MockGitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
     }
     
     func cellViewModelAtIndex(index: Int) -> GitRepositoryCellViewModel? {
-        return GitRepositoryCellViewModel(repository: repositories[index])
+        if index < repositories.count {
+            return GitRepositoryCellViewModel(repository: repositories[index])
+        }
+        return nil
     }
     
     func didSelectAtIndex(index: Int) {

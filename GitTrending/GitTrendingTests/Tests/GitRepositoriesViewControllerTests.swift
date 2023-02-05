@@ -35,6 +35,7 @@ final class GitRepositoriesViewControllerTests: XCTestCase {
         mockViewModel = nil
         mockUseCase = nil
         GitTrendingMockURLProtocol.stubResponseData = nil
+        GitTrendingMockURLProtocol.stubError = nil
     }
     
     func testGitRepositoriesViewController_WhenCreated_ShouldReturnController() {
