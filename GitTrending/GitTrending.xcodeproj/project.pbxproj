@@ -281,11 +281,19 @@
 		9CDCB831298E916F005C238B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9CDCB847298F4335005C238B /* GitRepositoryTableViewCell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9CDCB847298F4335005C238B /* GitRepositoryTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
 				9CDCB832298E9185005C238B /* GitRepositoryTableViewCell.swift */,
 				9CDCB838298F0C03005C238B /* GitRepositoryTableViewCell.xib */,
 				9CDCB83C298F22DE005C238B /* GitRepositoryCellViewModel.swift */,
 			);
-			path = Views;
+			path = GitRepositoryTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
