@@ -40,6 +40,7 @@
 		9CDCB84E298F451D005C238B /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CDCB84D298F451D005C238B /* ErrorView.xib */; };
 		9CDCB850298FC889005C238B /* TestingSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 9CDCB84F298FC889005C238B /* TestingSupport */; };
 		9CDCB856298FD468005C238B /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 9CDCB855298FD468005C238B /* Lottie */; };
+		9CDCB858298FD67C005C238B /* retryanimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CDCB857298FD67C005C238B /* retryanimation.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		9CDCB849298F4412005C238B /* ErrorViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewTests.swift; sourceTree = "<group>"; };
 		9CDCB84B298F450E005C238B /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		9CDCB84D298F451D005C238B /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
+		9CDCB857298FD67C005C238B /* retryanimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = retryanimation.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +265,7 @@
 		9CDCB826298E7578005C238B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9CDCB857298FD67C005C238B /* retryanimation.json */,
 				9CDCB7C2298D8026005C238B /* Info.plist */,
 				9CDCB7BD298D8026005C238B /* Assets.xcassets */,
 			);
@@ -409,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CDCB7C1298D8026005C238B /* LaunchScreen.storyboard in Resources */,
+				9CDCB858298FD67C005C238B /* retryanimation.json in Resources */,
 				9CDCB7BE298D8026005C238B /* Assets.xcassets in Resources */,
 				9CDCB839298F0C03005C238B /* GitRepositoryTableViewCell.xib in Resources */,
 				9CDCB7BC298D8026005C238B /* GitRepositories.storyboard in Resources */,
