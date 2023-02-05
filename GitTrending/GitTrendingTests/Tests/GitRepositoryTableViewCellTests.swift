@@ -13,12 +13,16 @@ final class GitRepositoryTableViewCellTests: XCTestCase {
     var bundle: Bundle!
     var nib: UINib!
     var sut: GitRepositoryTableViewCell!
+    var repository: Repository!
+    var cellViewModel: GitRepositoryCellViewModel!
     
     override func setUp() {
         super.setUp()
         bundle = Bundle(for: GitRepositoryTableViewCell.self)
         nib = UINib(nibName: GitRepositoryTableViewCell.nibName, bundle: bundle)
         sut = nib.instantiate(withOwner: self, options: nil)[0] as? GitRepositoryTableViewCell
+        repository = Repository(id: 1, name: "lambda", owner: Owner(id: 1, login: "lambda", avatarUrl: "www.google.com"), stars: 2, language: "swift", htmlURL: "www.googl.com")
+        cellViewModel = GitRepositoryCellViewModel(repository: repository)
     }
     
     override func tearDown() {
@@ -26,6 +30,8 @@ final class GitRepositoryTableViewCellTests: XCTestCase {
         sut = nil
         bundle = nil
         nib = nil
+        repository = nil
+        cellViewModel = nil
     }
     
     func testGitRepositoryTableViewCell_WhenLoaded_ShouldReturnCell() {
@@ -61,10 +67,6 @@ final class GitRepositoryTableViewCellTests: XCTestCase {
     
     func testGitRepositoryTableViewCell_WhenViewModelAssign_ShouldSetData() throws {
         //Arrange
-        let repository = Repository(id: 1, name: "lambda", owner: Owner(id: 1, login: "lambda", avatarUrl: "www.google.com"), stars: 2, language: "swift", htmlURL: "www.googl.com")
-        let cellViewModel = GitRepositoryCellViewModel(repository: repository)
-        
-        
         let userNameLabel = try XCTUnwrap(sut.userNameLabel, "The userNameLabel IBOutlet should be connected")
         let repositoryNameLabel = try XCTUnwrap(sut.repositoryNameLabel, "The repositoryNameLabel IBOutlet should be connected")
         let repositoryLinkLabel = try XCTUnwrap(sut.repositoryLinkLabel, "The repositoryLinkLabel IBOutlet should be connected")
@@ -92,9 +94,6 @@ final class GitRepositoryTableViewCellTests: XCTestCase {
     func testGitRepositoryTableViewCell_WhenCellTap_UpdatedTheExpandState() throws {
         //Arrange
         let expandedStack = try XCTUnwrap(sut.expandedUIStackView, "The expandedUIStackView IBOutlet should be connected")
-        
-        let repository = Repository(id: 1, name: "lambda", owner: Owner(id: 1, login: "lambda", avatarUrl: "www.google.com"), stars: 2, language: "swift", htmlURL: "www.googl.com")
-        var cellViewModel = GitRepositoryCellViewModel(repository: repository)
         cellViewModel.isExpanded = true
         
         //Assert
