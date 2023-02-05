@@ -15,6 +15,7 @@ struct GitRepositoryCellViewModel {
     let starCount: String
     let language: String?
     let repoHtmlURl: String
+    var isExpanded: Bool
 }
 
 extension GitRepositoryCellViewModel {
@@ -25,6 +26,7 @@ extension GitRepositoryCellViewModel {
                 profileImageURL: URL(string: repository.owner.avatarUrl),
                 starCount: "\(repository.stars)",
                 language: repository.language,
-                repoHtmlURl: repository.htmlURL)
+                repoHtmlURl: repository.htmlURL,
+                isExpanded: false)
   }
 }

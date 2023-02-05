@@ -88,4 +88,16 @@ final class GitRepositoryTableViewCellTests: XCTestCase {
         //Assert
         XCTAssertEqual(profileImageView.layer.cornerRadius, profileImageView.bounds.height / 2, "The corner radius should be rounded")
     }
+    
+    func testGitRepositoryTableViewCell_WhenCellTap_UpdatedTheExpandState() throws {
+        //Arrange
+        let expandedStack = try XCTUnwrap(sut.expandedUIStackView, "The expandedUIStackView IBOutlet should be connected")
+        
+        let repository = Repository(id: 1, name: "lambda", owner: Owner(id: 1, login: "lambda", avatarUrl: "www.google.com"), stars: 2, language: "swift", htmlURL: "www.googl.com")
+        var cellViewModel = GitRepositoryCellViewModel(repository: repository)
+        cellViewModel.isExpanded = true
+        
+        //Assert
+        XCTAssertEqual(expandedStack.isHidden, !cellViewModel.isExpanded, "Should be the inverse state for expand and collapse")
+    }
 }

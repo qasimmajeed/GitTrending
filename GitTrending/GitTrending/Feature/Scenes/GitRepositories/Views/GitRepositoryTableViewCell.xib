@@ -123,6 +123,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="expandedUIStackView" destination="jPQ-ah-osc" id="kvh-wA-8rr"/>
                 <outlet property="languageFlagView" destination="qye-7w-awo" id="8rf-gp-nGc"/>
                 <outlet property="languageLabel" destination="BMV-Ym-imw" id="wwZ-3Y-WFT"/>
                 <outlet property="profileImageView" destination="PmN-Q3-dtC" id="TlL-PG-Svf"/>

@@ -20,6 +20,7 @@ class GitRepositoryTableViewCell: UITableViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var starImageView: UIImageView!
     @IBOutlet weak var languageFlagView: UIView!
+    @IBOutlet weak var expandedUIStackView: UIStackView!
     
     var viewModel: GitRepositoryCellViewModel? {
         didSet {
@@ -29,6 +30,7 @@ class GitRepositoryTableViewCell: UITableViewCell {
                 repositoryLinkLabel.text = viewModel.repoHtmlURl
                 languageLabel.text = viewModel.language
                 starCountLabel.text = viewModel.starCount
+                expandedUIStackView.isHidden = !viewModel.isExpanded
             }
         }
     }
