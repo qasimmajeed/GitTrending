@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class GitRepositoryTableViewCell: UITableViewCell {
     // MARK: - Properties
@@ -31,6 +32,7 @@ class GitRepositoryTableViewCell: UITableViewCell {
                 languageLabel.text = viewModel.language
                 starCountLabel.text = viewModel.starCount
                 expandedUIStackView.isHidden = !viewModel.isExpanded
+                profileImageView.kf.setImage(with: viewModel.profileImageURL)
             }
         }
     }
