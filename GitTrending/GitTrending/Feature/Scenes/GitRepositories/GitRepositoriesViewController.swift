@@ -15,7 +15,6 @@ class GitRepositoriesViewController: UIViewController {
     private let viewModel: GitRepositoriesViewModelProtocol
     private var cancellable = Set<AnyCancellable>()
     
-    
     // MARK: - Init
     init?(coder: NSCoder, viewModel: GitRepositoriesViewModelProtocol = GitRepositoriesViewModel()) {
         self.viewModel = viewModel
@@ -61,6 +60,7 @@ class GitRepositoriesViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDelegate & UITableViewDataSource
 extension GitRepositoriesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: GitRepositoryTableViewCell.reuseAbleCellIdentifier) as? GitRepositoryTableViewCell else {
@@ -69,7 +69,6 @@ extension GitRepositoriesViewController: UITableViewDelegate, UITableViewDataSou
         cell.viewModel = viewModel.cellViewModelAtIndex(index: indexPath.row)
         return cell
     }
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections
@@ -85,7 +84,7 @@ extension GitRepositoriesViewController: UITableViewDelegate, UITableViewDataSou
     }
 }
 
-
+// MARK: - SkeletonTableViewDataSource
 extension GitRepositoriesViewController: SkeletonTableViewDataSource {
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
         return GitRepositoryTableViewCell.reuseAbleCellIdentifier
