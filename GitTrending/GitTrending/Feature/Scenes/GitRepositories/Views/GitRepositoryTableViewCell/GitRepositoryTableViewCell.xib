@@ -181,7 +181,7 @@
     <resources>
         <image name="star" width="64" height="64"/>
         <namedColor name="languageColor">
-            <color red="0.25098039215686274" green="0.44313725490196076" blue="0.62352941176470589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.25099998712539673" green="0.44299998879432678" blue="0.62400001287460327" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="starColor">
             <color red="0.8901960784313725" green="0.76078431372549016" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -11,7 +11,7 @@ import UIKit
 
 final class GitRepositoriesViewController: UIViewController {
     // MARK: - Properties
-
+    
     @IBOutlet var tableView: UITableView!
     var errorView: ErrorView?
     private let viewModel: GitRepositoriesViewModelProtocol
@@ -21,28 +21,27 @@ final class GitRepositoriesViewController: UIViewController {
         refresh.attributedTitle = NSAttributedString(string: "Pull to refresh")
         return refresh
     }()
-
+    
     // MARK: - Init
-
+    
     init?(coder: NSCoder, viewModel: GitRepositoriesViewModelProtocol = GitRepositoriesViewModel()) {
         self.viewModel = viewModel
         super.init(coder: coder)
     }
-
-    @available(*, unavailable)
+    
     required init?(coder _: NSCoder) {
         fatalError("viewModel(GitRepositoriesViewModel) must provided while initialisation")
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         binding()
         viewModel.fetchRepositories()
     }
-
+    
     // MARK: - Private Methods
-
+    
     private func configureUI() {
         tableView.isSkeletonable = true
         tableView.estimatedRowHeight = 100
@@ -51,29 +50,14 @@ final class GitRepositoriesViewController: UIViewController {
         tableView.addSubview(pullToRefresh)
         pullToRefresh.addTarget(self, action: #selector(pullToRefreshAction), for: .valueChanged)
     }
-
+    
     private func binding() {
         viewModel.stateDidUpdate.sink { [weak self] state in
             guard let self = self else { return }
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
-                self.tableView.reloadData()
-                self.removeErrorView()
-                switch state {
-                case .showError:
-                    self.showErrorView()
-                case .loading:
-                    self.tableView.showAnimatedGradientSkeleton()
-                case .hideLoading:
-                    self.tableView.stopSkeletonAnimation()
-                    self.tableView.hideSkeleton()
-                case .showRepositories:
-                    self.pullToRefresh.endRefreshing()
-                }
-            }
+            self.updateState(state: state)
         }.store(in: &cancellable)
     }
-
+    
     private func showErrorView() {
         errorView = ErrorView.loadViewFromXib()
         if let errorView = errorView {
@@ -88,18 +72,37 @@ final class GitRepositoriesViewController: UIViewController {
             errorView.retryButton.addTarget(self, action: #selector(retryButtonTap), for: .touchUpInside)
         }
     }
-
+    
+    private func updateState(state: GitRepositoriesViewModelViewState) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.tableView.reloadData()
+            self.removeErrorView()
+            switch state {
+            case .showError:
+                self.showErrorView()
+            case .loading:
+                self.tableView.showAnimatedGradientSkeleton()
+            case .hideLoading:
+                self.tableView.stopSkeletonAnimation()
+                self.tableView.hideSkeleton()
+            case .showRepositories:
+                self.pullToRefresh.endRefreshing()
+            }
+        }
+    }
+    
     private func removeErrorView() {
         guard let error = errorView else {
             return
         }
         error.removeFromSuperview()
     }
-
+    
     @objc public func retryButtonTap() {
         viewModel.retryFetch()
     }
-
+    
     @objc public func pullToRefreshAction() {
         viewModel.fetchFromPullToRefresh()
     }
@@ -115,15 +118,15 @@ extension GitRepositoriesViewController: UITableViewDelegate, UITableViewDataSou
         cell.viewModel = viewModel.cellViewModelAtIndex(index: indexPath.row)
         return cell
     }
-
+    
     func numberOfSections(in _: UITableView) -> Int {
         return viewModel.numberOfSections
     }
-
+    
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return viewModel.numberOfRows
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         viewModel.didSelectAtIndex(index: indexPath.row)
