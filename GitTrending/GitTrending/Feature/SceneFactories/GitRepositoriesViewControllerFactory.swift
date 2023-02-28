@@ -30,6 +30,9 @@ public final class GitRepositoriesViewControllerFactory: GitRepositoriesViewCont
     func makeGitRepositoriesViewController() -> GitRepositoriesViewController {
         let storyboard = UIStoryboard(name: .gitRepositories, bundle: Bundle.main)
         var viewModel: GitRepositoriesViewModel?
+        
+        #if DEBUG
+        
         if ProcessInfo.processInfo.arguments.contains("ui-Testing") {
             let configuration = URLSessionConfiguration.ephemeral
             configuration.protocolClasses = [MockURLProtocol.self]
@@ -45,6 +48,13 @@ public final class GitRepositoriesViewControllerFactory: GitRepositoriesViewCont
                 MockURLProtocol.stubError = NetworkError.invalidRequest
             }
         }
+        
+        #else
+        
+        viewModel =  GitRepositoriesViewModel()
+        
+        #endif
+        
         let viewController: GitRepositoriesViewController = storyboard.instantiateViewController(identifier: "GitRepositoriesViewController") {
             GitRepositoriesViewController(coder: $0, viewModel: viewModel ?? GitRepositoriesViewModel())
         }
