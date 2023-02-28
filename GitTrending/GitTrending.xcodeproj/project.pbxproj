@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C1D9D0F29AE870900888F4E /* GitTrendingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1D9D0E29AE870900888F4E /* GitTrendingUITests.swift */; };
 		9CD6F0AD298FEB4F006F7721 /* SpyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6F0AC298FEB4F006F7721 /* SpyNavigationController.swift */; };
 		9CD6F0AF298FEBA2006F7721 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6F0AE298FEBA2006F7721 /* AppCoordinator.swift */; };
 		9CD6F0B1298FEC57006F7721 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6F0B0298FEC57006F7721 /* Coordinator.swift */; };
@@ -52,6 +53,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		9C1D9D1229AE870900888F4E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CDCB7A9298D8026005C238B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9CDCB7B0298D8026005C238B;
+			remoteInfo = GitTrending;
+		};
 		9CDCB7D0298D8108005C238B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9CDCB7A9298D8026005C238B /* Project object */;
@@ -62,6 +70,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C1D9D0C29AE870900888F4E /* GitTrendingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitTrendingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C1D9D0E29AE870900888F4E /* GitTrendingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitTrendingUITests.swift; sourceTree = "<group>"; };
 		9CD6F0AC298FEB4F006F7721 /* SpyNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyNavigationController.swift; sourceTree = "<group>"; };
 		9CD6F0AE298FEBA2006F7721 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		9CD6F0B0298FEC57006F7721 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -105,6 +115,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9C1D9D0929AE870900888F4E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9CDCB7AE298D8026005C238B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -127,6 +144,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C1D9D0D29AE870900888F4E /* GitTrendingUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9C1D9D0E29AE870900888F4E /* GitTrendingUITests.swift */,
+			);
+			path = GitTrendingUITests;
+			sourceTree = "<group>";
+		};
 		9CD6F0AB298FEB40006F7721 /* Spy */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +173,7 @@
 			children = (
 				9CDCB7B3298D8026005C238B /* GitTrending */,
 				9CDCB7CD298D8108005C238B /* GitTrendingTests */,
+				9C1D9D0D29AE870900888F4E /* GitTrendingUITests */,
 				9CDCB7B2298D8026005C238B /* Products */,
 				9CDCB7E4298D9143005C238B /* Frameworks */,
 			);
@@ -158,6 +184,7 @@
 			children = (
 				9CDCB7B1298D8026005C238B /* GitTrending.app */,
 				9CDCB7CC298D8107005C238B /* GitTrendingTests.xctest */,
+				9C1D9D0C29AE870900888F4E /* GitTrendingUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -360,6 +387,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9C1D9D0B29AE870900888F4E /* GitTrendingUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C1D9D1629AE870900888F4E /* Build configuration list for PBXNativeTarget "GitTrendingUITests" */;
+			buildPhases = (
+				9C1D9D0829AE870900888F4E /* Sources */,
+				9C1D9D0929AE870900888F4E /* Frameworks */,
+				9C1D9D0A29AE870900888F4E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9C1D9D1329AE870900888F4E /* PBXTargetDependency */,
+			);
+			name = GitTrendingUITests;
+			productName = GitTrendingUITests;
+			productReference = 9C1D9D0C29AE870900888F4E /* GitTrendingUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		9CDCB7B0298D8026005C238B /* GitTrending */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9CDCB7C5298D8026005C238B /* Build configuration list for PBXNativeTarget "GitTrending" */;
@@ -412,6 +457,10 @@
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
+					9C1D9D0B29AE870900888F4E = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 9CDCB7B0298D8026005C238B;
+					};
 					9CDCB7B0298D8026005C238B = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -442,11 +491,19 @@
 			targets = (
 				9CDCB7B0298D8026005C238B /* GitTrending */,
 				9CDCB7CB298D8107005C238B /* GitTrendingTests */,
+				9C1D9D0B29AE870900888F4E /* GitTrendingUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9C1D9D0A29AE870900888F4E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9CDCB7AF298D8026005C238B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -470,6 +527,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9C1D9D0829AE870900888F4E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C1D9D0F29AE870900888F4E /* GitTrendingUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9CDCB7AD298D8026005C238B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -518,6 +583,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		9C1D9D1329AE870900888F4E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9CDCB7B0298D8026005C238B /* GitTrending */;
+			targetProxy = 9C1D9D1229AE870900888F4E /* PBXContainerItemProxy */;
+		};
 		9CDCB7D1298D8108005C238B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9CDCB7B0298D8026005C238B /* GitTrending */;
@@ -545,6 +615,40 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		9C1D9D1429AE870900888F4E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GitTrendingUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GitTrending;
+			};
+			name = Debug;
+		};
+		9C1D9D1529AE870900888F4E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GitTrendingUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GitTrending;
+			};
+			name = Release;
+		};
 		9CDCB7C3298D8026005C238B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -781,6 +885,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9C1D9D1629AE870900888F4E /* Build configuration list for PBXNativeTarget "GitTrendingUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C1D9D1429AE870900888F4E /* Debug */,
+				9C1D9D1529AE870900888F4E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9CDCB7AC298D8026005C238B /* Build configuration list for PBXProject "GitTrending" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

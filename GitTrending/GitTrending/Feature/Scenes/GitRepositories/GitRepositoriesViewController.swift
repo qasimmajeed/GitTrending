@@ -45,6 +45,7 @@ final class GitRepositoriesViewController: UIViewController {
 
     private func configureUI() {
         tableView.isSkeletonable = true
+        tableView.accessibilityIdentifier = "tableView"
         tableView.estimatedRowHeight = 100
         tableView.register(UINib(nibName: GitRepositoryTableViewCell.reuseAbleCellIdentifier, bundle: nil), forCellReuseIdentifier: GitRepositoryTableViewCell.reuseAbleCellIdentifier)
         title = viewModel.title
@@ -61,6 +62,7 @@ final class GitRepositoriesViewController: UIViewController {
 
     private func showErrorView() {
         errorView = ErrorView.loadViewFromXib()
+        errorView?.accessibilityIdentifier = "errorView"
         if let errorView = errorView {
             errorView.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(errorView)

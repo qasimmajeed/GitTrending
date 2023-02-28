@@ -36,6 +36,7 @@
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSo-Ly-9en">
                     <rect key="frame" x="10" y="533.33333333333337" width="394" height="40"/>
+                    <accessibility key="accessibilityConfiguration" identifier="retryButton"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="0OF-Mz-oFy"/>
                     </constraints>

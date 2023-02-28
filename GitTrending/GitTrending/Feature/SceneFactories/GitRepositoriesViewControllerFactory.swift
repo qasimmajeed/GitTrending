@@ -5,6 +5,8 @@
 //  Created by Muhammad Qasim Majeed on 05/02/2023.
 //
 
+import NetworkFeature
+import TestingSupport
 import UIKit
 
 protocol GitRepositoriesViewControllerFactoryProtocol {
@@ -27,9 +29,24 @@ public final class GitRepositoriesViewControllerFactory: GitRepositoriesViewCont
 
     func makeGitRepositoriesViewController() -> GitRepositoriesViewController {
         let storyboard = UIStoryboard(name: .gitRepositories, bundle: Bundle.main)
-        let viewModel = GitRepositoriesViewModel(useCase: useCase)
+        var viewModel: GitRepositoriesViewModel?
+        if ProcessInfo.processInfo.arguments.contains("ui-Testing") {
+            let configuration = URLSessionConfiguration.ephemeral
+            configuration.protocolClasses = [MockURLProtocol.self]
+            let session = URLSession(configuration: configuration)
+            let network = Network(urlSession: session)
+
+            viewModel = GitRepositoriesViewModel(useCase: GitRepositoriesUseCase(network: network))
+
+            if ProcessInfo.processInfo.arguments.contains("success") {
+                MockURLProtocol.stubResponseData = FakeApiData.jsonFakeData.data(using: .utf8)
+
+            } else if ProcessInfo.processInfo.arguments.contains("error") {
+                MockURLProtocol.stubError = NetworkError.invalidRequest
+            }
+        }
         let viewController: GitRepositoriesViewController = storyboard.instantiateViewController(identifier: "GitRepositoriesViewController") {
-            GitRepositoriesViewController(coder: $0, viewModel: viewModel)
+            GitRepositoriesViewController(coder: $0, viewModel: viewModel ?? GitRepositoriesViewModel())
         }
         return viewController
     }
