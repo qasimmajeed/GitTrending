@@ -30,31 +30,31 @@ public final class GitRepositoriesViewControllerFactory: GitRepositoriesViewCont
     func makeGitRepositoriesViewController() -> GitRepositoriesViewController {
         let storyboard = UIStoryboard(name: .gitRepositories, bundle: Bundle.main)
         var viewModel: GitRepositoriesViewModel?
-        
+
         #if DEBUG
-        
-        if ProcessInfo.processInfo.arguments.contains("ui-Testing") {
-            let configuration = URLSessionConfiguration.ephemeral
-            configuration.protocolClasses = [MockURLProtocol.self]
-            let session = URLSession(configuration: configuration)
-            let network = Network(urlSession: session)
 
-            viewModel = GitRepositoriesViewModel(useCase: GitRepositoriesUseCase(network: network))
+            if ProcessInfo.processInfo.arguments.contains("ui-Testing") {
+                let configuration = URLSessionConfiguration.ephemeral
+                configuration.protocolClasses = [MockURLProtocol.self]
+                let session = URLSession(configuration: configuration)
+                let network = Network(urlSession: session)
 
-            if ProcessInfo.processInfo.arguments.contains("success") {
-                MockURLProtocol.stubResponseData = FakeApiData.jsonFakeData.data(using: .utf8)
+                viewModel = GitRepositoriesViewModel(useCase: GitRepositoriesUseCase(network: network))
 
-            } else if ProcessInfo.processInfo.arguments.contains("error") {
-                MockURLProtocol.stubError = NetworkError.invalidRequest
+                if ProcessInfo.processInfo.arguments.contains("success") {
+                    MockURLProtocol.stubResponseData = FakeApiData.jsonFakeData.data(using: .utf8)
+
+                } else if ProcessInfo.processInfo.arguments.contains("error") {
+                    MockURLProtocol.stubError = NetworkError.invalidRequest
+                }
             }
-        }
-        
+
         #else
-        
-        viewModel =  GitRepositoriesViewModel()
-        
+
+            viewModel = GitRepositoriesViewModel()
+
         #endif
-        
+
         let viewController: GitRepositoriesViewController = storyboard.instantiateViewController(identifier: "GitRepositoriesViewController") {
             GitRepositoriesViewController(coder: $0, viewModel: viewModel ?? GitRepositoriesViewModel())
         }

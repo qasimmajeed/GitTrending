@@ -45,6 +45,23 @@ final class GitTrendingUITests: XCTestCase {
         XCTAssertTrue(table.cells.count > 0, "The table view should have data")
     }
 
+    func testGitTrending_WhenLaunchCellTap_ShouldExpandCell() {
+        // Arrange
+        application.launchArguments = ["ui-Testing", "success"]
+        application.launch()
+
+        let table = application.tables["tableView"]
+
+        // Act
+        let cell = table.cells.element(boundBy: 0)
+        cell.tap()
+
+        let expendedView = cell.otherElements["expandedView"]
+
+        // Assert
+        XCTAssertTrue(expendedView.isEnabled, "The table cell should be expanded at tap")
+    }
+
     func testGitTrending_WhenLaunchWithError_ShouldShowErrorView() {
         // Arrange
         application.launchArguments = ["ui-Testing", "error"]
