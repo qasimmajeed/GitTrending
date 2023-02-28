@@ -8,6 +8,7 @@ This application has been implemented using TDD with UIKit and Swift Combine.
 - [x] Show latest git trending repositories.
 - [x] On fail call the retry will be shown.
 - [x] Pull to refresh to get the latest data from the api.
+- [x] Supports Dark/Light mode.
 
 ## View States
 <table>
