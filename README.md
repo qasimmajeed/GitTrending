@@ -16,11 +16,13 @@ This application has been implemented using TDD with UIKit and Swift Combine.
     <td>Loading Shimmer</td>
     <td>Trending Repositories</td>
     <td>Retry</td>
+    <td>Dark Mode</td>
   </tr>
   <tr>
   <td><img src="ScreenShots/loading shimmer.png" alt="loading" width="200"/></td>
     <td><img src="ScreenShots/repositories.png" alt="repositories" width="200"/></td>
     <td><img src="ScreenShots/retry.png" alt="retry" width="200"/></td>
+    <td><img src="ScreenShots/darkmode.png" alt="darkmode" width="200"/></td>
    </tr>
  </table>
 
