@@ -19,6 +19,7 @@ public enum GitRepositoriesViewModelViewState {
 /// GitRepositoriesViewModelProtocol
 protocol GitRepositoriesViewModelProtocol {
     var title: String { get }
+    var refreshTitle: String { get }
     var numberOfSections: Int { get }
     var numberOfRows: Int { get }
     var stateDidUpdate: AnyPublisher<GitRepositoriesViewModelViewState, Never> { get }
@@ -44,6 +45,10 @@ final class GitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
 
     public var title: String {
         return "Trending"
+    }
+
+    public var refreshTitle: String {
+        return "Pull to refresh"
     }
 
     public var numberOfSections: Int {

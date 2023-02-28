@@ -18,7 +18,7 @@ final class GitRepositoriesViewController: UIViewController {
     private var cancellable = Set<AnyCancellable>()
     private lazy var pullToRefresh: UIRefreshControl = {
         let refresh = UIRefreshControl()
-        refresh.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refresh.attributedTitle = NSAttributedString(string: viewModel.refreshTitle)
         return refresh
     }()
 
@@ -96,10 +96,7 @@ final class GitRepositoriesViewController: UIViewController {
     }
 
     private func removeErrorView() {
-        guard let error = errorView else {
-            return
-        }
-        error.removeFromSuperview()
+        errorView?.removeFromSuperview()
     }
 
     @objc public func retryButtonTap() {
