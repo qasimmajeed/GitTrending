@@ -26,7 +26,7 @@ This application has been implemented using TDD with UIKit and Swift Combine.
 ## Technical Details
 
 - [x] Modular based architecture (Network Feature)
-- [x] TDD
+- [x] TDD(Unit-testing & UI-testing)
 - [x] MVVM with clean using coordinator pattren
 - [x] Using of combine
 
