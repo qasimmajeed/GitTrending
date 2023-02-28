@@ -16,9 +16,11 @@ This application has been implemented using TDD with UIKit and Swift Combine.
     <td>Trending Repositories</td>
     <td>Retry</td>
   </tr>
+  <tr>
   <td><img src="ScreenShots/loading shimmer.png" alt="login" width="200"/></td>
     <td><img src="ScreenShots/repositories.png" alt="user posts" width="200"/></td>
     <td><img src="ScreenShots/retry.png" alt="user favourite posts" width="200"/></td>
+   </tr>
  </table>
 
 ## Technical Details
