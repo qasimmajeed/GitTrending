@@ -34,6 +34,10 @@ final class MockGitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
         return 1
     }
 
+    var refreshTitle: String {
+        return "Pull to refresh"
+    }
+
     var numberOfRows: Int {
         return repositories.count
     }
