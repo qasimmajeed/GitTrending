@@ -29,9 +29,14 @@ final class MockGitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
     var title: String {
         return FakeGitRepositoryData.fakeTitle
     }
+    
 
     var numberOfSections: Int {
         return 1
+    }
+    
+    var refreshTitle: String {
+        return "Pull to refresh"
     }
 
     var numberOfRows: Int {
