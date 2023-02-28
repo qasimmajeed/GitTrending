@@ -7,9 +7,7 @@
 
 import UIKit
 
-protocol GitRepositoriesCoordinatorProtocol: Coordinator {
-    init(navigationController: UINavigationController, factory: GitRepositoriesViewControllerFactoryProtocol)
-}
+protocol GitRepositoriesCoordinatorProtocol: Coordinator {}
 
 final class GitRepositoriesCoordinator: GitRepositoriesCoordinatorProtocol {
     // MARK: - Private Properties

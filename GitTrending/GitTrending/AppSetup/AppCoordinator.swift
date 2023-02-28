@@ -7,9 +7,7 @@
 
 import UIKit
 
-public protocol AppCoordinatorProtocol: Coordinator {
-    init(window: UIWindow, navigation: UINavigationController)
-}
+public protocol AppCoordinatorProtocol: Coordinator {}
 
 final class AppCoordinator: AppCoordinatorProtocol {
     // MARK: - Private Properties

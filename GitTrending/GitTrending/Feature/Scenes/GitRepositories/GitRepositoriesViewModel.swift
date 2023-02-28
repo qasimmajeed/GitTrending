@@ -18,7 +18,6 @@ public enum GitRepositoriesViewModelViewState {
 
 /// GitRepositoriesViewModelProtocol
 protocol GitRepositoriesViewModelProtocol {
-    init(useCase: GitRepositoriesUseCaseProtocol)
     var title: String { get }
     var numberOfSections: Int { get }
     var numberOfRows: Int { get }
