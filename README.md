@@ -1,4 +1,4 @@
-# GitTrending
+# GitTrending(TDD)
 
 This application has been implemented using TDD with UIKit and Swift Combine.
 
