@@ -6,7 +6,6 @@
 //
 
 import Combine
-import Foundation
 
 /// State for the ViewModel
 enum GitRepositoriesViewModelViewState {
