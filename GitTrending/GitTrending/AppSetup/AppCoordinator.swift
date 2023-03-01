@@ -9,7 +9,7 @@ import UIKit
 
 protocol AppCoordinatorProtocol: Coordinator {}
 
-final class AppCoordinator: AppCoordinatorProtocol {
+struct AppCoordinator: AppCoordinatorProtocol {
     // MARK: - Private Properties
 
     private let window: UIWindow

@@ -57,6 +57,16 @@
                ReferencedContainer = "container:GitTrending.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9C1D9D0B29AE870900888F4E"
+               BuildableName = "GitTrendingUITests.xctest"
+               BlueprintName = "GitTrendingUITests"
+               ReferencedContainer = "container:GitTrending.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

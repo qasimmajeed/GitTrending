@@ -17,7 +17,7 @@ protocol GitRepositoriesUseCaseProtocol {
     func fetchGitRepositories(request: GitRepositoriesRequest) -> AnyPublisher<[Repository], NetworkError>
 }
 
-final class GitRepositoriesUseCase: GitRepositoriesUseCaseProtocol {
+struct GitRepositoriesUseCase: GitRepositoriesUseCaseProtocol {
     // MARK: - Private Properties
 
     private let network: Networking

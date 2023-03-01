@@ -9,7 +9,7 @@ import UIKit
 
 protocol GitRepositoriesCoordinatorProtocol: Coordinator {}
 
-final class GitRepositoriesCoordinator: GitRepositoriesCoordinatorProtocol {
+struct GitRepositoriesCoordinator: GitRepositoriesCoordinatorProtocol {
     // MARK: - Private Properties
 
     private let navigationController: UINavigationController

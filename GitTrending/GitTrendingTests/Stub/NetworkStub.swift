@@ -9,7 +9,7 @@ import Foundation
 import NetworkFeature
 import TestingSupport
 
-final class NetworkStub {
+struct NetworkStub {
     static var stub: Networking {
         let configuration = URLSessionConfiguration.ephemeral
         configuration.protocolClasses = [MockURLProtocol.self]

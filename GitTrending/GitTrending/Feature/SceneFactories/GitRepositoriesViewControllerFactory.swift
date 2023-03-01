@@ -14,7 +14,7 @@ protocol GitRepositoriesViewControllerFactoryProtocol {
 }
 
 /// This class is responsible for creation of all the object related to GitRepositoriesViewController
-final class GitRepositoriesViewControllerFactory: GitRepositoriesViewControllerFactoryProtocol {
+struct GitRepositoriesViewControllerFactory: GitRepositoriesViewControllerFactoryProtocol {
     // MARK: - Private Properties
 
     private let useCase: GitRepositoriesUseCaseProtocol
