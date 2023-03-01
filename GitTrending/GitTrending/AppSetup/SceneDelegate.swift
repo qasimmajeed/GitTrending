@@ -8,7 +8,7 @@
 import UIKit
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    // MARK: - Public Properties
+    // MARK: - Properties
 
     var window: UIWindow?
 
@@ -17,7 +17,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     /// It will hold the app coordinator to start the flow of application.
     private var coordinator: AppCoordinatorProtocol?
 
-    // MARK: - Public Methods
+    // MARK: - Methods
 
     func scene(_ scene: UIScene, willConnectTo _: UISceneSession, options _: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }

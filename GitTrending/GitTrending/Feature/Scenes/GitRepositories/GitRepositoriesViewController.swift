@@ -99,11 +99,11 @@ final class GitRepositoriesViewController: UIViewController {
         errorView?.removeFromSuperview()
     }
 
-    @objc public func retryButtonTap() {
+    @objc func retryButtonTap() {
         viewModel.retryFetch()
     }
 
-    @objc public func pullToRefreshAction() {
+    @objc func pullToRefreshAction() {
         viewModel.fetchFromPullToRefresh()
     }
 }

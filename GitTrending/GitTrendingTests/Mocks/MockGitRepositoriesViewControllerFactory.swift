@@ -20,7 +20,7 @@ final class MockGitRepositoriesViewControllerFactory: GitRepositoriesViewControl
         self.useCase = useCase
     }
 
-    // MARK: - Public Methods
+    // MARK: - Methods
 
     func makeGitRepositoriesViewController() -> GitRepositoriesViewController {
         let storyboard = UIStoryboard(name: .gitRepositories, bundle: Bundle.main)

@@ -7,7 +7,7 @@
 
 import UIKit
 
-public protocol AppCoordinatorProtocol: Coordinator {}
+protocol AppCoordinatorProtocol: Coordinator {}
 
 final class AppCoordinator: AppCoordinatorProtocol {
     // MARK: - Private Properties

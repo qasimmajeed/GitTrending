@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 /// State for the ViewModel
-public enum GitRepositoriesViewModelViewState {
+enum GitRepositoriesViewModelViewState {
     case loading
     case hideLoading
     case showRepositories
@@ -39,19 +39,19 @@ final class GitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
     private var repositories: [Repository] = .init()
     private var cellViewModels: [GitRepositoryCellViewModel] = .init()
 
-    // MARK: - Public Properties
+    // MARK: - Properties
 
     private(set) lazy var stateDidUpdate: AnyPublisher<GitRepositoriesViewModelViewState, Never> = stateDidUpdateSubject.eraseToAnyPublisher()
 
-    public var title: String {
+    var title: String {
         return "Trending"
     }
 
-    public var refreshTitle: String {
+    var refreshTitle: String {
         return "Pull to refresh"
     }
 
-    public var numberOfSections: Int {
+    var numberOfSections: Int {
         return 1
     }
 
@@ -61,13 +61,13 @@ final class GitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
 
     // MARK: - init
 
-    public init(useCase: GitRepositoriesUseCaseProtocol = GitRepositoriesUseCase()) {
+    init(useCase: GitRepositoriesUseCaseProtocol = GitRepositoriesUseCase()) {
         self.useCase = useCase
     }
 
     // MARK: - Methods
 
-    public func fetchRepositories() {
+    func fetchRepositories() {
         stateDidUpdateSubject.send(.loading)
         useCase.fetchGitRepositories(request: GitRepositoriesRequest(search: "language=+sort:stars"))
             .sink { [weak self] completion in
@@ -86,25 +86,25 @@ final class GitRepositoriesViewModel: GitRepositoriesViewModelProtocol {
             }.store(in: &cancellable)
     }
 
-    public func cellViewModelAtIndex(index: Int) -> GitRepositoryCellViewModel? {
+    func cellViewModelAtIndex(index: Int) -> GitRepositoryCellViewModel? {
         if cellViewModels.count > index {
             return cellViewModels[index]
         }
         return nil
     }
 
-    public func didSelectAtIndex(index: Int) {
+    func didSelectAtIndex(index: Int) {
         if cellViewModels.count > index {
             cellViewModels[index].isExpanded.toggle()
             stateDidUpdateSubject.send(.showRepositories)
         }
     }
 
-    public func retryFetch() {
+    func retryFetch() {
         fetchRepositories()
     }
 
-    public func fetchFromPullToRefresh() {
+    func fetchFromPullToRefresh() {
         fetchRepositories()
     }
 }

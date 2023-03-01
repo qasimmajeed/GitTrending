@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol Coordinator {
+protocol Coordinator {
     /// This is start the application flow or navigation.
     func start()
 }

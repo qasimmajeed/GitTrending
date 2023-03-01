@@ -14,7 +14,7 @@ protocol GitRepositoriesViewControllerFactoryProtocol {
 }
 
 /// This class is responsible for creation of all the object related to GitRepositoriesViewController
-public final class GitRepositoriesViewControllerFactory: GitRepositoriesViewControllerFactoryProtocol {
+final class GitRepositoriesViewControllerFactory: GitRepositoriesViewControllerFactoryProtocol {
     // MARK: - Private Properties
 
     private let useCase: GitRepositoriesUseCaseProtocol
@@ -25,7 +25,7 @@ public final class GitRepositoriesViewControllerFactory: GitRepositoriesViewCont
         self.useCase = useCase
     }
 
-    // MARK: - Public Methods
+    // MARK: - Methods
 
     func makeGitRepositoriesViewController() -> GitRepositoriesViewController {
         let storyboard = UIStoryboard(name: .gitRepositories, bundle: Bundle.main)
