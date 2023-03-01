@@ -19,7 +19,7 @@ final class ErrorView: UIView {
     // MARK: - Methods
 
     class func loadViewFromXib() -> ErrorView? {
-        return UINib(nibName: "ErrorView", bundle: Bundle(for: ErrorView.self)).instantiate(withOwner: self, options: nil)[0] as? ErrorView
+        return UINib(nibName: String(describing: ErrorView.self), bundle: Bundle(for: ErrorView.self)).instantiate(withOwner: self, options: nil)[0] as? ErrorView
     }
 
     override func awakeFromNib() {
